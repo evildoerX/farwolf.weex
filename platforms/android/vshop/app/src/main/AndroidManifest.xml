@@ -27,11 +27,7 @@
         android:name="com.farwolf.vshop.VSApplication_"
         >
         <activity android:name=".MainActivity_">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name="com.farwolf.vshop.activity.tab.LaunchActivity_"
@@ -39,7 +35,11 @@
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:theme="@style/SplashTheme"
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.farwolf.vshop.activity.tab.MainActivity_">
 
