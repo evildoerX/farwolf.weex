@@ -47,7 +47,7 @@ public class StringUtil {
 	}
 
 
-	public static String getRealUrl(String baseurl,String target)
+public static String getRealUrl(String baseurl,String target)
 	{
 		if(!baseurl.contains("/"))
 		{
@@ -55,15 +55,21 @@ public class StringUtil {
 			{
 				target=target.substring(1);
 			}
-          return target;
+			return target;
 		}
 		baseurl=baseurl.substring(0, baseurl.lastIndexOf("/"));
-		while(target.startsWith("../"))
+		String q[]=target.split("\\.\\.\\/");
+		String x[]=baseurl.split("\\/");
+		String p="";
+		if(x.length>=q.length-1)
 		{
-			target=target.substring(target.indexOf("/")+1,target.length());
-			baseurl=baseurl.substring(0, baseurl.lastIndexOf("/"));
+			for(int i=0;i<x.length-q.length+1;i++)
+			{
+				p+=x[i]+"/";
+			}
 		}
-
-		return baseurl+"/"+target;
+		p+=q[q.length-1];
+		return p;
+//		System.out.println(p);
 	}
 }
