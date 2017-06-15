@@ -89,15 +89,15 @@ public abstract class AbstractEditComponent extends WXComponent<WXEditText> {
   @Override
   protected void onHostViewInitialized(WXEditText host) {
     super.onHostViewInitialized(host);
-    addFocusChangeListener(new OnFocusChangeListener() {
-      @Override
-      public void onFocusChange(boolean hasFocus) {
-        if (!hasFocus) {
-          decideSoftKeyboard();
-        }
-        setPseudoClassStatus(Constants.PSEUDO.FOCUS,hasFocus);
-      }
-    });
+//    addFocusChangeListener(new OnFocusChangeListener() {
+//      @Override
+//      public void onFocusChange(boolean hasFocus) {
+//        if (!hasFocus) {
+//          decideSoftKeyboard();
+//        }
+//        setPseudoClassStatus(Constants.PSEUDO.FOCUS,hasFocus);
+//      }
+//    });
 
     addKeyboardListener(host);
   }
