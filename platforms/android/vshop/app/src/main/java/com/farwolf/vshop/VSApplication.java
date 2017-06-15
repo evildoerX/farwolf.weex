@@ -23,7 +23,8 @@ public class VSApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initUnivsalImageloader();
-        weex.init(this,"微聚分销","farwolf");
+        String basedir="";
+        weex.init(this,"微聚分销","farwolf",basedir);
 
 
     }
