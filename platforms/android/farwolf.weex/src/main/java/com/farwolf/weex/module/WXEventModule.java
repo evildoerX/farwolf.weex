@@ -38,6 +38,10 @@ public class WXEventModule extends WXModule {
     {
        url=url.substring(1);
     }
+    if(!url.contains("../"))
+    {
+      return url;
+    }
     String q[]=url.split("\\.\\.\\/");
     String x[]= q[0].split("\\/");
     String p="";

@@ -64,6 +64,7 @@ public class LaunchActivity extends Activity {
 	{
 
 		final HashMap<String,String> ex=new 	HashMap<String,String>();
+//		ex.put("app/busi/account/login.js",MainPage);
 		ex.put("index.js",MainPage);
 		ex.put("list.js",Classify);
 //		ex.put("recycler.js",Collection);
