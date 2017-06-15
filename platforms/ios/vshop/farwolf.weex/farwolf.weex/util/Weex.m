@@ -9,6 +9,11 @@
 #import "Weex.h"
 #import "WXLoadingIndicator.h"
 #import "WXLoadingComponent.h"
+#import "WXFDivComponent.h"
+#import "WXFImageComponent.h"
+#import "WXStaticModule.h"
+#import "WXFarwolfModule.h"
+
 @implementation Weex
 
 +(void)initWeex:(NSString*)group appName:(NSString*)appName appVersion:(NSString*)appVersion
@@ -23,11 +28,17 @@
     [WXSDKEngine registerModule:@"notify" withClass:[WXNotifyModule class]];
     [WXSDKEngine registerModule:@"photo" withClass:[WXPhotoModule class]];
     [WXSDKEngine registerModule:@"net" withClass:[WXNetModule class]];
+    [WXSDKEngine registerModule:@"static" withClass:[WXStaticModule class]];
+    [WXSDKEngine registerModule:@"farwolf" withClass:[WXFarwolfModule class]];
+    
+    
     
     [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
     [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
     [WXSDKEngine registerComponent:@"a" withClass:[WXPushComponent class]];
     [WXSDKEngine registerComponent:@"floading" withClass:[WXLoadingView class]];
+    [WXSDKEngine registerComponent:@"image" withClass:[WXFImageComponent class]];
+    
 //     [WXSDKEngine registerComponent:@"floading" withClass:[WXLoadingIndicator class]];
     
 //    [WXSDKEngine registerComponent:@"imageBtn" withClass:[WXImgButtonComponent class]];
@@ -36,6 +47,16 @@
     
 //    [WXLog setLogLevel: WXLogLevelLog];
     
+}
+
+
++(NSString*)getBaseDir
+{
+    return basedir;
+}
++(void)setBaseDir:(NSString*)dir
+{
+    basedir=dir;
 }
 
 +(void)startDebug:(NSString*)ip port:(NSString*)port

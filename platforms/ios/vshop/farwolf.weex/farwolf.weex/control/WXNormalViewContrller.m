@@ -43,6 +43,7 @@
 }
 
 
+
 /**
  *  After setting the navbar hidden status , this function will be called automatically. In this function, we
  *  set the height of mainView equal to screen height, because there is something wrong with the layout of
@@ -136,6 +137,8 @@
           [self.instance fireGlobalEvent:@"onPageInit" params:nil];
 
     };
+    
+    [self.instance fireGlobalEvent:@"onPageInit" params:nil];
 //    [self.instance fireModuleEvent:[WXNavBarModule class] eventName:@"onPageInit" params:nil];
     
 }
@@ -263,18 +266,21 @@ BOOL isshowErr;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self setBackBar:nil color:nil];
+    [_instance fireGlobalEvent:@"viewWillDisappear" params:nil];
     [_instance fireGlobalEvent:WX_APPLICATION_WILL_RESIGN_ACTIVE params:nil];
 //   [self unregist:@"weex_error"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [_instance fireGlobalEvent:@"viewWillAppear" params:nil];
 //     [self regist:@"weex_error" method:@selector(onWeexError:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [_instance fireGlobalEvent:@"viewDidAppear" params:nil];
     [_instance fireGlobalEvent:WX_APPLICATION_DID_BECOME_ACTIVE params:nil];
     [self _updateInstanceState:WeexInstanceAppear];
     
@@ -283,6 +289,7 @@ BOOL isshowErr;
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+        [_instance fireGlobalEvent:@"viewDidDisappear" params:nil];
     [self _updateInstanceState:WeexInstanceDisappear];
     
 }

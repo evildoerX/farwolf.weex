@@ -24,6 +24,9 @@ WX_EXPORT_METHOD(@selector(setPageId:))
 WX_EXPORT_METHOD_SYNC(@selector(param))
 WX_EXPORT_METHOD(@selector(setRoot:))
 
+WX_EXPORT_METHOD(@selector(addBackGestureSelfControl))
+
+
 -(void)push:(NSString *)url
 {
     [self pushFull:url param:nil callback:nil animated:true];
@@ -40,11 +43,22 @@ WX_EXPORT_METHOD(@selector(setRoot:))
     } else if (![url hasPrefix:@"http"]) {
         newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
     }
-    WXNormalViewContrller *vc=[WXNormalViewContrller new];
-    vc.sourceURL=[NSURL URLWithString:newURL];
-    vc.param=param;
-    vc.callback=callback;
-    [[weexInstance.viewController navigationController] pushViewController:vc animated:animated];
+//    WXNormalViewContrller *vc=[WXNormalViewContrller new];
+//    vc.sourceURL=[NSURL URLWithString:newURL];
+//    vc.param=param;
+//    vc.callback=callback;
+//    [[weexInstance.viewController navigationController] pushViewController:vc animated:animated];
+    
+ 
+    [WeexFactory render:[NSURL URLWithString:newURL] compelete:^(Page *p) {
+        WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.page=p;
+        vc.param=param;
+        vc.callback=callback;
+        [[weexInstance.viewController navigationController] pushViewController:vc animated:animated];
+        
+    }];
 }
 
 -(id)param
@@ -101,22 +115,49 @@ WX_EXPORT_METHOD(@selector(setRoot:))
     } else if (![url hasPrefix:@"http"]) {
         newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
     }
-    WXNormalViewContrller *vc=[WXNormalViewContrller new];
-    vc.param=param;
-    vc.sourceURL=[NSURL URLWithString:newURL];
-    vc.callback=callback;
+//    WXNormalViewContrller *vc=[WXNormalViewContrller new];
+//    vc.param=param;
+//    vc.sourceURL=[NSURL URLWithString:newURL];
+//    vc.callback=callback;
+//    
+//    if(createNav)
+//    {
+//        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
+//        [weexInstance.viewController presentViewController:nav animated:animated completion:^{
+//            
+//        }];
+//     }
+//    else
+//    {
+//        [weexInstance.viewController presentViewController:vc animated:animated completion:^{
+//        }];
+//    }
     
-    if(createNav)
-    {
-        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
-        [weexInstance.viewController presentViewController:nav animated:animated completion:^{
-            
-        }];
-        return;
-    }
     
-    [weexInstance.viewController presentViewController:vc animated:animated completion:^{
+    
+    [WeexFactory render:[NSURL URLWithString:newURL] compelete:^(Page *p) {
+        WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.page=p;
+        vc.param=param;
+        vc.callback=callback;
+        if(createNav)
+        {
+            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
+            [weexInstance.viewController presentViewController:nav animated:animated completion:^{
+//                 [weexInstance fireGlobalEvent:@"onPageInit" params:nil];
+            }];
+        }
+        else
+        {
+            [weexInstance.viewController presentViewController:vc animated:animated completion:^{
+            }];
+        }
+
+        
     }];
+    
+   
  
 }
 
@@ -128,6 +169,12 @@ WX_EXPORT_METHOD(@selector(setRoot:))
 -(void)setRoot:(NSString*)rootid
 {
     
+}
+
+
+-(void)addBackGestureSelfControl
+{
+     weexInstance.viewController.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 -(void)dismissFull:(NSDictionary*)param animated:(BOOL)animated
 {
@@ -143,5 +190,15 @@ WX_EXPORT_METHOD(@selector(setRoot:))
     [vc dismiss:animated];
 }
 
-
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (weexInstance.viewController.navigationController.viewControllers.count == 1)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 @end

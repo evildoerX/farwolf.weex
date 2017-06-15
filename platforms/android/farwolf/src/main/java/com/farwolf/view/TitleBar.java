@@ -32,6 +32,8 @@ public class TitleBar extends ViewBase {
 	public ImageView right_image;
 	public TextView right_text;
 
+	public View bottomline;
+
 	public TitleBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		 initial();
@@ -57,7 +59,7 @@ public class TitleBar extends ViewBase {
 		{
 			return R.layout.api_titlebar;
 		}
-
+//		return R.layout.api_titlebar;
 
 	}
 
@@ -72,7 +74,7 @@ public class TitleBar extends ViewBase {
 		right_text=(TextView) findViewById(R.id.right_text);
 		leftimage=(ImageView) findViewById(R.id.leftimage);
 		right_image=(ImageView) findViewById(R.id.right_image);
-
+		bottomline= findViewById(R.id.bottomline);
 
 
 	}

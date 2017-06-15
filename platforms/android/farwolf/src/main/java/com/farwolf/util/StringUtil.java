@@ -47,6 +47,52 @@ public class StringUtil {
 	}
 
 
-cdSystem.out.println(p);
+
+//	public static String getRealUrl(String baseurl,String target)
+//	{
+//		if(!baseurl.contains("/"))
+//		{
+//			if(target.startsWith("/"))
+//			{
+//				target=target.substring(1);
+//			}
+//          return target;
+//		}
+//		baseurl=baseurl.substring(0, baseurl.lastIndexOf("/"));
+//		while(target.startsWith("../"))
+//		{
+//			target=target.substring(target.indexOf("/")+1,target.length());
+//			if(baseurl.contains("/"))
+//			baseurl=baseurl.substring(0, baseurl.lastIndexOf("/"));
+//		}
+//
+//		return baseurl+"/"+target;
+//	}
+
+	public static String getRealUrl(String baseurl,String target)
+	{
+		if(!baseurl.contains("/"))
+		{
+			if(target.startsWith("/"))
+			{
+				target=target.substring(1);
+			}
+			return target;
+		}
+		if(baseurl.contains("/"))
+			baseurl=baseurl.substring(0, baseurl.lastIndexOf("/"));
+		String q[]=target.split("\\.\\.\\/");
+		String x[]=baseurl.split("\\/");
+		String p="";
+		if(x.length!=1&&x.length>=q.length-1)
+		{
+			for(int i=0;i<x.length-q.length+1;i++)
+			{
+				p+=x[i]+"/";
+			}
+		}
+		p+=q[q.length-1];
+		return p;
+//		System.out.println(p);
 	}
 }

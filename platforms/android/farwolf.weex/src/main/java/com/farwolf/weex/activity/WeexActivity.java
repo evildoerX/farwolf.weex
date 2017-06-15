@@ -76,8 +76,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
     @Bean
     public ScreenTool screenTool;
 
-    @ViewById
-    public ViewGroup root;
+
     public String url;
 
     @ViewById
@@ -85,6 +84,9 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 
 
     private Handler mWXHandler;
+
+    @ViewById
+    public ViewGroup root;
 
     @Pref
     public WeexPref_ pref;
@@ -138,7 +140,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
     {
         if(hasInit)
             return;
-
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         Glide
                 .with(this)
                 .load(R.drawable.load)
@@ -157,6 +159,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         {
             RenderContainer c=(RenderContainer)page.v;
             container.addView(page.v);
+
             url=page.url;
             mWXSDKInstance= page.instance;
             pageid=page.id;
@@ -326,7 +329,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         view.setLayoutParams(lp);
 
         container.addView(view);
-
+        container.requestLayout();
         mWXSDKInstance.fireGlobalEventCallback("onPageInit",null);
         mWXSDKInstance.onActivityCreate();
     }
@@ -400,7 +403,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
             mWXSDKInstance.onActivityResume();
         }
         registerBroadcastReceiver();
-
+        mWXSDKInstance.fireGlobalEventCallback("onResume",null);
         Log.e("stack",WXNavgationModule.stacks.get(rootid)+"");
     }
 

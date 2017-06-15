@@ -13,9 +13,13 @@
 #import "WXPhotoModule.h"
 #import "WXNetModule.h"
 #import "WXLoadingView.h"
+#import "WXStaticModule.h"
+static NSString *basedir;
 @interface Weex : NSObject
 +(void)initWeex:(NSString*)group appName:(NSString*)appName appVersion:(NSString*)appVersion;
 +(void)startDebug:(NSString*)ip port:(NSString*)port;
 +(void)setImageSource:(NSString*)url compelete:(void(^)(UIImage *img))compelete;
 +(NSString*)getFinalUrl:(NSString*)url weexInstance:(WXSDKInstance*)weexInstance;
++(NSString*)getBaseDir;
++(void)setBaseDir:(NSString*)dir;
 @end

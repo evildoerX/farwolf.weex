@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.farwolf.base.ServiceBase;
 import com.farwolf.util.FileTool;
+import com.farwolf.weex.component.WXFImage;
 import com.farwolf.weex.module.WXEventModule;
+import com.farwolf.weex.module.WXFarwolfModule;
 import com.farwolf.weex.module.WXNavBarModule;
 import com.farwolf.weex.module.WXNavgationModule;
 import com.farwolf.weex.module.WXNetModule;
@@ -19,6 +21,7 @@ import com.farwolf.weex.pref.WeexPref_;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXEnvironment;
 import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXException;
 
 import org.androidannotations.annotations.EBean;
@@ -35,6 +38,7 @@ public class Weex extends ServiceBase{
     @Pref
     WeexPref_ pref;
 
+    public static String basedir;
 
 
     public   void startDebug() {
@@ -51,8 +55,9 @@ public class Weex extends ServiceBase{
 
 
 
-    public void init(Application application, String name, String groupname)
+    public void init(Application application, String name, String groupname,String basedir)
     {
+        Weex.basedir=basedir;
         WXSDKEngine.addCustomOptions("appName", name);
         WXSDKEngine.addCustomOptions("appGroup", groupname);
         WXSDKEngine.initialize(application,
@@ -67,7 +72,8 @@ public class Weex extends ServiceBase{
             WXSDKEngine.registerModule("net", WXNetModule.class);
             WXSDKEngine.registerModule("photo", WXPhotoModule.class);
             WXSDKEngine.registerModule("static", WXStaticModule.class);
-//            WXSDKEngine.registerComponent("switch",WXSwitch.class);
+            WXSDKEngine.registerModule("farwolf", WXFarwolfModule.class);
+            WXSDKEngine.registerComponent("image",WXFImage.class);
         } catch (WXException e) {
             e.printStackTrace();
         }
@@ -95,6 +101,36 @@ public class Weex extends ServiceBase{
         }
     }
 
+    public static String getRootUrl(String url, WXSDKInstance  instance)
+    {
+
+        if(url.contains("root:"))
+        {
+               String q[]=url.split("root:");
+
+               if(instance.getBundleUrl().startsWith("http"))
+               {
+                   String x[]=instance.getBundleUrl().split("\\/");
+
+                   if(x.length>3)
+                   {
+                       String res= x[0]+"//"+x[2]+"/"+Weex.basedir;
+                       if(!res.endsWith("/"))
+                           res+="/";
+                       url=res+url.replace("root:","");
+
+                   }
+               }
+               else
+               {
+                   url="app/"+q[1];
+               }
+        }
+
+        return url;
+
+
+    }
 
 
 

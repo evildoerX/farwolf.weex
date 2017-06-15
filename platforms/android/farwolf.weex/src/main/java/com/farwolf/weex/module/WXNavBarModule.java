@@ -3,15 +3,18 @@ package com.farwolf.weex.module;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
 import com.farwolf.util.StringUtil;
 import com.farwolf.weex.base.WXModuleBase;
 import com.farwolf.weex.util.Weex;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * Created by zhengjiangrong on 2017/5/10.
@@ -59,22 +62,50 @@ public class WXNavBarModule extends WXModuleBase {
     }
 
     @JSMethod
+    public void makeTransparent()
+    {
+        getTitleBar().layout.setBackgroundColor(Color.TRANSPARENT);
+
+    }
+
+
+    @JSMethod
+    public void hideBottomLine(boolean hide)
+    {
+        if(hide)
+        {
+            getTitleBar().bottomline.setVisibility(View.GONE);
+        }
+        else
+        {
+            getTitleBar().bottomline.setVisibility(View.VISIBLE);
+        }
+    }
+
+
+
+
+    @JSMethod
     public void setStatusBarStyle( String style)
     {
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 Window window = ((Activity)this.mWXSDKInstance.getContext()).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
                 if("black".equals(style))
                 {
-                    window.setStatusBarColor(Color.BLACK);
 
-
+                    setStatusBarIconDark(true);
+//                    window.setStatusBarColor(Color.BLACK);
+//                    setMiuiStatusBarDarkMode(((Activity)this.mWXSDKInstance.getContext()),true);
+//                    window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 }
                 else
                 {
-                    window.setStatusBarColor(Color.WHITE);
+                    setStatusBarIconDark(false);
+//                    setMiuiStatusBarDarkMode(((Activity)this.mWXSDKInstance.getContext()),false);
+//                    window.setStatusBarColor(Color.WHITE);
                 }
 
 
@@ -84,6 +115,59 @@ public class WXNavBarModule extends WXModuleBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void setStatusBarIconDark(boolean dark) {
+        try {
+            Object win  = ((Activity)this.mWXSDKInstance.getContext()).getWindow();
+            Class<?> cls = win.getClass();
+            Method method = cls.getDeclaredMethod("setStatusBarIconDark", boolean.class);
+            method.invoke(win, dark);
+        } catch (Exception e) {
+            Log.v("ff", "statusBarIconDark,e=" + e);
+        }
+    }
+
+    public static boolean setMiuiStatusBarDarkMode(Activity activity, boolean darkmode) {
+        Class<? extends Window> clazz = activity.getWindow().getClass();
+        try {
+            int darkModeFlag = 0;
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            extraFlagField.invoke(activity.getWindow(), darkmode ? darkModeFlag : 0, darkModeFlag);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+
+    public boolean setStatusBarLightMode(Activity activity, boolean isFontColorDark) {
+        Window window = activity.getWindow();
+        boolean result = false;
+        if (window != null) {
+            Class clazz = window.getClass();
+            try {
+                int darkModeFlag = 0;
+                Class layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+                darkModeFlag = field.getInt(layoutParams);
+                Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+                if (isFontColorDark) {
+                    extraFlagField.invoke(window, darkModeFlag, darkModeFlag);//状态栏透明且黑色字体
+                } else {
+                    extraFlagField.invoke(window, 0, darkModeFlag);//清除黑色字体
+                }
+                result = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 
 
@@ -150,6 +234,26 @@ public class WXNavBarModule extends WXModuleBase {
         src=StringUtil.getRealUrl(this.mWXSDKInstance.getBundleUrl(),src);
 
         Weex.downloadImg(src, getTitleBar().right_image,this.mWXSDKInstance.getContext());
+    }
+
+
+    @JSMethod
+    public void setLeftImage(String src,final JSCallback callback)
+    {
+        if(getTitleBar()==null)
+            return;
+        getTitleBar().leftview.setVisibility(View.VISIBLE);
+        getTitleBar().leftimage.setVisibility(View.VISIBLE);
+        getTitleBar().leftimage.setBackgroundDrawable(null);
+        getTitleBar().setLeftClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callback.invokeAndKeepAlive(null);
+            }
+        });
+        src=StringUtil.getRealUrl(this.mWXSDKInstance.getBundleUrl(),src);
+
+        Weex.downloadImg(src, getTitleBar().leftimage,this.mWXSDKInstance.getContext());
     }
 
 }

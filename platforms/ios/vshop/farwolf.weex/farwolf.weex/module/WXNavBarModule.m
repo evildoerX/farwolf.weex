@@ -19,7 +19,11 @@ WX_EXPORT_METHOD(@selector(setTitleColor:))
 WX_EXPORT_METHOD(@selector(setBack:style:))
 WX_EXPORT_METHOD(@selector(setRightText:color:callback:))
 WX_EXPORT_METHOD(@selector(setRightImage:callback:))
+WX_EXPORT_METHOD(@selector(setLeftImage:callback:))
 WX_EXPORT_METHOD(@selector(setStatusBarStyle:))
+WX_EXPORT_METHOD(@selector(makeTransparent))
+WX_EXPORT_METHOD(@selector(makeUnTransparent))
+WX_EXPORT_METHOD(@selector(hideBottomLine:))
 
 -(void)hide
 {
@@ -50,17 +54,21 @@ WX_EXPORT_METHOD(@selector(setStatusBarStyle:))
 //   weexInstance.viewController.navigationItem.le
     UIImage *img=[UIImage imageNamed:@"backwhit"];
     UIBarButtonItem *btn=[[UIBarButtonItem alloc]initWithImage:img style:UIBarButtonItemStylePlain target: self   action:@selector(dismiss)];
-    [btn setTintColor:[UIColor whiteColor]];
+    
     if([@"black" isEqualToString:style])
     {
         [btn setTintColor:[UIColor blackColor]];
     }
+    else
+    {
+        [btn setTintColor:[UIColor whiteColor]];
+    }
     [btn setAction:@selector(back)];
     
-    if( weexInstance.viewController.navigationController.childViewControllers.count==1)
-    {
+//    if( weexInstance.viewController.navigationController.childViewControllers.count==1)
+//    {
         weexInstance.viewController.navigationItem.leftBarButtonItem=btn;
-    }
+//    }
     [weexInstance.viewController.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 -(void)back{
@@ -94,11 +102,29 @@ WX_EXPORT_METHOD(@selector(setStatusBarStyle:))
     
 }
 
+-(void)setLeftImage:(NSString*)src  callback:(WXModuleKeepAliveCallback)callback
+{
+    
+    self.rightClickCallback=callback;
+    UIButton* rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,18,18)];
+    src=[Weex getFinalUrl:src weexInstance:self.weexInstance];
+    [Weex setImageSource:src compelete:^(UIImage *img) {
+        
+        [rightButton setImage:img forState:UIControlStateNormal];
+    }];
+    
+    [rightButton addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem*rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
+    weexInstance.viewController.navigationItem.leftBarButtonItem=rightItem;
+    
+    
+}
+
 -(void)setRightImage:(NSString*)src callback:(WXModuleKeepAliveCallback)callback
 {
  
     self.rightClickCallback=callback;
-    UIButton* rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,25,25)];
+    UIButton* rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,18,18)];
      src=[Weex getFinalUrl:src weexInstance:self.weexInstance];
     [Weex setImageSource:src compelete:^(UIImage *img) {
        
@@ -118,4 +144,48 @@ WX_EXPORT_METHOD(@selector(setStatusBarStyle:))
  
 }
 
+-(void) makeTransparent
+{
+    
+    [weexInstance.viewController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
+    weexInstance.viewController.navigationController.navigationBar.shadowImage = [UIImage new];
+
+//    weexInstance.viewController.navigationController.navigationBar.translucent=true;
+   
+//    [weexInstance.viewController.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+// [weexInstance.viewController.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+}
+
+
+
+-(void) makeUnTransparent
+{
+    
+    [weexInstance.viewController.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [weexInstance.viewController.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
+//     weexInstance.viewController.navigationController.navigationBar.translucent=false;
+       weexInstance.viewController.navigationController.navigationBar.shadowImage =nil;
+   
+}
+
+
+-(void)hideBottomLine:(BOOL)hide
+{
+    if(hide)
+    {
+
+        
+        [weexInstance.viewController.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                     forBarPosition:UIBarPositionAny
+                                                         barMetrics:UIBarMetricsDefault];
+        
+        [weexInstance.viewController.navigationController.navigationBar setShadowImage:[UIImage new]];
+//       weexInstance.viewController.navigationController.navigationBar.clipsToBounds = YES;
+    }
+    else{
+         [weexInstance.viewController.navigationController.navigationBar setBackgroundImage:[UIImage new]  forBarMetrics:UIBarMetricsDefault];
+//           weexInstance.viewController.navigationController.navigationBar.clipsToBounds = false;
+    }
+}
 @end

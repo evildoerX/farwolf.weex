@@ -34,6 +34,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.squareup.okhttp:okhttp-ws:2.3.0'
     compile 'com.taobao.android:weex_inspector:0.10.0.5'
+    compile 'com.android.support:design:23.1.1'
 
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"

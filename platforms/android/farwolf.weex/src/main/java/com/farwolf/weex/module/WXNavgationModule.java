@@ -187,6 +187,7 @@ public class WXNavgationModule extends WXModuleBase {
             in.putExtra("rootid",a.rootid);
         }
 
+
         url= StringUtil.getRealUrl(this.mWXSDKInstance.getBundleUrl(),url);
         in.putExtra("url",url);
         if(callback!=null)
@@ -202,6 +203,11 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    @JSMethod
+    public void addBackGestureSelfControl()
+    {
+
+    }
 
     public void finish(HashMap param)
     {

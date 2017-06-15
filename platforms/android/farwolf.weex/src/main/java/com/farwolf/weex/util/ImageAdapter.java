@@ -27,11 +27,18 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
         {
             url="base64==="+url.split("base64===")[1];
         }
+
+        if(url.contains("root:"))
+        {
+            String q[]=url.split("root:");
+            url="app/"+q[1];
+        }
         if(url.startsWith("http"))
         {
 
             Glide.with(((Activity)view.getContext()).getApplicationContext()).load(url).into(view);
         }
+
         else
         {
             if(url.startsWith("/"))
@@ -58,4 +65,6 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
         byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
+
+
 }

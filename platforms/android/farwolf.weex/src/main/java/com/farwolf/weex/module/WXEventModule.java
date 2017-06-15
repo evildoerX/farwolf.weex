@@ -32,26 +32,25 @@ public class WXEventModule extends WXModule {
 
   }
 
-
-    public String getRealUrl(String url)
+  public String getRealUrl(String url)
+  {
+    if(url.startsWith("/"))
     {
-      if(url.startsWith("/"))
-      {
-         url=url.substring(1);
-      }
-      String q[]=url.split("\\.\\.\\/");
-      String x[]= q[0].split("\\/");
-      String p="";
-      if(x.length>=q.length-1)
-      {
-        for(int i=0;i<x.length-q.length+1;i++)
-        {
-          p+=x[i]+"/";
-        }
-      }
-      p+=q[q.length-1];
-      return p;
+       url=url.substring(1);
     }
+    String q[]=url.split("\\.\\.\\/");
+    String x[]= q[0].split("\\/");
+    String p="";
+    if(x.length>=q.length-1)
+    {
+      for(int i=0;i<x.length-q.length+1;i++)
+      {
+        p+=x[i]+"/";
+      }
+    }
+    p+=q[q.length-1];
+    return p;
+  }
 
 
 }

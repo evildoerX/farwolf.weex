@@ -17,6 +17,7 @@
         android:layout_centerVertical="true"
         android:clickable="true"
         android:gravity="center"
+
         android:minWidth="40dp"
         android:visibility="gone"
         android:orientation="horizontal" >
@@ -49,6 +50,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="5dp"
+
         android:layout_marginRight="5dp"
         android:ellipsize="end"
         android:singleLine="true"
@@ -68,6 +70,7 @@
         android:clickable="true"
         android:gravity="center"
         android:layout_marginRight="10dp"
+
         android:visibility="gone"
         android:minWidth="40dp"
         android:orientation="horizontal" >
@@ -98,6 +101,7 @@
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
         android:visibility="gone"
+         android:id="@+id/bottomline"
         android:background="#eeeeee" />
 
 

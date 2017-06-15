@@ -1,6 +1,5 @@
 package com.farwolf.base;
 
- 
 
 import android.graphics.Color;
 import android.os.Build;

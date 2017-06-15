@@ -14,8 +14,11 @@
         </activity>
 
         <activity android:name="com.farwolf.weex.activity.WeexActivity_"
-            android:theme="@android:style/Theme.Light.NoTitleBar"
-            >
+
+
+            android:screenOrientation="portrait"
+
+        >
 
         </activity>
 
