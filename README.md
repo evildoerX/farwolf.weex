@@ -44,6 +44,7 @@ open an existing Android studio Porject
 
 ```ios:
 使用xcode 打开：farwolf.weex/platforms/ios/vshop/vshop.xcworkspace
+看清楚是.xcworkspace 结尾的哪个，不是.project
 run
 即可看到效果，双击刷新，三击打开二维码扫描
 
