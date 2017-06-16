@@ -1,6 +1,7 @@
 # farwolf 的脚手架
 
-##demo及api
+## demo及api
+
 在farwolf.weex/src/demo下，个人精力有限无法出api文档，各位找到farwolf.weex/platforms/android/farwolf.weex/src/main/java/com/farwolf/weex/module/下面的java源码，
 所有@JsMethod标注的方法就是暴露给js的方法
 
