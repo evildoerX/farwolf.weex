@@ -1,4 +1,9 @@
 # farwolf 的脚手架
+
+##demo及api
+在farwolf.weex/src/demo下，个人精力有限无法出api文档，各位找到farwolf.weex/platforms/android/farwolf.weex/src/main/java/com/farwolf/weex/module/下面的java源码，
+所有@JsMethod标注的方法就是暴露给js的方法
+
 ## 特色:
 1.使用原生路由，官方也是，但是官方有页面转场有白屏现象，预加载技术独此一家，保证切换的时候无白屏现象，本地js有效，网络js无效
 
