@@ -20,7 +20,7 @@
 
 ## 使用方法:
 
-git clone  git@github.com:farwolf2010/farwolf.weex.git
+git clone  https://github.com/farwolf2010/farwolf.weex.git
 
 ## android:
 ```android:
