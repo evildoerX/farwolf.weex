@@ -141,9 +141,9 @@ typedef enum : NSUInteger {
         WXLogError(@"Url must be passed if you use renderWithURL");
         return;
     }
-   Protocol *p= @protocol(WXValidateProtocol);
-    self.needValidate = [[WXHandlerFactory handlerForProtocol:p] needValidate:url];
-//    self.needValidate=false;
+    
+    self.needValidate = [[WXHandlerFactory handlerForProtocol:@protocol(WXValidateProtocol)] needValidate:url];
+    
     WXResourceRequest *request = [WXResourceRequest requestWithURL:url resourceType:WXResourceTypeMainBundle referrer:@"" cachePolicy:NSURLRequestUseProtocolCachePolicy];
     [self _renderWithRequest:request options:options data:data];
 }

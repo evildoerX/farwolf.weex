@@ -145,7 +145,7 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
     scrollView.showsHorizontalScrollIndicator = _showScrollBar;
     scrollView.scrollEnabled = _scrollable;
     scrollView.pagingEnabled = _pagingEnabled;
-    
+    scrollView.alwaysBounceVertical=YES;
     if (self.ancestorScroller) {
         scrollView.scrollsToTop = NO;
     } else {
@@ -468,8 +468,6 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
         _direction = @"up";
         [self handleLoadMore];
     }
-   
-    _lastContentOffset = scrollView.contentOffset;
     
     CGFloat scaleFactor = self.weexInstance.pixelScaleFactor;
     [_refreshComponent pullingdown:@{
@@ -478,7 +476,8 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
              REFRESH_PULLINGDISTANCE: @(scrollView.contentOffset.y/scaleFactor),
              @"type":@"pullingdown"
     }];
-
+    _lastContentOffset = scrollView.contentOffset;
+    
     // check sticky
     [self adjustSticky];
     [self handleAppear];

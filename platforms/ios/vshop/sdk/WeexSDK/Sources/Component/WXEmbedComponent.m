@@ -41,7 +41,7 @@
 @implementation WXEmbedComponent 
 
 #pragma mark Life Cycle
-WX_EXPORT_METHOD(@selector(load))
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -72,11 +72,6 @@ WX_EXPORT_METHOD(@selector(load))
     [super viewDidLoad];
     
     [self _layoutEmbedView];
-}
-
--(void)load
-{
-    [self refreshWeex];
 }
 
 - (void)updateStyles:(NSDictionary *)styles

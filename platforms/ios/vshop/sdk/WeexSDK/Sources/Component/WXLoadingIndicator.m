@@ -81,7 +81,6 @@
     if ([styles containsObject:@"color"]) {
         _indicatorColor = [UIColor blackColor];
         _indicator.color = _indicatorColor;
-        
     }
 }
 

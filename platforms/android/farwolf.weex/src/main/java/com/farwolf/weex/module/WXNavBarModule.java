@@ -20,10 +20,17 @@ import java.lang.reflect.Method;
  * Created by zhengjiangrong on 2017/5/10.
  */
 
+/**
+ * 导航栏
+ *
+ */
 public class WXNavBarModule extends WXModuleBase {
 
 
-
+    /**
+     * 设置标题
+     * @param title
+     */
     @JSMethod
     public void setTitle(String title)
     {
@@ -32,6 +39,10 @@ public class WXNavBarModule extends WXModuleBase {
          getTitleBar().setTitle(title);
     }
 
+    /**
+     * 设置标题颜色
+     * @param color
+     */
     @JSMethod
     public void setTitleColor(String color)
     {
@@ -39,6 +50,11 @@ public class WXNavBarModule extends WXModuleBase {
         getTitleBar().title.setTextColor(Color.parseColor(color));
     }
 
+    /**
+     * 设置左边的返回图标,点击会关掉当前页面
+     * @param back true添加返回功能
+     * @param style 黑白2中可选 white black
+     */
     @JSMethod
     public void setBack(boolean back,String style)
     {
@@ -57,10 +73,15 @@ public class WXNavBarModule extends WXModuleBase {
            else
            {
                getTitleBar().leftview.setVisibility(View.GONE);
+               getTitleBar().setLeftClick(null);
 
            }
     }
 
+
+    /**
+     * 设置导航栏透明(还有问题)
+     */
     @JSMethod
     public void makeTransparent()
     {
@@ -69,6 +90,10 @@ public class WXNavBarModule extends WXModuleBase {
     }
 
 
+    /**
+     * 导航栏底部有条细线,设置隐藏活显示
+     * @param hide
+     */
     @JSMethod
     public void hideBottomLine(boolean hide)
     {
@@ -83,8 +108,10 @@ public class WXNavBarModule extends WXModuleBase {
     }
 
 
-
-
+    /**
+     * 设置状态栏颜色(黑白2种可选,white,black)还有问题
+     * @param style
+     */
     @JSMethod
     public void setStatusBarStyle( String style)
     {
@@ -171,7 +198,9 @@ public class WXNavBarModule extends WXModuleBase {
     }
 
 
-
+    /**
+     * 隐藏导航栏
+     */
     @JSMethod
     public void hide()
     {
@@ -189,6 +218,10 @@ public class WXNavBarModule extends WXModuleBase {
         getTitleBar().setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 设置导航栏颜色
+     * @param color
+     */
     @JSMethod
     public void setBackgroundColor(String color)
     {
@@ -197,6 +230,12 @@ public class WXNavBarModule extends WXModuleBase {
         getTitleBar().layout.setBackgroundColor(Color.parseColor(color));
     }
 
+    /**
+     * 设置右边的文字
+     * @param text
+     * @param color
+     * @param callback
+     */
     @JSMethod
     public void setRightText(String text,String color,final JSCallback callback)
     {
@@ -210,6 +249,12 @@ public class WXNavBarModule extends WXModuleBase {
         });
     }
 
+    /**
+     * 设置左边边的文字
+     * @param text
+     *
+     *
+     */
     @JSMethod
     public void setLeftText(String text)
     {
@@ -218,6 +263,11 @@ public class WXNavBarModule extends WXModuleBase {
         getTitleBar().setLeftText(text);
     }
 
+    /**
+     * 设置右边的图片
+     * @param src
+     * @param callback
+     */
     @JSMethod
     public void setRightImage(String src,final JSCallback callback)
     {
@@ -236,7 +286,11 @@ public class WXNavBarModule extends WXModuleBase {
         Weex.downloadImg(src, getTitleBar().right_image,this.mWXSDKInstance.getContext());
     }
 
-
+    /**
+     * 设置左边的图片
+     * @param src
+     * @param callback
+     */
     @JSMethod
     public void setLeftImage(String src,final JSCallback callback)
     {

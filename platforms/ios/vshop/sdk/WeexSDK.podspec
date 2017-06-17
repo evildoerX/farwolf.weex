@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
   s.source_files = 'WeexSDK/Sources/**/*.{h,m,mm,c}'
   s.resources = 'WeexSDK/Resources/native-bundle-main.js', 'WeexSDK/Resources/wx_load_error@3x.png'
 
+  s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/WeexSDK'" }
   s.requires_arc = true
   s.prefix_header_file = 'WeexSDK/Sources/Supporting Files/WeexSDK-Prefix.pch'
 
@@ -37,9 +38,7 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
 
-  s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/WeexSDK'" }
-
-  s.frameworks = 'CoreMedia','MediaPlayer','AVFoundation','AVKit','JavaScriptCore', 'GLKit'
+  s.frameworks = 'CoreMedia','MediaPlayer','AVFoundation','AVKit','JavaScriptCore', 'GLKit', 'OpenGLES', 'CoreText', 'QuartzCore', 'CoreGraphics'
 
   s.dependency 'SocketRocket'
   s.libraries = "stdc++"

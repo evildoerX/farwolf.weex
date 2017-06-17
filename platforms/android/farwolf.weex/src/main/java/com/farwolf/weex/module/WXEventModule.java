@@ -11,7 +11,9 @@ import com.farwolf.weex.core.WeexFactory_;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.common.WXModule;
 
-
+/**
+ * <a></a> 标签的href跳转页面由此module的openURL方法执行
+ */
 public class WXEventModule extends WXModule {
 
   private static final String WEEX_CATEGORY = "com.taobao.android.intent.category.WEEX";

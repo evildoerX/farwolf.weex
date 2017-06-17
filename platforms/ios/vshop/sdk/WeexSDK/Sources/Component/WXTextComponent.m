@@ -64,7 +64,11 @@
 {
     NSString *superDescription = super.description;
     NSRange semicolonRange = [superDescription rangeOfString:@";"];
-    NSString *replacement = [NSString stringWithFormat:@"; text: %@; frame:%f,%f,%f,%f", _textStorage.string, self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height];
+    NSString * content = _textStorage.string;
+    if ([(WXTextComponent*)self.wx_component useCoreText]) {
+        content = [(WXTextComponent*)self.wx_component valueForKey:@"_text"];
+    }
+    NSString *replacement = [NSString stringWithFormat:@"; text: %@; frame:%f,%f,%f,%f", content, self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height];
     return [superDescription stringByReplacingCharactersInRange:semicolonRange withString:replacement];
 }
 
@@ -112,6 +116,9 @@ CGFloat WXTextDefaultLineThroughWidth = 1.2;
     CGFloat _lineHeight;
     CGFloat _letterSpacing;
     BOOL _truncationLine; // support trunk tail
+    
+    BOOL _needsRemoveObserver;
+    NSMutableAttributedString * _ctAttributedString;
 }
 
 + (void)setRenderUsingCoreText:(BOOL)usingCoreText
@@ -134,6 +141,7 @@ CGFloat WXTextDefaultLineThroughWidth = 1.2;
     self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance];
     if (self) {
         // just for coretext and textkit render replacement
+        _needsRemoveObserver = NO;
         if ([attributes objectForKey:@"coretext"]) {
             _useCoreTextAttr = [WXConvert NSString:attributes[@"coretext"]];
         } else {
@@ -165,7 +173,9 @@ CGFloat WXTextDefaultLineThroughWidth = 1.2;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (_needsRemoveObserver) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:WX_ICONFONT_DOWNLOAD_NOTIFICATION object:nil];
+    }
 }
 
 #define WX_STYLE_FILL_TEXT(key, prop, type, needLayout)\
@@ -232,6 +242,7 @@ do {\
 - (void)setNeedsRepaint
 {
     _textStorage = nil;
+    _ctAttributedString = nil;
 }
 
 #pragma mark - Subclass
@@ -326,6 +337,14 @@ do {\
     return _text;
 }
 
+- (NSMutableAttributedString *)ctAttributedString
+{
+    if (!_ctAttributedString) {
+        _ctAttributedString = [self buildCTAttributeString];
+    }
+    return _ctAttributedString;
+}
+
 - (void)repaintText:(NSNotification *)notification
 {
     if (![_fontFamily isEqualToString:notification.userInfo[@"fontFamily"]]) {
@@ -341,9 +360,9 @@ do {\
     });
 }
 
-- (NSMutableAttributedString *)buildCTAttributeString {
-    
-    NSString *string = [self text] ?: @"";
+- (NSMutableAttributedString *)buildCTAttributeString
+{
+    NSMutableString *string = [NSMutableString stringWithFormat:@"%@", [self text] ?: @""];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
     if (_color) {
         [attributedString addAttribute:NSForegroundColorAttributeName value:_color range:NSMakeRange(0, string.length)];
@@ -357,6 +376,7 @@ do {\
         //custom localSrc is cached
         if (!fontLocalSrc && fontSrc) {
             // if use custom font, when the custom font download finish, refresh text.
+            _needsRemoveObserver = YES;
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(repaintText:) name:WX_ICONFONT_DOWNLOAD_NOTIFICATION object:nil];
         }
     }
@@ -435,6 +455,7 @@ do {\
         //custom localSrc is cached
         if (!fontLocalSrc && fontSrc) {
             // if use custom font, when the custom font download finish, refresh text.
+            _needsRemoveObserver = YES;
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(repaintText:) name:WX_ICONFONT_DOWNLOAD_NOTIFICATION object:nil];
         }
     }
@@ -594,7 +615,7 @@ do {\
         CGContextTranslateCTM(context, 0, textFrame.size.height);
         CGContextScaleCTM(context, 1.0, -1.0);
         
-        NSMutableAttributedString * attributedStringCopy = [self buildCTAttributeString];
+        NSMutableAttributedString * attributedStringCopy = [self ctAttributedString];
         //add path
         CGPathRef cgPath = NULL;
         cgPath = CGPathCreateWithRect(textFrame, NULL);
@@ -738,8 +759,19 @@ do {\
     if (truncationTokenLine) {
         // default truncationType is kCTLineTruncationEnd
         CTLineTruncationType truncationType = kCTLineTruncationEnd;
-        NSAttributedString *attributedString = [self buildCTAttributeString];
-        NSAttributedString * lastLineText = [attributedString attributedSubstringFromRange: WXNSRangeFromCFRange(CTLineGetStringRange(lastLine))];
+        NSAttributedString *attributedString = [self ctAttributedString];
+        NSAttributedString * lastLineText = nil;
+        NSRange lastLineTextRange = WXNSRangeFromCFRange(CTLineGetStringRange(lastLine));
+        NSRange attributeStringRange = NSMakeRange(0, attributedString.string.length);
+        NSRange interSectionRange = NSIntersectionRange(lastLineTextRange, attributeStringRange);
+        if (!NSEqualRanges(interSectionRange, lastLineTextRange)) {
+            // out of bounds
+            lastLineTextRange = interSectionRange;
+        }
+        lastLineText = [attributedString attributedSubstringFromRange: lastLineTextRange];
+        if (!lastLineText) {
+            lastLineText = attributedString;
+        }
         NSMutableAttributedString *mutableLastLineText = lastLineText.mutableCopy;
         [mutableLastLineText appendAttributedString:truncationToken];
         CTLineRef ctLastLineExtend = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mutableLastLineText);
@@ -795,7 +827,7 @@ do {\
     
     CGFloat totalHeight = 0;
     CGSize suggestSize = CGSizeZero;
-    NSAttributedString * attributedStringCpy = [self buildCTAttributeString];
+    NSAttributedString * attributedStringCpy = [self ctAttributedString];
     CTFramesetterRef framesetterRef = NULL;
     framesetterRef = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attributedStringCpy);
         

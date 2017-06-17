@@ -26,13 +26,13 @@
     "WeexSDK/Resources/native-bundle-main.js",
     "WeexSDK/Resources/wx_load_error@3x.png"
   ],
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "'$(PODS_ROOT)/WeexSDK'"
+  },
   "requires_arc": true,
   "prefix_header_file": "WeexSDK/Sources/Supporting Files/WeexSDK-Prefix.pch",
   "xcconfig": {
     "OTHER_LINK_FLAG": "$(inherited) -ObjC"
-  },
-  "user_target_xcconfig": {
-    "FRAMEWORK_SEARCH_PATHS": "'$(PODS_ROOT)/WeexSDK'"
   },
   "frameworks": [
     "CoreMedia",
@@ -40,7 +40,11 @@
     "AVFoundation",
     "AVKit",
     "JavaScriptCore",
-    "GLKit"
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics"
   ],
   "dependencies": {
     "SocketRocket": [

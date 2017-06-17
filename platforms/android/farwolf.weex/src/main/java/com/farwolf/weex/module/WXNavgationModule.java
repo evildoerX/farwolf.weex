@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Stack;
 
-/**
+/**导航控制器
  * Created by zhengjiangrong on 2017/5/17.
  */
 
@@ -33,6 +33,10 @@ public class WXNavgationModule extends WXModuleBase {
 
     public static HashMap<String,Stack<Activity>>stacks=new  HashMap<String,Stack<Activity>>();
 
+    /**
+     * 打开一个新页面,动画是从右到左
+     * @param url
+     */
     @JSMethod
     public void push(String url)
     {
@@ -51,6 +55,7 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+
     public static void pop(String rootid)
     {
         if(rootid!=null)
@@ -62,6 +67,11 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    /**
+     * 打开一个新页面,动画是从右到左,带参数
+     * @param url
+     * @param param
+     */
     @JSMethod
     public void pushParam(String url,HashMap param )
     {
@@ -69,7 +79,11 @@ public class WXNavgationModule extends WXModuleBase {
         this.pushFull(url,param,null,true);
     }
 
-
+    /**
+     * 打开一个新页面,动画是从右到左,带参数,并希望下一个界面关闭时能返回数据
+     * @param url
+     * @param param
+     */
     @JSMethod
     public void pushFull(String url, HashMap param, JSCallback callback, boolean animate)
     {
@@ -107,6 +121,9 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    /**
+     * 关闭当前页面(返回上一个页面)
+     */
     @JSMethod
     public void back()
     {
@@ -115,6 +132,11 @@ public class WXNavgationModule extends WXModuleBase {
     }
 
 
+    /**
+     * 关闭当前页面,同时给前一个页面带回去数据
+     * @param param
+     * @param animate
+     */
     @JSMethod
     public void backFull(HashMap param,boolean animate )
     {
@@ -122,6 +144,10 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    /**
+     * 设置当前页面的id,只有需要返回前面某个指定页面时才需要设置,一般不用调用这个
+     * @param id
+     */
     @JSMethod
     public void setPageId(String id)
     {
@@ -129,6 +155,10 @@ public class WXNavgationModule extends WXModuleBase {
         a.pageid=id;
     }
 
+    /**
+     * 获取上一个页面传过来的参数
+     * @return
+     */
     @JSMethod(uiThread = false)
     public HashMap param()
     {
@@ -137,6 +167,10 @@ public class WXNavgationModule extends WXModuleBase {
     }
 
 
+    /**
+     * a->b-c 希望从c-a 就调用这个,前提是a 调用了setPageId
+     * @param id
+     */
     @JSMethod
     public void backTo(String id)
     {
@@ -167,6 +201,14 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    /**
+     * 打开一个页面,动画是从下往上弹出来,(学的ios的)
+     * @param url
+     * @param param
+     * @param createnav
+     * @param callback
+     * @param animate
+     */
     @JSMethod
     public void presentFull(String url, HashMap param,boolean createnav, JSCallback callback,boolean animate)
     {
@@ -203,6 +245,10 @@ public class WXNavgationModule extends WXModuleBase {
 
     }
 
+    /**
+     * android 不用管这个,ios设置左边按钮之后,返回手势失效,这个就是修复返回手势的
+     *
+     */
     @JSMethod
     public void addBackGestureSelfControl()
     {
@@ -225,6 +271,9 @@ public class WXNavgationModule extends WXModuleBase {
         a.finish();
     }
 
+    /**
+     * 关闭当前页,在android里和back效果一样,在ios里,用present打开的页面,必须用这个才能关闭,所以还是跟ios统一吧
+     */
     @JSMethod
     public void dismiss()
     {
@@ -232,6 +281,10 @@ public class WXNavgationModule extends WXModuleBase {
     }
 
 
+    /**
+     * 如果有backTo的需求,务必在一个页面调用这个,把这一系列页面纳入一个堆栈
+     * @param id
+     */
     @JSMethod
     public void setRoot(String id)
     {
