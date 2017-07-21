@@ -1,5 +1,8 @@
 # farwolf 的脚手架
 
+##2017-07-21新增fpicker组件
+官方的仅支持一列，类似地域3级联动的我写了个，我这个支持1-3列，联动的自己去写，pickerdemo.vue里面有个全国的省市区联动，你们可以参照着写
+
 ## demo及api
 
 在farwolf.weex/src/demo下，个人精力有限无法出api文档，各位找到farwolf.weex/platforms/android/farwolf.weex/src/main/java/com/farwolf/weex/module/下面的java源码，
