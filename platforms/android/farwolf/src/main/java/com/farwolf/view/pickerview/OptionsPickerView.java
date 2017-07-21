@@ -1,8 +1,12 @@
 package com.farwolf.view.pickerview;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.farwolf.libary.R;
@@ -17,6 +21,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     WheelOptions<T> wheelOptions;
     private View btnSubmit, btnCancel;
     private TextView tvTitle;
+    ViewGroup bg;
     private OnOptionsSelectListener optionsSelectListener;
     private static final String TAG_SUBMIT = "submit";
     private static final String TAG_CANCEL = "cancel";
@@ -27,6 +32,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     public OptionsPickerView(Context context,int layout_id) {
         super(context);
         LayoutInflater.from(context).inflate(layout_id, contentContainer);
+        bg=(ViewGroup)findViewById(R.id.bg);
         // -----确定和取消按钮
         btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setTag(TAG_SUBMIT);
@@ -40,6 +46,33 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         final View optionspicker = findViewById(R.id.optionspicker);
         wheelOptions = new WheelOptions(optionspicker);
     }
+
+    public void setTitleBgColor(String color)
+    {
+      this.bg.setBackgroundColor(Color.parseColor(color));
+    }
+
+
+    public void setButtonColor(String color)
+    {
+        ((Button)this.btnSubmit).setTextColor(createColorStateList(Color.parseColor(color),Color.parseColor(color),Color.parseColor(color),Color.parseColor(color)));
+        ((Button)this.btnCancel).setTextColor(createColorStateList(Color.parseColor(color),Color.parseColor(color),Color.parseColor(color),Color.parseColor(color)));
+    }
+
+    private ColorStateList createColorStateList(int normal, int pressed, int focused, int unable) {
+        int[] colors = new int[] { pressed, focused, normal, focused, unable, normal };
+        int[][] states = new int[6][];
+        states[0] = new int[] { android.R.attr.state_pressed, android.R.attr.state_enabled };
+        states[1] = new int[] { android.R.attr.state_enabled, android.R.attr.state_focused };
+        states[2] = new int[] { android.R.attr.state_enabled };
+        states[3] = new int[] { android.R.attr.state_focused };
+        states[4] = new int[] { android.R.attr.state_window_focused };
+        states[5] = new int[] {};
+        ColorStateList colorList = new ColorStateList(states, colors);
+        return colorList;
+    }
+
+
     public void setPicker(ArrayList<T> optionsItems) {
         wheelOptions.setPicker(optionsItems, null, null, false);
     }

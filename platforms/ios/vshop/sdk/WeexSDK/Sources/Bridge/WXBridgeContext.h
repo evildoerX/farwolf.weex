@@ -32,7 +32,7 @@
 /**
  *  Create Instance Method
  *  @param instance  :   instance id
- *  @param temp      :   template data
+ *  @param template  :   template data
  *  @param options   :   parameters
  *  @param data      :   external data
  **/
@@ -87,8 +87,8 @@
 
 /**
  *  Execute JS Service
- *  @param script    :   JS services script
- *  @param name      :   JS services name
+ *  @param method    :   JS services name
+ *  @param method    :   JS services script
  **/
 - (void)executeJsService:(NSString *)script withName: (NSString *)name;
 

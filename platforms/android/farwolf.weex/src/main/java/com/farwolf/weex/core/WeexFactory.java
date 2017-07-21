@@ -6,6 +6,7 @@ import android.view.View;
 import com.farwolf.base.ServiceBase;
 import com.farwolf.util.ScreenTool;
 import com.farwolf.util.StringUtil;
+import com.farwolf.weex.util.Weex;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
@@ -50,11 +51,16 @@ public class WeexFactory  extends ServiceBase{
 
     }
 
-
     public void jump(String url,  Class cls,String rootid)
+    {
+        this.jump(url,cls,rootid,"visibility");
+    }
+
+    public void jump(String url,  Class cls,String rootid,String  navbarVisibility)
     {
         Intent in =new Intent(context,cls);
         in.putExtra("rootid",rootid);
+        in.putExtra("navbarVisibility",navbarVisibility);
         jump(url,in,false);
     }
 
@@ -65,6 +71,10 @@ public class WeexFactory  extends ServiceBase{
 
         p.instance=new WXSDKInstance(context);
         p.instance.setBundleUrl(url);
+        if(Weex.baseurl==null)
+        {
+            Weex.setBaseUrl(p.instance);
+        }
         p.id=new Random().nextLong()+"";
         p.instance.registerRenderListener(new IWXRenderListener() {
             @Override

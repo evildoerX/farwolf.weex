@@ -7,13 +7,15 @@
 //
 
 #import "WeexFactory.h"
-
+#import "Weex.h"
 @implementation WeexFactory
 
 
 + (void)render:(NSURL *)sourceURL compelete:(void(^)(Page*))complete
 {
  
+    if([Weex getBaseUrl] ==nil||[[Weex getBaseUrl] isEqualToString:@""])
+        [Weex setBaseUrl:sourceURL.absoluteString];
     Page *p=[Page new];
     p.instance = [[WXSDKInstance alloc] init];
     p.instance.frame = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);

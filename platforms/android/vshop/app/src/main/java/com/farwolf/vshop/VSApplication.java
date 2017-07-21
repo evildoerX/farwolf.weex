@@ -2,9 +2,13 @@ package com.farwolf.vshop;
 
 import android.app.Application;
 
+import com.farwolf.vshop.module.TabModule;
+import com.farwolf.weex.module.WXStaticModule;
 import com.farwolf.weex.util.Weex;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.common.WXException;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EApplication;
@@ -23,16 +27,24 @@ public class VSApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initUnivsalImageloader();
-        String basedir="";
-        weex.init(this,"微聚分销","farwolf",basedir);
+        weex.init(this,"微聚分销","farwolf","");
+//        weex.startDebug("192.168.2.117");
+        try {
+            WXSDKEngine.registerModule("tabbar", TabModule.class);
 
+        } catch (WXException e) {
+            e.printStackTrace();
+        }
+//        TabModule
 
     }
 
 
     public static boolean isLogin()
     {
-        return true;
+        WXStaticModule s=new WXStaticModule();
+        return  s.get("user")!=null;
+
     }
 
 

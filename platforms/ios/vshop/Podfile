@@ -1,5 +1,5 @@
  
-workspace “vshop”
+workspace “movie”
 
  
 
@@ -64,6 +64,8 @@ def mypod
     
     pod ‘farwolf.weex’, :path => 'farwolf.weex’ 
     
+      
+
    
 end
 

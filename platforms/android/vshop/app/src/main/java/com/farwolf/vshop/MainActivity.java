@@ -4,13 +4,11 @@ import android.view.View;
 
 import com.farwolf.weex.activity.WeexActivity;
 
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
 @EActivity
 public class MainActivity extends WeexActivity {
-
-
-
 
 
 
@@ -21,7 +19,7 @@ public class MainActivity extends WeexActivity {
         url=pref.url().get();
 
         this.title.setBack();
-//        this.title.setRightImage(R.drawable.refresh_selector);
+        this.title.setRightImage(R.drawable.refresh_selector);
 //        this.title.rightview.setVisibility(View.VISIBLE);
 //        this.title.right_image.setBackgroundResource(R.drawable.refresh_selector);
         this.title.setRightClick(new View.OnClickListener() {
@@ -41,9 +39,29 @@ public class MainActivity extends WeexActivity {
                 return false;
             }
         });
-//        render("tabpage.js");
-        render("addAddress.js");
-//        render("http://192.168.2.105:9898/busi/address/addAddress.js");
-//        weex.startDebug();
+
+
+//        render("app/busi/tab/collection/collection.js");
+
+          render("http://192.168.2.117:9898/busi/goods/search.js");
+//          render("http://192.168.2.117:9898/busi/account/login.js");
+
+
+
+
+
+    }
+
+
+    @Override
+    public int getViewId() {
+        return R.layout.main_activity;
+    }
+
+
+    @Click
+    public void refreshClicked() {
+        render(url);
+
     }
 }

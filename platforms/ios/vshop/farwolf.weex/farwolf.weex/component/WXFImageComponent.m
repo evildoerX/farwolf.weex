@@ -8,6 +8,7 @@
 
 #import "WXFImageComponent.h"
 #import "farwolf.h"
+#import "Weex.h"
 
 @implementation WXFImageComponent
 
@@ -15,48 +16,65 @@
 - (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance
 {
     
-    if (attributes[@"src"]) {
-        NSString *s= [[WXConvert NSString:attributes[@"src"]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-          NSString *url= weexInstance.scriptURL.absoluteString;
-        if([s startWith:@"root:"])
+    NSMutableDictionary *temp=[[NSMutableDictionary alloc]initWithDictionary:attributes];
+    BOOL change=false;
+    if (attributes[@"placeholder"])
+    {
+        NSString *ps= [[WXConvert NSString:attributes[@"placeholder"]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if([ps startWith:@"root:"])
         {
-            s=[s replace:@"root:" withString:@""];
-         
-            if([url startWith:@"http"])
+            NSString *nurl= [self getUrl:ps weexInstance:weexInstance];
+            if([temp.allKeys containsObject:@"placeholder"])
             {
-                NSArray *n=  [url split:@":"];
-                if(n.count==3)
-                {
-                    url=[[[[[[[@"" add:n[0]] add:@":"] add:n[1]] add:@":"] add:[n[2] split:@"/"][0]] add:@"/"] add:s];
-                }
-                else if(n.count==3)
-                {
-                    url=[[[[@"" add:n[0]] add:[n[1] split:@"/"][0]] add:@"/"] add:s];
-                }
-                
-                
-            }
-            else
-            {
-                NSArray *n= [url split:@"/app/"];
-                url=[[n[0] add:@"/app/"] add:s];
+                change=true;
+                [temp removeObjectForKey:@"placeholder"];
+                [temp setValue:nurl forKey:@"placeholder"];
             }
         }
-//        NSMutableDictionary *temp=attributes;
-        NSMutableDictionary *temp=[[NSMutableDictionary alloc]initWithDictionary:attributes];
-        if([temp.allKeys containsObject:@"src"])
-        {
-            [temp removeObjectForKey:@"src"];
-            [temp setValue:url forKey:@"src"];
-        }
-        return [super initWithRef:ref type:type styles:styles attributes:temp events:events weexInstance:weexInstance];
+        
         
     }
-    return [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance];
     
+    if (attributes[@"src"])
+    {
+        NSString *s= [[WXConvert NSString:attributes[@"src"]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSLog([@"image:" add: s]);
+        if([s startWith:@"root:"])
+        {
+            NSString *url= [self getUrl:s weexInstance:weexInstance];
+            
+            if([temp.allKeys containsObject:@"src"])
+            {
+                change=true;
+                [temp removeObjectForKey:@"src"];
+                [temp setValue:url forKey:@"src"];
+            }
+        }
+        
+        
+        
+    }
     
- 
+    if(!change)
+    {
+        return [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance];
+        
+    }
+    else
+    {
+        return [super initWithRef:ref type:type styles:styles attributes:temp events:events weexInstance:weexInstance];
+    }
     
     return self;
+}
+
+-(NSString*)getUrl:(NSString*)s weexInstance:(WXSDKInstance *)weexInstance
+{
+    NSString *url= weexInstance.scriptURL.absoluteString;
+    s=[s replace:@"root:" withString:[Weex getBaseUrl]];
+    
+    
+    return s;
+    
 }
 @end

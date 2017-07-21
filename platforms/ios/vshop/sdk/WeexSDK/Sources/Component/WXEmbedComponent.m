@@ -143,7 +143,9 @@
         newURL = [NSString stringWithFormat:@"%@?random=%d", sourceURL.absoluteString, arc4random()];
     }
     
-    [_embedInstance renderWithURL:[NSURL URLWithString:newURL] options:@{@"bundleUrl":[sourceURL absoluteString]} data:nil];
+    [self loadUrl:newURL instance:_embedInstance sourceurl:sourceURL];
+    
+//    [_embedInstance renderWithURL:[NSURL URLWithString:newURL] options:@{@"bundleUrl":[sourceURL absoluteString]} data:nil];
     
     __weak typeof(self) weakSelf = self;
     _embedInstance.onCreate = ^(UIView *view) {
@@ -182,6 +184,15 @@
     };
 }
 
+
+-(void)loadUrl:(NSString*)url instance:(WXSDKInstance*)instance sourceurl:(NSURL*)sourceURL{
+    
+    
+    
+    [instance renderWithURL:[NSURL URLWithString:url] options:@{@"bundleUrl":[sourceURL absoluteString]} data:nil];
+    
+}
+
 - (void)_updateState:(WXState)state
 {
     if (_renderFinished && _embedInstance && _embedInstance.state != state) {
@@ -195,12 +206,6 @@
             [[WXSDKManager bridgeMgr] fireEvent:self.embedInstance.instanceId ref:WX_SDK_ROOT_REF type:@"viewdisappear" params:nil domChanges:nil];
         }
     }
-}
-
-- (void)_frameDidCalculated:(BOOL)isChanged
-{
-    [super _frameDidCalculated:isChanged];
-    self.embedInstance.frame = self.calculatedFrame;
 }
 
 - (void)onclickErrorView

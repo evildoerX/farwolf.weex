@@ -12,7 +12,7 @@
 
 WX_EXPORT_METHOD(@selector(regist:callback:))
 WX_EXPORT_METHOD(@selector(send:param:))
-
+WX_EXPORT_METHOD(@selector(sendNative:param:))
 
 
 
@@ -60,7 +60,14 @@ WX_EXPORT_METHOD(@selector(send:param:))
 
 }
 
-
+-(void)sendNative:(NSString*)key param:(NSDictionary*)param
+{
+    
+    
+    
+    [self notifyDict:key value:param];
+    
+}
 
 
 @end

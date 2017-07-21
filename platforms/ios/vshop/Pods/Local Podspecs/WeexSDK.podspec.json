@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "SocketRocket": [
-
+      "~> 0.4.2"
     ]
   },
   "libraries": "stdc++"

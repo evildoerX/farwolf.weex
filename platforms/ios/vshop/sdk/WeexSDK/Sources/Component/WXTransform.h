@@ -25,9 +25,6 @@
 @interface WXTransform : NSObject
 
 @property (nonatomic, assign, readonly) float rotateAngle;
-@property (nonatomic, assign, readonly) float rotateX;
-@property (nonatomic, assign, readonly) float rotateY;
-@property (nonatomic, assign, readonly) float rotateZ;
 @property (nonatomic, strong, readonly) WXLength *translateX;
 @property (nonatomic, strong, readonly) WXLength *translateY;
 @property (nonatomic, assign, readonly) float scaleX;
@@ -35,10 +32,6 @@
 
 - (instancetype)initWithCSSValue:(NSString *)cssValue origin:(NSString *)origin instance:(WXSDKInstance *)instance;
 
-- (instancetype)initWithNativeTransform:(CATransform3D)transform instance:(WXSDKInstance *)instance;
-
 - (void)applyTransformForView:(UIView *)view;
-
-- (void)setTransformOrigin:(NSString *)transformOriginCSS;
 
 @end

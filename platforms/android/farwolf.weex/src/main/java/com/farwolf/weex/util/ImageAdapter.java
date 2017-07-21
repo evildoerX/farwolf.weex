@@ -8,6 +8,7 @@ import android.util.Base64;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.farwolf.util.FileTool;
 import com.taobao.weex.adapter.IWXImgLoaderAdapter;
 import com.taobao.weex.common.WXImageStrategy;
@@ -31,12 +32,25 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
         if(url.contains("root:"))
         {
             String q[]=url.split("root:");
-            url="app/"+q[1];
+            url=Weex.baseurl+q[1];
         }
         if(url.startsWith("http"))
         {
 
-            Glide.with(((Activity)view.getContext()).getApplicationContext()).load(url).into(view);
+
+            if(url.toLowerCase().contains(".gif"))
+            {
+                Glide
+                        .with((Activity)view.getContext())
+                        .load(url)
+                        .asGif()
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(view);
+            }
+            else
+            {
+                Glide.with(((Activity)view.getContext()).getApplicationContext()).load(url).into(view);
+            }
         }
 
         else

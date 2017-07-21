@@ -21,14 +21,21 @@ import com.farwolf.base.TabHostActivity;
 import com.farwolf.update.UpdateService;
 import com.farwolf.view.sildmenu.SlidingMenu;
 import com.farwolf.vshop.R;
+import com.farwolf.vshop.ShowTabEvent;
 import com.farwolf.vshop.VSApplication;
+import com.farwolf.weex.activity.PresentActivity_;
 import com.farwolf.weex.core.Page;
+import com.farwolf.weex.core.WeexFactory;
+import com.farwolf.weex.core.WeexFactory_;
+import com.farwolf.weex.module.WXNavgationModule;
+import com.taobao.weex.bridge.JSCallback;
 import com.ypy.eventbus.EventBus;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 
 import java.util.Calendar;
+import java.util.Random;
 
 @EActivity 
 public class MainActivity extends TabHostActivity {
@@ -56,7 +63,7 @@ public class MainActivity extends TabHostActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-//		EventBus.getDefault().register(this);
+		EventBus.getDefault().register(this);
 		this.AddTab(MainPage, MainPageActivity_.class);
 		this.AddTab(Classify, ClassifyActivity_.class);
 		this.AddTab(Collection, CollectionActivity_.class);
@@ -76,9 +83,9 @@ public class MainActivity extends TabHostActivity {
 			getWindow().setStatusBarColor(Color.TRANSPARENT);
 		}
 
-//		show(Classify);
+		show(Classify);
 //		show(Collection);
-//		show(ShopingBus);
+		show(ShopingBus);
 //		show(MINE);
 
 
@@ -112,10 +119,10 @@ public class MainActivity extends TabHostActivity {
 
 
 
-//	public void onEventMainThread(ShowTabEvent event) {
-//
-//		show(event.name);
-//	}
+	public void onEventMainThread(ShowTabEvent event) {
+
+		show(event.name);
+	}
 
 
 	@Override
@@ -125,11 +132,18 @@ public class MainActivity extends TabHostActivity {
 		TabHost.TabSpec tabSpec = mTabHost.newTabSpec(name);
 		tabSpec.setIndicator(v);
 		Intent in=new Intent(getBaseContext(), cls);
-		Page p=LaunchActivity.holder.get(name);
-		LaunchActivity.holder.remove(name);
-		if(LaunchActivity.holder.size()==0)
-			LaunchActivity.holder=null;
-		in.putExtra("pageid",p.id);
+		if(LaunchActivity.holder!=null)
+		{
+			Page p=LaunchActivity.holder.get(name);
+			LaunchActivity.holder.remove(name);
+			if(LaunchActivity.holder.size()==0)
+				LaunchActivity.holder=null;
+
+			if(p!=null)
+				in.putExtra("pageid",p.id);
+		}
+
+
 		tabSpec.setContent(in);
 		mTabHost.addTab(tabSpec);
 		v.setOnClickListener(new View.OnClickListener() {
@@ -210,22 +224,56 @@ public class MainActivity extends TabHostActivity {
 		return v;
 //	    return null;
 	}
+
+
+	JSCallback callback;
 	
 	@Override
-	public void onItemClick(String name) {
+	public void onItemClick(final String name) {
 		// TODO Auto-generated method stub
 		
 		targetName=name;
 		 
 		if(!VSApplication.isLogin())
 		{
-			if (MINE.equals(name)) {
+			if (Collection.equals(name)||ShopingBus.equals(name)||MINE.equals(name)) {
+
+				WeexFactory w= WeexFactory_.getInstance_(this);
+				Intent in=new Intent(this, PresentActivity_.class);
+				w.jump("app/busi/account/login.js",in,true);
+				String id= new Random().nextLong()+"";
+
+				in.putExtra("callbackid",id);
+				JSCallback callback=new JSCallback() {
+					@Override
+					public void invoke(Object data) {
+
+						show(name);
+					}
+
+					@Override
+					public void invokeAndKeepAlive(Object data) {
+
+
+					}
+				};
+				WXNavgationModule.static_callbacks.put(id,callback);
 
 				 return;
 			}
 		}
 		super.onItemClick(name);
 		
+	}
+
+
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		if(requestCode==10001) {
+
+			if (resultCode == 10002) {
+
+			}
+		}
 	}
 
 	 
@@ -236,24 +284,24 @@ public class MainActivity extends TabHostActivity {
 
 
 		if (MainPage.equals(name)) {
-			return R.drawable.app_tab_main_selector;
+			return R.drawable.app_tab_1_selector;
 		}
 		else if (Classify.equals(name)) {
  
-			return R.drawable.app_tab_main_selector;
+			return R.drawable.app_tab_2_selector;
 		}
 
 		else if (Collection.equals(name)) {
  
-			return R.drawable.app_tab_main_selector;
+			return R.drawable.app_tab_3_selector;
 		}
 		else if (ShopingBus.equals(name)) {
 
-			return R.drawable.app_tab_main_selector;
+			return R.drawable.app_tab_4_selector;
 		}
 		else if (MINE.equals(name)) {
 
-			return R.drawable.app_tab_main_selector;
+			return R.drawable.app_tab_5_selector;
 		}
 		else {
 			return 0;

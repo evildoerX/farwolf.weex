@@ -22,9 +22,9 @@ public abstract class ViewPagerFragmentBase extends FragmentBase {
 
 	@ViewById
 	public ViewPager viewpager;
-	
-	
-	List<Fragment> l=new ArrayList<Fragment>();
+
+
+	public List<Fragment> l=new ArrayList<Fragment>();
 	
 	
 	

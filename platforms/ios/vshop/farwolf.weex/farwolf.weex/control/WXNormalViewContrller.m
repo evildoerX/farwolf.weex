@@ -16,6 +16,7 @@
 #import "WeexSDK/WXUtility.h"
 #import "WeexSDK/WXSDKManager.h"
 #import "Masonry.h"
+#import "Weex.h"
 
 @interface WXNormalViewContrller ()
 
@@ -50,17 +51,7 @@
  *  page content.
  */
 
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    
-    if ([self.navigationController isKindOfClass:[WXNormalViewContrller class]]) {
-        CGRect frame = self.view.frame;
-        frame.origin.y = 0;
-        frame.size.height = [UIScreen mainScreen].bounds.size.height-64;
-        self.view.frame = frame;
-    }
-}
+
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
     if ([@"refresh" isEqualToString:message]) {
@@ -85,11 +76,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
     
-    if(self.tabBarController!=nil||self.navigationController.tabBarController!=nil)
-    {
-        self.view.frame= CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height-0);
-    }
     self.navigationController.navigationBar.translucent=false;
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -112,7 +100,7 @@
         [self refreshWeex];
     }];
     [self.view add3Click:^{
-        [self openScan];
+//        [self openScan];
     }];
   #endif
    
@@ -128,10 +116,15 @@
     self.weexView=self.page.weexView;
     self.sourceURL=self.page.url;
     self.instance.viewController=self;
+ 
+    [self resetFrame];
+
     self.instance.pageObject=self;
     self.instance.pageName=[@"" addInt:arc4random()];
     
-    [self.view addSubviewFull:self.weexView];
+    [self.view addSubview:self.weexView];
+
+
     self.instance.renderFinish = ^(UIView *view) {
         
           [self.instance fireGlobalEvent:@"onPageInit" params:nil];
@@ -143,6 +136,30 @@
     
 }
 
+
+-(void)resetFrame
+{
+    int count=self.navigationController.viewControllers.count;
+    CGFloat delt=64;
+    if([@"hidden" isEqualToString: self.navbarVisibility ])
+    {
+        [self.navigationController.navigationBar setHidden:true];
+    }
+    if([@"transparent" isEqualToString: self.navbarVisibility ])
+    {
+        delt=0;
+    }
+    
+    if([self.navigationController.navigationBar isHidden])
+    {
+        delt=0;
+    }
+    if((self.tabBarController!=nil||self.navigationController.tabBarController!=nil)&&count==1)
+    {
+        delt+=49.0;
+    }
+    self.instance.frame = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-delt);
+}
 -(void)onNotify:(NSNotification*)n
 {
     NSMutableDictionary *d=n.userInfo;
@@ -268,12 +285,38 @@ BOOL isshowErr;
     [self setBackBar:nil color:nil];
     [_instance fireGlobalEvent:@"viewWillDisappear" params:nil];
     [_instance fireGlobalEvent:WX_APPLICATION_WILL_RESIGN_ACTIVE params:nil];
+    if([@"transparent" isEqualToString: self.navbarVisibility ])
+    {
+        [self.navigationController.navigationBar setTranslucent:false];
+        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    }
+    
 //   [self unregist:@"weex_error"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [_instance fireGlobalEvent:@"viewWillAppear" params:nil];
+    
+    if([@"transparent" isEqualToString: self.navbarVisibility ])
+    {
+         [self.navigationController.navigationBar setHidden:false];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setTranslucent:true];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+    }
+    else if([@"hidden" isEqualToString: self.navbarVisibility ])
+    {
+        [self.navigationController.navigationBar setHidden:true];
+        
+    }
+    else
+    {
+         [self.navigationController.navigationBar setHidden:false];
+        [self.navigationController.navigationBar setTranslucent:false];
+    }
+     [self resetFrame];
+    
 //     [self regist:@"weex_error" method:@selector(onWeexError:)];
 }
 
@@ -283,6 +326,7 @@ BOOL isshowErr;
     [_instance fireGlobalEvent:@"viewDidAppear" params:nil];
     [_instance fireGlobalEvent:WX_APPLICATION_DID_BECOME_ACTIVE params:nil];
     [self _updateInstanceState:WeexInstanceAppear];
+//    [_instance fireGlobalEvent:@"onPageInit" params:nil];
     
 }
 
@@ -327,11 +371,28 @@ BOOL isshowErr;
     if (!sourceURL) {
         return;
     }
-    
+    if([Weex getBaseUrl] ==nil||[[Weex getBaseUrl] isEqualToString:@""])
+        [Weex setBaseUrl:sourceURL.absoluteString];
+
     [_instance destroyInstance];
     _instance = [[WXSDKInstance alloc] init];
+ 
     
-    _instance.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
+    int count=self.navigationController.viewControllers.count;
+    CGFloat delt=64;
+    if([@"transparent" isEqualToString: self.navbarVisibility ])
+    {
+        delt=0;
+    }
+    if([self.navigationController.navigationBar isHidden])
+    {
+        delt=0;
+    }
+    if((self.tabBarController!=nil||self.navigationController.tabBarController!=nil)&&count==1)
+    {
+        delt+=49.0;
+    }
+    self.instance.frame = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-delt);
     _instance.pageObject = self;
     _instance.pageName = [[WXUtility urlByDeletingParameters:sourceURL] absoluteString];
     _instance.viewController = self;
@@ -350,8 +411,8 @@ BOOL isshowErr;
         [weakSelf.weexView removeFromSuperview];
         weakSelf.weexView = view;
        
-        [weakSelf.view addSubviewFull:weakSelf.weexView];
-        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  weakSelf.weexView);
+        [weakSelf.view addSubview:weakSelf.weexView];
+                 UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,  weakSelf.weexView);
  
        
 

@@ -8,6 +8,7 @@
 
 #import "WXPushComponent.h"
 #import "WeexFactory.h"
+ 
 @implementation WXPushComponent
 
 - (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance
@@ -18,6 +19,9 @@
         _tap.delegate = self;
         if (attributes[@"href"]) {
             _href = attributes[@"href"];
+        }
+        if (attributes[@"navbarVisibility"]) {
+            _navbarVisibility = attributes[@"navbarVisibility"];
         }
     }
     return self;
@@ -47,9 +51,15 @@
             newURL = [NSURL URLWithString:_href relativeToURL:self.weexInstance.scriptURL].absoluteString;
         }
       
+        if([newURL startWith:@"root:"])
+        {
+            newURL=[newURL replace:@"root:" withString:[Weex getBaseUrl]];
+        }
+
         NSURL *url=[NSURL URLWithString:newURL];
         [WeexFactory render:url compelete:^(Page *p) {
            WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
+            vc.navbarVisibility=_navbarVisibility;
             vc.hidesBottomBarWhenPushed = YES;
             vc.page=p;
             [[self.weexInstance.viewController navigationController] pushViewController:vc animated:YES];

@@ -49,16 +49,16 @@
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(18)
+	__vue_styles__.push(__webpack_require__(26)
 	)
-	__vue_styles__.push(__webpack_require__(19)
+	__vue_styles__.push(__webpack_require__(27)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(20)
+	__vue_exports__ = __webpack_require__(28)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(21)
+	var __vue_template__ = __webpack_require__(29)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -152,6 +152,28 @@
 	    "flexDirection": "row",
 	    "alignItems": "center",
 	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
@@ -238,11 +260,6 @@
 	    },
 
 	    methods: {
-	        onchange: function onchange(event) {
-	            this.visiable = !event.value == '';
-	            this.$emit('onchange', event);
-	            //                this.name="xxx"
-	        },
 	        oninput: function oninput(e) {
 
 	            //                this.$emit('oninput');
@@ -290,24 +307,96 @@
 
 /***/ }),
 /* 9 */,
-/* 10 */,
+/* 10 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// var host='http://127.0.0.1:8080/api/'
+	var host = 'http://192.168.2.117:8080/api/';
+
+	exports.default = {
+
+	    postShort: function postShort(weg, param, header, start, success, compelete) {
+	        var modal = weex.requireModule("modal");
+	        this.postFull(weg, param, header, start, success, function (res) {
+	            //fail
+	            modal.toast({ message: e.res.msg });
+	        }, function () {
+	            //exception
+	            modal.toast({ message: '网络异常！' });
+	        }, function () {
+	            //compelete
+
+	            compelete();
+	        });
+	    },
+
+	    postFull: function postFull(weg, param, header, start, success, fail, exception, compelete) {
+	        var net = weex.requireModule("net");
+	        var modal = weex.requireModule("modal");
+
+	        var url = host + weg;
+
+	        net.get(url, param, {}, function () {
+	            //start
+	            start();
+	        }, function (e) {
+	            //success
+	            // modal.toast({message:e.res.err})
+	            if (e.res.err == 0) {
+
+	                success(e.res);
+	            } else {
+	                // modal.toast({message:e.res.msg})
+	                fail(e.res);
+	            }
+	        }, function (e) {
+	            //compelete
+	            // modal.toast({message:'网络异常！'})
+	            modal.toast({ message: '完成!', duration: 1000 });
+	            compelete();
+	        }, function (e) {
+	            // exception
+	            exception();
+	        });
+	    },
+
+	    post: function post(weg, param, success) {
+	        var progress = weex.requireModule("progress");
+	        this.postShort(weg, param, {}, function () {
+	            progress.show();
+	        }, success, function () {
+	            progress.dismiss();
+	        });
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
 /* 11 */,
 /* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(14)
+	__vue_styles__.push(__webpack_require__(17)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(15)
+	__vue_exports__ = __webpack_require__(18)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(16)
+	var __vue_template__ = __webpack_require__(19)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -337,7 +426,7 @@
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -349,7 +438,7 @@
 	}
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -374,12 +463,16 @@
 	            type: String
 
 	        },
+	        placeholder_color: {
+	            default: '#ffffff'
+
+	        },
 	        color: {
-	            type: String
+	            default: '#000000'
 
 	        },
 	        value: {
-	            type: String
+	            default: ''
 	        },
 
 	        type: {
@@ -388,6 +481,12 @@
 	        },
 	        font_size: {
 	            default: 20
+	        },
+	        autofocus: {
+	            default: false
+	        },
+	        return_key_type: {
+	            default: 'defalut'
 	        }
 
 	    },
@@ -403,32 +502,37 @@
 	    methods: {
 	        onchange: function onchange(event) {
 	            this.visiable = !event.value == '';
-	            this.$emit('onchange', event);
+	            //                this.$emit('onchange',event.value);
+	            this.value = event.value;
 	            //                this.name="xxx"
+	        },
+	        focus: function focus() {
+	            this.$emit('focus');
+	        },
+	        blur: function blur() {
+	            this.$refs.input.blur();
+	            this.$emit('blur');
 	        },
 	        oninput: function oninput(e) {
 
 	            //                this.$emit('oninput');
-	            this.$emit('oninput', e);
+	            this.value = e.value;
 	            this.visiable = e.value != '';
+	            this.$emit('onchange', e.value);
+	        },
+	        onreturn: function onreturn(e) {
+	            this.$emit('return', e);
 	        },
 	        onclose: function onclose() {
 	            this.value = '';
+	            this.visiable = false;
+	            this.$emit('onchange', '');
 	        }
 	    },
 
 	    created: function created() {
 	        var globalEvent = weex.requireModule('globalEvent');
-	        globalEvent.addEventListener("onPageInit", function (e) {
-
-	            var nav = weex.requireModule('navbar');
-	            nav.setTitle('注册');
-	            nav.setBack(true, 'black');
-	            nav.setBackgroundColor("#ffffff");
-	            nav.setTitleColor('#313133');
-	            nav.setStatusBarStyle('black');
-	            nav.hideBottomLine(false);
-	        });
+	        globalEvent.addEventListener("onPageInit", function (e) {});
 
 	        this.visiable = !this.value == '';
 	    },
@@ -437,7 +541,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -448,20 +552,26 @@
 	      alignItems: "center"
 	    }
 	  }, [_c('input', {
+	    ref: "input",
 	    staticStyle: {
 	      flex: "1",
 	      paddingLeft: "20",
 	      height: "100"
 	    },
 	    style: {
-	      'color': _vm.color
+	      'color': _vm.color,
+	      'placeholder-color': _vm.placeholder_color
 	    },
 	    attrs: {
+	      "returnKeyType": _vm.return_key_type,
+	      "autofocus": _vm.autofocus,
 	      "placeholder": _vm.placeholder,
 	      "type": _vm.type,
 	      "value": (_vm.value)
 	    },
 	    on: {
+	      "return": _vm.onreturn,
+	      "focus": _vm.focus,
 	      "change": _vm.onchange,
 	      "input": [function($event) {
 	        _vm.value = $event.target.attr.value
@@ -493,8 +603,13 @@
 	module.exports.render._withStripped = true
 
 /***/ }),
-/* 17 */,
-/* 18 */
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -507,11 +622,33 @@
 	    "flexDirection": "row",
 	    "alignItems": "center",
 	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
 /***/ }),
-/* 19 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -552,7 +689,7 @@
 	}
 
 /***/ }),
-/* 20 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -646,31 +783,64 @@
 	//
 	//
 	//
+	//
 
-	var finput = __webpack_require__(13);
+	var finput = __webpack_require__(16);
 	var button = __webpack_require__(4);
+	var net = __webpack_require__(10);
 	exports.default = {
 	    components: { finput: finput, button: button },
 	    data: {
 	        btn_disabled: true,
-	        tel: ''
+	        name: '',
+	        pass: '',
+	        cpass: ''
 
 	    },
 	    methods: {
-	        update: function update(e) {
-	            this.target = 'Weex';
-	            console.log('target:', this.target);
+	        onnamechange: function onnamechange(txt) {
+	            this.name = txt;
+	            this.state();
 	        },
-	        ableclick: function ableclick() {
-	            this.btn_disabled = !this.btn_disabled;
+	        onpasschange: function onpasschange(txt) {
+	            this.pass = txt;
+	            this.state();
 	        },
-	        oninput: function oninput(e) {
+	        oncpasschange: function oncpasschange(txt) {
 
-	            //               this.btn_disabled=!(e.value!='');
-
+	            this.cpass = txt;
+	            this.state();
 	        },
-	        change: function change() {
-	            //               this.btn_disabled=!this.btn_disabled;
+	        state: function state() {
+	            if (this.name != '') {
+	                if (this.pass != '') {
+	                    if (this.cpass != '') {
+	                        this.btn_disabled = false;
+	                        return;
+	                    }
+	                }
+	            }
+	            this.btn_disabled = true;
+	        },
+	        submit: function submit() {
+
+	            var navigator = weex.requireModule('navigator');
+	            var modal = weex.requireModule("modal");
+	            if (this.cpass != this.pass) {
+	                modal.toast({ message: '两次输入的密码不一致!' });
+	                return;
+	            }
+	            net.post('register/submit.json', {
+	                userName: this.name,
+	                password: this.pass,
+	                //                    phone:navigator.param().phone
+	                phone: '15827291225'
+	            }, function (res) {
+
+	                var modal = weex.requireModule('modal');
+	                modal.toast({ message: '注册成功，请登录！' });
+	                navigator.backTo('login');
+	            });
 	        },
 	        onclick: function onclick() {
 	            var navigator = weex.requireModule('navigator');
@@ -698,18 +868,20 @@
 
 	        globalEvent.addEventListener("viewWillAppear", function (e) {
 
-	            var nav = weex.requireModule('navbar');
+	            //              const nav = weex.requireModule('navbar');
 	            //              nav.hideBottomLine(true);
-	            nav.setBackgroundColor("#ffffff");
+	            //              nav.setBackgroundColor("#ffffff");
 	            //              nav.makeUnTransparent();
+
 	        });
 
 	        globalEvent.addEventListener("viewWillDisappear", function (e) {
 
-	            var nav = weex.requireModule('navbar');
+	            //              const nav = weex.requireModule('navbar');
 	            //              nav.makeUnTransparent();
 	            //              nav.hideBottomLine(false);
 	            //              nav.setBackgroundColor("#eeeeee");
+
 
 	        });
 	    }
@@ -717,11 +889,13 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 21 */
+/* 29 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
+	  return _c('scroller', {
+	    staticClass: ["bg"]
+	  }, [_c('div', {
 	    staticClass: ["bg"]
 	  }, [_c('div', {
 	    staticStyle: {
@@ -733,7 +907,7 @@
 	  }, [_c('div', {
 	    staticClass: ["cell"],
 	    staticStyle: {
-	      marginTop: "30"
+	      marginTop: "20"
 	    }
 	  }, [_c('image', {
 	    staticClass: ["img"],
@@ -746,10 +920,10 @@
 	    },
 	    attrs: {
 	      "placeholder": "请输入用户名",
-	      "value": _vm.tel
+	      "value": _vm.name
 	    },
 	    on: {
-	      "oninput": _vm.oninput
+	      "onchange": _vm.onnamechange
 	    }
 	  })], 1), _c('div', {
 	    staticClass: ["cell"],
@@ -767,10 +941,11 @@
 	    },
 	    attrs: {
 	      "placeholder": "请输入密码",
-	      "value": _vm.tel
+	      "value": _vm.pass,
+	      "type": "password"
 	    },
 	    on: {
-	      "oninput": _vm.oninput
+	      "onchange": _vm.onpasschange
 	    }
 	  })], 1), _c('div', {
 	    staticClass: ["cell"],
@@ -788,10 +963,11 @@
 	    },
 	    attrs: {
 	      "placeholder": "请再次输入密码",
-	      "value": _vm.tel
+	      "value": _vm.cpass,
+	      "type": "password"
 	    },
 	    on: {
-	      "oninput": _vm.oninput
+	      "onchange": _vm.oncpasschange
 	    }
 	  })], 1), _c('button', {
 	    staticStyle: {
@@ -802,9 +978,9 @@
 	      "disabled": _vm.btn_disabled
 	    },
 	    on: {
-	      "onclick": _vm.onclick
+	      "onclick": _vm.submit
 	    }
-	  })], 1)])
+	  })], 1)])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 

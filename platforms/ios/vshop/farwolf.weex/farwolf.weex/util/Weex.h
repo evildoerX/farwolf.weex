@@ -15,11 +15,14 @@
 #import "WXLoadingView.h"
 #import "WXStaticModule.h"
 static NSString *basedir;
+static NSString *baseurl;
 @interface Weex : NSObject
 +(void)initWeex:(NSString*)group appName:(NSString*)appName appVersion:(NSString*)appVersion;
 +(void)startDebug:(NSString*)ip port:(NSString*)port;
 +(void)setImageSource:(NSString*)url compelete:(void(^)(UIImage *img))compelete;
 +(NSString*)getFinalUrl:(NSString*)url weexInstance:(WXSDKInstance*)weexInstance;
 +(NSString*)getBaseDir;
-+(void)setBaseDir:(NSString*)dir;
++(void)setBaseDir:(NSString*)url;
++(NSString*)getBaseUrl;
++(void)setBaseUrl:(NSString*)url;
 @end

@@ -72,6 +72,7 @@ WX_EXPORT_METHOD(@selector(stop))
      [self setNeedsDisplay];
     [self readyToRender];
     [self start];
+       ((UIActivityIndicatorView*)self.view).color=[@"000000" toColor];
 }
 -(void)start
 {

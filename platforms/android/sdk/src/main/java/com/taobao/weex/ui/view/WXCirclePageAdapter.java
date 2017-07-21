@@ -154,9 +154,9 @@ public class WXCirclePageAdapter extends PagerAdapter {
       temp.addAll(views);
     }
     shadow.clear();
-    notifyDataSetChanged();
+//    notifyDataSetChanged();
     shadow.addAll(temp);
-    notifyDataSetChanged();
+//    notifyDataSetChanged();
   }
 
   public int getRealPosition(int shadowPosition) {

@@ -14,6 +14,7 @@ import com.farwolf.view.FreeDialog;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -29,8 +30,8 @@ import java.util.List;
 @EBean
 public class UpdateService {
 
-//    @Pref
-//    UpdatePref_ pref;
+    @Pref
+    UpdatePref_ pref;
 
     @Bean
     AppMainfest appMainfest;
@@ -111,28 +112,28 @@ public class UpdateService {
                 a.f=f;
                 f.setCanceledOnTouchOutside(false);
                 a.init(v);
-//                if(v.versionName!=null&&v.versionName.equals(pref.version().get()))
-//                {
-//                    long delt= System.currentTimeMillis()-pref.time().get();
-//                    long week=1000*60*60*24*7;
-//                    long min=1000*20;
-//                    if(delt<min)
-//                    {
-//                        return;
-//                    }
-//                    else
-//                    {
-//                        pref.edit().time().put(0);
-//                        pref.edit().version().put("");
-//                        f.show();
-//                    }
-//
-//                }
-//                else
-//                {
-//
-//                    f.show();
-//                }
+                if(v.versionName!=null&&v.versionName.equals(pref.version().get()))
+                {
+                    long delt= System.currentTimeMillis()-pref.time().get();
+                    long week=1000*60*60*24*7;
+                    long min=1000*20;
+                    if(delt<min)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        pref.edit().time().put(0);
+                        pref.edit().version().put("");
+                        f.show();
+                    }
+
+                }
+                else
+                {
+
+                    f.show();
+                }
             }
         });
 

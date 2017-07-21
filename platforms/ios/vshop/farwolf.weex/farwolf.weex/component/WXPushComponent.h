@@ -13,4 +13,5 @@
 @interface WXPushComponent :  WXComponent <UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) NSString *href;
+@property (nonatomic,strong) NSString* navbarVisibility;
 @end

@@ -18,12 +18,17 @@
  */
 package com.farwolf.weex.component;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.view.MotionEvent;
+import android.text.TextUtils;
+import android.util.Log;
 
+import com.farwolf.weex.activity.WeexActivity;
+import com.farwolf.weex.activity.WeexActivity_;
+import com.farwolf.weex.core.WeexFactory;
+import com.farwolf.weex.core.WeexFactory_;
+import com.farwolf.weex.util.Weex;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.annotation.Component;
+import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.common.Constants;
 import com.taobao.weex.dom.ImmutableDomObject;
 import com.taobao.weex.dom.WXAttr;
@@ -31,7 +36,6 @@ import com.taobao.weex.dom.WXDomObject;
 import com.taobao.weex.ui.component.WXDiv;
 import com.taobao.weex.ui.component.WXVContainer;
 import com.taobao.weex.ui.view.WXFrameLayout;
-import com.taobao.weex.utils.ATagUtil;
 import com.taobao.weex.utils.WXLogUtils;
 
 @Component(lazyload = false)
@@ -57,7 +61,9 @@ public class WXA extends WXDiv {
         if (domObject != null) {
           WXAttr attr = domObject.getAttrs();
           if (attr !=null && (href = (String)attr.get("href")) != null) {
-            ATagUtil.onClick(null, getInstanceId(), href);
+
+            String t=  ((String) attr.get("navbarVisibility")+"");
+            openURL(href,t);
           }
         } else {
           WXLogUtils.d("WXA", "Property href is empty.");
@@ -66,30 +72,6 @@ public class WXA extends WXDiv {
     });
   }
 
-
-
-  @Override
-  protected WXFrameLayout initComponentHostView(@NonNull Context context) {
-    WXFrameLayout frameLayout =new WXFrameLayout(context){
-      @Override
-      public boolean onInterceptHoverEvent(MotionEvent event) {
-
-        return true;
-      }
-
-      @Override
-      public boolean onTouchEvent(MotionEvent event) {
-        return  false;
-      }
-    };
-    frameLayout.holdComponent(this);
-
-
-    return frameLayout;
-  }
-
-
-
   @Override
   protected boolean setProperty(String key, Object param) {
     switch(key){
@@ -97,5 +79,46 @@ public class WXA extends WXDiv {
         return true;
     }
     return super.setProperty(key, param);
+  }
+
+  @JSMethod(uiThread = true)
+  public void openURL(String url,String navbarVisibility) {
+    Log.i("WXEventModule",url);
+    if (TextUtils.isEmpty(url)) {
+      return;
+    }
+//    url= Weex.getRootUrl(url,this.mWXSDKInstance);
+    String realurl="";
+    if(url.startsWith("root:"))
+    {
+      realurl=url.replace("root:", Weex.baseurl);
+    }
+    else
+    {
+      url= Weex.getRootUrl(url,this.getInstance());
+      realurl=getRealUrl(url,this.getInstance().getBundleUrl());
+    }
+    WeexFactory w= WeexFactory_.getInstance_(this.getInstance().getContext());
+    WeexActivity a=  (WeexActivity)this.getInstance().getContext();
+    w.jump(realurl, WeexActivity_.class,a.rootid,navbarVisibility);
+
+  }
+
+  public String getRealUrl(String url,String base)
+  {
+
+
+    String q[]=url.split("\\.\\.\\/");
+    String x[]= base.split("\\/");
+
+    String p="";
+
+      for(int i=0;i<x.length-q.length;i++)
+      {
+         p+=x[i]+"/";
+      }
+
+    p+=q[q.length-1];
+    return p;
   }
 }

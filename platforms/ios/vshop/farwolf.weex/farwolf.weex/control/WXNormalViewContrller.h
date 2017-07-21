@@ -19,6 +19,8 @@
 #import "Page.h"
 @interface WXNormalViewContrller : UIViewController<SRWebSocketDelegate>
 //- (instancetype)initWith:(NSString *)url;
+
+@property (strong,nonatomic)   typeof(void(^)(NSObject*)) nativeCallback;
  
 @property (nonatomic, strong) WXSDKInstance *instance;
 @property (nonatomic, strong) UIView *weexView;
@@ -29,7 +31,7 @@
 @property (nonatomic, strong) UIView *fail_layout;
 @property (nonatomic, strong) NSMutableDictionary *param;
 @property (nonatomic, strong) Page *page;
-
+@property (nonatomic) NSString* navbarVisibility;
 @property (strong,nonatomic)  WXModuleKeepAliveCallback callback;
 
 - (instancetype)initWithSourceURL:(NSURL *)sourceURL;

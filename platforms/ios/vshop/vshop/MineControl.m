@@ -7,7 +7,7 @@
 //
 
 #import "MineControl.h"
-
+#import "SplashControl.h"
 @interface MineControl ()
 
 @end
@@ -15,8 +15,9 @@
 @implementation MineControl
 
 - (void)viewDidLoad {
+      self.page=[SplashControl getPage:@"我的"];
     [super viewDidLoad];
-     self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/login" withExtension:@"js"];
+//     self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/login" withExtension:@"js"];
     // Do any additional setup after loading the view.
 }
 
@@ -25,7 +26,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//     [self.navigationController.navigationBar setTranslucent:true];
+//}
+//
+//-(void)viewWillDisappear:(BOOL)animated
+//{
+//    
+//    [self.navigationController.navigationBar setTranslucent:false];
+//}
+
 /*
+ 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

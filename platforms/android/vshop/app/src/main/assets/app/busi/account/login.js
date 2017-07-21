@@ -58,7 +58,7 @@
 	__vue_exports__ = __webpack_require__(3)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(9)
+	var __vue_template__ = __webpack_require__(12)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -103,6 +103,28 @@
 	    "flexDirection": "row",
 	    "alignItems": "center",
 	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
@@ -218,11 +240,14 @@
 	//
 
 	var button = __webpack_require__(4);
+	var _login = __webpack_require__(9);
+	var util = __webpack_require__(11);
+
 	exports.default = {
 	    components: { button: button },
 	    data: {
-	        logoUrl: 'http://img1.vued.vanthink.cn/vued08aa73a9ab65dcbd360ec54659ada97c.png',
-	        target: 'World'
+	        user: '13888888888',
+	        pass: '123456'
 	    },
 	    methods: {
 	        update: function update(e) {
@@ -233,6 +258,53 @@
 	        gotoAddress: function gotoAddress() {
 	            var navigator = weex.requireModule('navigator');
 	            navigator.push('../address/addAddress.js');
+	        },
+	        login: function login() {
+	            var modal = weex.requireModule('modal');
+	            var navigator = weex.requireModule('navigator');
+	            var modal = weex.requireModule("modal");
+
+	            if (this.user == '') {
+	                modal.toast({ message: '请输入用户名!' });
+	                return;
+	            }
+	            if (this.pass == '') {
+	                modal.toast({ message: '请输入密码!' });
+	                return;
+	            }
+
+	            var net = weex.requireModule("net");
+	            var modal = weex.requireModule("modal");
+
+	            //            var url='http://192.168.2.117:8080/api/login.json';
+	            //            var net=weex.requireModule("net")
+	            //            net.get(url,{username:this.user,password:this.pass},{},function(){
+	            //                //start
+	            //                modal.toast({message:'start'})
+	            //            },function(e){
+	            //                //success
+	            //                 modal.toast({message:'success'})
+	            //
+	            //
+	            //            },function(e){
+	            //                //exception
+	            //                 modal.toast({message:e})
+	            //
+	            //            },function(){
+	            //                //compelete
+	            //                var mx=weex.requireModule("modal")
+	            //                mx.toast({message:'compelete'})
+	            //            });
+
+	            _login.login(this.user, this.pass, function (res) {
+
+	                modal.toast({ message: '登录成功!' });
+	                navigator.dismiss();
+	                navigator.invokeNativeCallBack(res);
+	                var notify = weex.requireModule("notify");
+	                notify.send('login', res);
+	                //                  navigator.push('../tab/mine.js')
+	            });
 	        }
 	    },
 
@@ -340,6 +412,28 @@
 	    "flexDirection": "row",
 	    "alignItems": "center",
 	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
@@ -426,11 +520,6 @@
 	    },
 
 	    methods: {
-	        onchange: function onchange(event) {
-	            this.visiable = !event.value == '';
-	            this.$emit('onchange', event);
-	            //                this.name="xxx"
-	        },
 	        oninput: function oninput(e) {
 
 	            //                this.$emit('oninput');
@@ -478,6 +567,119 @@
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+
+	    login: function login(user, pass, comp) {
+
+	        var net = __webpack_require__(10);
+	        net.post('login.json', { username: user, password: pass }, function (e) {
+
+	            var st = weex.requireModule('static');
+
+	            st.set('user', e.user);
+	            comp(e);
+	        });
+	    },
+	    checkDo: function checkDo(success) {
+	        var navigator = weex.requireModule('navigator');
+	        navigator.present('root:busi/account/login.js', {}, 'transparent', true, function () {
+	            success();
+	        }, true);
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// var host='http://127.0.0.1:8080/api/'
+	var host = 'http://192.168.2.117:8080/api/';
+
+	exports.default = {
+
+	    postShort: function postShort(weg, param, header, start, success, compelete) {
+	        var modal = weex.requireModule("modal");
+	        this.postFull(weg, param, header, start, success, function (res) {
+	            //fail
+	            modal.toast({ message: e.res.msg });
+	        }, function () {
+	            //exception
+	            modal.toast({ message: '网络异常！' });
+	        }, function () {
+	            //compelete
+
+	            compelete();
+	        });
+	    },
+
+	    postFull: function postFull(weg, param, header, start, success, fail, exception, compelete) {
+	        var net = weex.requireModule("net");
+	        var modal = weex.requireModule("modal");
+
+	        var url = host + weg;
+
+	        net.get(url, param, {}, function () {
+	            //start
+	            start();
+	        }, function (e) {
+	            //success
+	            // modal.toast({message:e.res.err})
+	            if (e.res.err == 0) {
+
+	                success(e.res);
+	            } else {
+	                // modal.toast({message:e.res.msg})
+	                fail(e.res);
+	            }
+	        }, function (e) {
+	            //compelete
+	            // modal.toast({message:'网络异常！'})
+	            modal.toast({ message: '完成!', duration: 1000 });
+	            compelete();
+	        }, function (e) {
+	            // exception
+	            exception();
+	        });
+	    },
+
+	    post: function post(weg, param, success) {
+	        var progress = weex.requireModule("progress");
+	        this.postShort(weg, param, {}, function () {
+	            progress.show();
+	        }, success, function () {
+	            progress.dismiss();
+	        });
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var host = 'http://191.168.2.117:8080/';
+	function getScreenHeight() {
+
+	    return 750 / weex.config.env.deviceWidth * weex.config.env.deviceHeight;
+	}
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -492,7 +694,48 @@
 	      marginLeft: "35",
 	      marginRight: "35"
 	    }
-	  }, [_vm._m(0), _vm._m(1), _c('button', {
+	  }, [_c('div', {
+	    staticClass: ["cell"]
+	  }, [_c('text', {
+	    staticClass: ["title"]
+	  }, [_vm._v("账户")]), _c('input', {
+	    staticClass: ["input"],
+	    staticStyle: {
+	      paddingLeft: "20"
+	    },
+	    attrs: {
+	      "type": "text",
+	      "placeholder": "用户名",
+	      "value": (_vm.user)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.user = $event.target.attr.value
+	      }
+	    }
+	  })]), _c('div', {
+	    staticClass: ["cell"],
+	    staticStyle: {
+	      marginTop: "20"
+	    }
+	  }, [_c('text', {
+	    staticClass: ["title"]
+	  }, [_vm._v("密码")]), _c('input', {
+	    staticClass: ["input"],
+	    staticStyle: {
+	      paddingLeft: "20"
+	    },
+	    attrs: {
+	      "type": "password",
+	      "placeholder": "请输入密码",
+	      "value": (_vm.pass)
+	    },
+	    on: {
+	      "input": function($event) {
+	        _vm.pass = $event.target.attr.value
+	      }
+	    }
+	  })]), _c('button', {
 	    staticStyle: {
 	      marginTop: "120"
 	    },
@@ -501,7 +744,9 @@
 	      "disabled": _vm.btn_disabled
 	    },
 	    on: {
-	      "onclick": _vm.onclick
+	      "onclick": function($event) {
+	        _vm.login()
+	      }
 	    }
 	  }), _c('div', {
 	    staticStyle: {
@@ -512,7 +757,7 @@
 	  }, [_c('a', {
 	    staticClass: ["a"],
 	    attrs: {
-	      "href": "../address/addAddress.js"
+	      "href": "root:busi/account/reg_sendcode.js"
 	    }
 	  }, [_c('text', {
 	    staticClass: ["text"]
@@ -531,41 +776,8 @@
 	    staticStyle: {
 	      flex: "1"
 	    }
-	  }), _vm._m(2)])
+	  }), _vm._m(0)])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["cell"]
-	  }, [_c('text', {
-	    staticClass: ["title"]
-	  }, [_vm._v("账户")]), _c('input', {
-	    staticClass: ["input"],
-	    staticStyle: {
-	      paddingLeft: "20"
-	    },
-	    attrs: {
-	      "type": "text",
-	      "placeholder": "用户名"
-	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["cell"],
-	    staticStyle: {
-	      marginTop: "20"
-	    }
-	  }, [_c('text', {
-	    staticClass: ["title"]
-	  }, [_vm._v("密码")]), _c('input', {
-	    staticClass: ["input"],
-	    staticStyle: {
-	      paddingLeft: "20"
-	    },
-	    attrs: {
-	      "type": "password",
-	      "placeholder": "请输入密码"
-	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
 	    staticStyle: {
 	      marginBottom: "30",

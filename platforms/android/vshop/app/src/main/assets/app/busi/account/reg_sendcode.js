@@ -49,16 +49,16 @@
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(10)
+	__vue_styles__.push(__webpack_require__(13)
 	)
-	__vue_styles__.push(__webpack_require__(11)
+	__vue_styles__.push(__webpack_require__(14)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(12)
+	__vue_exports__ = __webpack_require__(15)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(17)
+	var __vue_template__ = __webpack_require__(25)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -145,6 +145,35 @@
 	module.exports = {
 	  "bg": {
 	    "backgroundColor": "#f5f5f5"
+	  },
+	  "cell": {
+	    "height": 100,
+	    "backgroundColor": "#ffffff",
+	    "flexDirection": "row",
+	    "alignItems": "center",
+	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
@@ -231,11 +260,6 @@
 	    },
 
 	    methods: {
-	        onchange: function onchange(event) {
-	            this.visiable = !event.value == '';
-	            this.$emit('onchange', event);
-	            //                this.name="xxx"
-	        },
 	        oninput: function oninput(e) {
 
 	            //                this.$emit('oninput');
@@ -282,18 +306,160 @@
 	module.exports.render._withStripped = true
 
 /***/ }),
-/* 9 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+
+	    login: function login(user, pass, comp) {
+
+	        var net = __webpack_require__(10);
+	        net.post('login.json', { username: user, password: pass }, function (e) {
+
+	            var st = weex.requireModule('static');
+
+	            st.set('user', e.user);
+	            comp(e);
+	        });
+	    },
+	    checkDo: function checkDo(success) {
+	        var navigator = weex.requireModule('navigator');
+	        navigator.present('root:busi/account/login.js', {}, 'transparent', true, function () {
+	            success();
+	        }, true);
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// var host='http://127.0.0.1:8080/api/'
+	var host = 'http://192.168.2.117:8080/api/';
+
+	exports.default = {
+
+	    postShort: function postShort(weg, param, header, start, success, compelete) {
+	        var modal = weex.requireModule("modal");
+	        this.postFull(weg, param, header, start, success, function (res) {
+	            //fail
+	            modal.toast({ message: e.res.msg });
+	        }, function () {
+	            //exception
+	            modal.toast({ message: '网络异常！' });
+	        }, function () {
+	            //compelete
+
+	            compelete();
+	        });
+	    },
+
+	    postFull: function postFull(weg, param, header, start, success, fail, exception, compelete) {
+	        var net = weex.requireModule("net");
+	        var modal = weex.requireModule("modal");
+
+	        var url = host + weg;
+
+	        net.get(url, param, {}, function () {
+	            //start
+	            start();
+	        }, function (e) {
+	            //success
+	            // modal.toast({message:e.res.err})
+	            if (e.res.err == 0) {
+
+	                success(e.res);
+	            } else {
+	                // modal.toast({message:e.res.msg})
+	                fail(e.res);
+	            }
+	        }, function (e) {
+	            //compelete
+	            // modal.toast({message:'网络异常！'})
+	            modal.toast({ message: '完成!', duration: 1000 });
+	            compelete();
+	        }, function (e) {
+	            // exception
+	            exception();
+	        });
+	    },
+
+	    post: function post(weg, param, success) {
+	        var progress = weex.requireModule("progress");
+	        this.postShort(weg, param, {}, function () {
+	            progress.show();
+	        }, success, function () {
+	            progress.dismiss();
+	        });
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var host = 'http://191.168.2.117:8080/';
+	function getScreenHeight() {
+
+	    return 750 / weex.config.env.deviceWidth * weex.config.env.deviceHeight;
+	}
+
+/***/ }),
+/* 12 */,
+/* 13 */
 /***/ (function(module, exports) {
 
 	module.exports = {
 	  "bg": {
 	    "backgroundColor": "#f5f5f5"
+	  },
+	  "cell": {
+	    "height": 100,
+	    "backgroundColor": "#ffffff",
+	    "flexDirection": "row",
+	    "alignItems": "center",
+	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
 	  }
 	}
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -312,12 +478,6 @@
 	    "backgroundColor:disabled": "#eeeeee",
 	    "color:disabled": "#d3d3d3"
 	  },
-	  "cell": {
-	    "height": 100,
-	    "backgroundColor": "#ffffff",
-	    "flexDirection": "row",
-	    "alignItems": "center"
-	  },
 	  "text": {
 	    "color": "#929292",
 	    "fontSize": 30,
@@ -335,7 +495,7 @@
 	}
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -432,18 +592,27 @@
 	//
 	//
 	//
-	//
-	//
 
-	var finput = __webpack_require__(13);
+	var finput = __webpack_require__(16);
 	var button = __webpack_require__(4);
+	var sendcode = __webpack_require__(20);
+	var login = __webpack_require__(9);
+	var util = __webpack_require__(11);
+	var net = __webpack_require__(10);
 	exports.default = {
-	    components: { finput: finput, button: button },
-	    data: {
-	        btn_disabled: false,
-	        tel: ''
-
+	    components: { finput: finput, button: button, sendcode: sendcode },
+	    data: function data() {
+	        return {
+	            btn_disabled: true,
+	            tel: '',
+	            capId: '',
+	            codeimg: 'root:img/code_loading.png',
+	            phone: '',
+	            tcode: '',
+	            mcode: ''
+	        };
 	    },
+
 	    methods: {
 	        update: function update(e) {
 	            this.target = 'Weex';
@@ -452,24 +621,68 @@
 	        ableclick: function ableclick() {
 	            this.btn_disabled = !this.btn_disabled;
 	        },
+	        ontcodechange: function ontcodechange(txt) {
+	            this.tcode = txt;
+	            this.oninput();
+	        },
+	        onmcodechange: function onmcodechange(txt) {
+	            this.mcode = txt;
+	            this.oninput();
+	        },
 	        oninput: function oninput(e) {
-
-	            //               this.btn_disabled=!(e.value!='');
-
+	            //            console.log('phone='+this.phone)
+	            //            console.log('phone='+this.code)
+	            if (this.phone != '') {
+	                if (this.mcode != '') {
+	                    this.btn_disabled = false;
+	                    return;
+	                }
+	            }
+	            this.btn_disabled = true;
 	        },
-	        change: function change() {
-	            //               this.btn_disabled=!this.btn_disabled;
+
+	        sendCode: function sendCode() {
+
+	            var modal = weex.requireModule("modal");
+	            if (this.phone == '') {
+	                modal.toast({ message: '请输入手机号!' });
+	                return;
+	            }
+	            if (this.tcode == '') {
+	                modal.toast({ message: '请输入图形验证码!' });
+	                return;
+	            }
+	            this.$refs.send.send('2', this.phone, this.capId, this.tcode);
 	        },
-	        onclick: function onclick() {
-	            var navigator = weex.requireModule('navigator');
-	            navigator.push('regist.js');
-	            //            modal.toast({message:'kk'})
+
+	        getCode: function getCode() {
+	            var self = this;
+	            net.post('captcha/get.json', { type: '2' }, function (res) {
+
+	                self.capId = res.id;
+	                self.codeimg = res.url;
+	            });
+	        },
+	        checkCode: function checkCode() {
+	            var self = this;
+	        },
+	        sendMsg: function sendMsg(type, id) {
+	            net.post('captcha/check.json', { type: '2', id: this.capId, code: this.tcode }, function (res) {});
+	        },
+	        submit: function submit() {
+	            var sefl = this;
+	            net.post('msg/checkCode.json', { phone: this.phone, code: this.mcode }, function (res) {
+
+	                var navigator = weex.requireModule('navigator');
+	                navigator.pushParam('regist.js', { phone: sefl.phone });
+	            });
 	        }
 
 	    },
 
 	    created: function created() {
 
+	        this.getCode();
 	        var self = this;
 	        var globalEvent = weex.requireModule('globalEvent');
 	        var navigator = weex.requireModule('navigator');
@@ -500,26 +713,29 @@
 	            //              nav.setBackgroundColor("#eeeeee");
 
 	        });
+	    },
+	    mounted: function mounted() {
+	        //          this.getCode();
 	    }
 	};
 	module.exports = exports['default'];
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(14)
+	__vue_styles__.push(__webpack_require__(17)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(15)
+	__vue_exports__ = __webpack_require__(18)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(16)
+	var __vue_template__ = __webpack_require__(19)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -549,7 +765,7 @@
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -561,7 +777,7 @@
 	}
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -586,12 +802,16 @@
 	            type: String
 
 	        },
+	        placeholder_color: {
+	            default: '#ffffff'
+
+	        },
 	        color: {
-	            type: String
+	            default: '#000000'
 
 	        },
 	        value: {
-	            type: String
+	            default: ''
 	        },
 
 	        type: {
@@ -600,6 +820,12 @@
 	        },
 	        font_size: {
 	            default: 20
+	        },
+	        autofocus: {
+	            default: false
+	        },
+	        return_key_type: {
+	            default: 'defalut'
 	        }
 
 	    },
@@ -615,32 +841,37 @@
 	    methods: {
 	        onchange: function onchange(event) {
 	            this.visiable = !event.value == '';
-	            this.$emit('onchange', event);
+	            //                this.$emit('onchange',event.value);
+	            this.value = event.value;
 	            //                this.name="xxx"
+	        },
+	        focus: function focus() {
+	            this.$emit('focus');
+	        },
+	        blur: function blur() {
+	            this.$refs.input.blur();
+	            this.$emit('blur');
 	        },
 	        oninput: function oninput(e) {
 
 	            //                this.$emit('oninput');
-	            this.$emit('oninput', e);
+	            this.value = e.value;
 	            this.visiable = e.value != '';
+	            this.$emit('onchange', e.value);
+	        },
+	        onreturn: function onreturn(e) {
+	            this.$emit('return', e);
 	        },
 	        onclose: function onclose() {
 	            this.value = '';
+	            this.visiable = false;
+	            this.$emit('onchange', '');
 	        }
 	    },
 
 	    created: function created() {
 	        var globalEvent = weex.requireModule('globalEvent');
-	        globalEvent.addEventListener("onPageInit", function (e) {
-
-	            var nav = weex.requireModule('navbar');
-	            nav.setTitle('注册');
-	            nav.setBack(true, 'black');
-	            nav.setBackgroundColor("#ffffff");
-	            nav.setTitleColor('#313133');
-	            nav.setStatusBarStyle('black');
-	            nav.hideBottomLine(false);
-	        });
+	        globalEvent.addEventListener("onPageInit", function (e) {});
 
 	        this.visiable = !this.value == '';
 	    },
@@ -649,7 +880,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -660,20 +891,26 @@
 	      alignItems: "center"
 	    }
 	  }, [_c('input', {
+	    ref: "input",
 	    staticStyle: {
 	      flex: "1",
 	      paddingLeft: "20",
 	      height: "100"
 	    },
 	    style: {
-	      'color': _vm.color
+	      'color': _vm.color,
+	      'placeholder-color': _vm.placeholder_color
 	    },
 	    attrs: {
+	      "returnKeyType": _vm.return_key_type,
+	      "autofocus": _vm.autofocus,
 	      "placeholder": _vm.placeholder,
 	      "type": _vm.type,
 	      "value": (_vm.value)
 	    },
 	    on: {
+	      "return": _vm.onreturn,
+	      "focus": _vm.focus,
 	      "change": _vm.onchange,
 	      "input": [function($event) {
 	        _vm.value = $event.target.attr.value
@@ -705,11 +942,218 @@
 	module.exports.render._withStripped = true
 
 /***/ }),
-/* 17 */
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = []
+
+	/* styles */
+	__vue_styles__.push(__webpack_require__(21)
+	)
+	__vue_styles__.push(__webpack_require__(22)
+	)
+
+	/* script */
+	__vue_exports__ = __webpack_require__(23)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(24)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/zhengjiangrong/work/weex/vshop/src/component/sendCode.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	__vue_options__._scopeId = "data-v-4aa9ca2b"
+	__vue_options__.style = __vue_options__.style || {}
+	__vue_styles__.forEach(function (module) {
+	  for (var name in module) {
+	    __vue_options__.style[name] = module[name]
+	  }
+	})
+	if (typeof __register_static_styles__ === "function") {
+	  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+	}
+
+	module.exports = __vue_exports__
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+	module.exports = {
+	  "bg": {
+	    "backgroundColor": "#f5f5f5"
+	  },
+	  "cell": {
+	    "height": 100,
+	    "backgroundColor": "#ffffff",
+	    "flexDirection": "row",
+	    "alignItems": "center",
+	    "borderRadius": 5
+	  },
+	  "arrow": {
+	    "width": 16,
+	    "height": 26
+	  },
+	  "font_normal": {
+	    "fontSize": 30
+	  },
+	  "theme_color": {
+	    "color": "#ff6e15"
+	  },
+	  "theme_bg": {
+	    "color": "#ff6e15"
+	  },
+	  "mask": {
+	    "backgroundColor": "#000000",
+	    "opacity": 0.6,
+	    "position": "absolute",
+	    "left": 0,
+	    "top": 0,
+	    "bottom": 0,
+	    "right": 0
+	  }
+	}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+	module.exports = {
+	  "text": {
+	    "color": "#ffffff",
+	    "fontSize": 30
+	  },
+	  "text-disabled": {
+	    "color": "#b4b4b4",
+	    "fontSize": 30
+	  },
+	  "button": {
+	    "height": 100,
+	    "backgroundColor": "#ff4800",
+	    "alignItems": "center",
+	    "justifyContent": "center",
+	    "color": "#ffffff",
+	    "borderRadius": 8,
+	    "backgroundColor:active": "#ff1b08"
+	  },
+	  "button-disabled": {
+	    "height": 100,
+	    "backgroundColor": "#eeeeee",
+	    "alignItems": "center",
+	    "justifyContent": "center",
+	    "color": "#ffffff",
+	    "borderRadius": 8,
+	    "backgroundColor:active": "#eeeeee"
+	  }
+	}
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+
+	var net = __webpack_require__(10);
+	exports.default = {
+	    props: {
+
+	        isEnable: {
+
+	            default: true
+	        }
+
+	    },
+	    data: function data() {
+	        return {
+
+	            visiable: true,
+	            text: '点击发送',
+	            count: 60
+
+	        };
+	    },
+
+	    methods: {
+	        send: function send(type, phone, id, code) {
+
+	            if (this.isEnable) {
+	                var self = this;
+	                net.postFull('msg/sendCode.json', { type: '2', phone: phone, id: id, code: code }, {}, function () {}, function (res) {
+
+	                    var modal = weex.requireModule("modal");
+	                    modal.toast({ message: '短信已发送，请查收!' });
+	                    self.counting();
+	                }, function () {});
+	            }
+	        },
+	        counting: function counting() {
+	            var self = this;
+	            var it = setInterval(function () {
+
+	                if (self.count > 0) {
+	                    self.count--;
+	                    self.text = self.count + "后可发送";
+	                } else {
+	                    self.text = '点击发送';
+	                    clearInterval(it);
+	                }
+	                self.isEnable = self.count == 0;
+	            }, 1000);
+	        }
+	    },
+
+	    created: function created() {
+
+	        this.visiable = !this.value == '';
+	    },
+	    ready: function ready() {}
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
+	  return _c('div', [_c('text', {
+	    staticStyle: {
+	      color: "black",
+	      fontSize: "30"
+	    }
+	  }, [_vm._v(_vm._s(_vm.text))])])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('scroller', {
+	    staticClass: ["bg"]
+	  }, [_c('div', {
 	    staticClass: ["bg"]
 	  }, [_c('div', {
 	    staticStyle: {
@@ -718,7 +1162,29 @@
 	      marginLeft: "50",
 	      marginRight: "50"
 	    }
-	  }, [_vm._m(0), _c('div', {
+	  }, [_c('div', {
+	    staticClass: ["cell"]
+	  }, [_c('text', {
+	    staticStyle: {
+	      marginLeft: "20"
+	    }
+	  }, [_vm._v("+86")]), _c('input', {
+	    staticStyle: {
+	      flex: "1",
+	      marginLeft: "20",
+	      height: "100"
+	    },
+	    attrs: {
+	      "type": "tel",
+	      "placeholder": "请输入手机号",
+	      "value": (_vm.phone)
+	    },
+	    on: {
+	      "input": [function($event) {
+	        _vm.phone = $event.target.attr.value
+	      }, _vm.oninput]
+	    }
+	  })]), _c('div', {
 	    staticClass: ["cell"],
 	    staticStyle: {
 	      marginTop: "30"
@@ -728,11 +1194,11 @@
 	      flex: "1"
 	    },
 	    attrs: {
-	      "placeholder": "请输入验证码",
-	      "value": _vm.tel
+	      "placeholder": "请输入右侧验证码",
+	      "value": _vm.tcode
 	    },
 	    on: {
-	      "oninput": _vm.oninput
+	      "onchange": _vm.ontcodechange
 	    }
 	  }), _c('div', {
 	    staticStyle: {
@@ -740,7 +1206,58 @@
 	      width: "2",
 	      backgroundColor: "#f2f2f2"
 	    }
-	  }), _vm._m(1)], 1), _vm._m(2), _c('button', {
+	  }), _c('div', {
+	    staticStyle: {
+	      width: "200",
+	      alignItems: "center",
+	      justifyContent: "center"
+	    },
+	    on: {
+	      "click": _vm.getCode
+	    }
+	  }, [_c('image', {
+	    staticStyle: {
+	      width: "180",
+	      height: "80"
+	    },
+	    attrs: {
+	      "src": _vm.codeimg,
+	      "placeholder": "root:img/code_loading.png"
+	    }
+	  })])], 1), _c('div', {
+	    staticClass: ["cell"],
+	    staticStyle: {
+	      marginTop: "30"
+	    }
+	  }, [_c('finput', {
+	    staticStyle: {
+	      flex: "1"
+	    },
+	    attrs: {
+	      "placeholder": "请输入短信验证码",
+	      "value": _vm.mcode
+	    },
+	    on: {
+	      "onchange": _vm.onmcodechange
+	    }
+	  }), _c('div', {
+	    staticStyle: {
+	      height: "70",
+	      width: "2",
+	      backgroundColor: "#f2f2f2"
+	    }
+	  }), _c('div', {
+	    staticStyle: {
+	      minWidth: "200",
+	      alignItems: "center",
+	      justifyContent: "center"
+	    },
+	    on: {
+	      "click": _vm.sendCode
+	    }
+	  }, [_c('sendcode', {
+	    ref: "send"
+	  })], 1)], 1), _vm._m(0), _c('button', {
 	    staticStyle: {
 	      marginTop: "120"
 	    },
@@ -749,38 +1266,10 @@
 	      "disabled": _vm.btn_disabled
 	    },
 	    on: {
-	      "onclick": _vm.onclick
+	      "onclick": _vm.submit
 	    }
-	  })], 1)])
+	  })], 1)])])
 	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: ["cell"]
-	  }, [_c('text', {
-	    staticStyle: {
-	      marginLeft: "20"
-	    }
-	  }, [_vm._v("+86")]), _c('input', {
-	    staticStyle: {
-	      flex: "1",
-	      marginLeft: "20"
-	    },
-	    attrs: {
-	      "type": "tel",
-	      "placeholder": "请输入手机号"
-	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticStyle: {
-	      width: "200"
-	    }
-	  }, [_c('image', {
-	    staticStyle: {
-	      width: "100",
-	      height: "100"
-	    }
-	  })])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
 	    staticStyle: {
 	      flexDirection: "row",

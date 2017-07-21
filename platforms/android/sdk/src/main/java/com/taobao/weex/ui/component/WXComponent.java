@@ -39,7 +39,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.taobao.weex.IWXActivityStateListener;
@@ -72,7 +71,6 @@ import com.taobao.weex.utils.WXReflectionUtils;
 import com.taobao.weex.utils.WXResourceUtils;
 import com.taobao.weex.utils.WXUtils;
 import com.taobao.weex.utils.WXViewUtils;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -199,7 +197,7 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
     void onHostViewClick();
   }
 
-  public interface OnFocusChangeListener{
+  interface OnFocusChangeListener{
     void onFocusChange(boolean hasFocus);
   }
 
@@ -708,6 +706,19 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
     }
   }
 
+  private void setPerspective(Object param) {
+    T host = getHostView();
+    if (host != null) {
+      float value = WXUtils.getFloatByViewport(param, getInstance().getInstanceViewPortWidth());
+      float scale = host.getResources().getDisplayMetrics().density;
+      if (!Float.isNaN(value) && value > 0) {
+        host.setCameraDistance(value * scale);
+      } else {
+        host.setCameraDistance(Float.MAX_VALUE);
+      }
+    }
+  }
+
   @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
   protected void setAriaHidden(boolean isHidden) {
     View host = getHostView();
@@ -759,7 +770,7 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
    * @param type
    */
   public void addEvent(String type) {
-    if (TextUtils.isEmpty(type)) {
+    if (TextUtils.isEmpty(type) || mAppendEvents.contains(type)) {
       return;
     }
     mAppendEvents.add(type);
@@ -850,6 +861,17 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
     }
   }
 
+  /**
+   * get Scroller components
+   */
+  @Nullable
+  public Scrollable getFirstScroller() {
+   if(this instanceof Scrollable){
+     return (Scrollable)this;
+   }
+   return null;
+  }
+
   public WXVContainer getParent() {
     return mParent;
   }
@@ -918,6 +940,7 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
    */
   @CallSuper
   protected void onHostViewInitialized(T host){
+    host.setCameraDistance(Float.MAX_VALUE);
     if (mAnimationHolder != null) {
       //Performs cached animation
       mAnimationHolder.execute(mInstance, this);
@@ -1369,8 +1392,27 @@ public abstract class  WXComponent<T extends View> implements IWXObject, IWXActi
      */
   @CheckResult
   protected Object convertEmptyProperty(String propName, Object originalValue) {
-    if (Constants.Name.BACKGROUND_COLOR.equals(propName)) {
-      return "transparent";
+    switch (propName) {
+      case Constants.Name.BACKGROUND_COLOR:
+        return "transparent";
+      case Constants.Name.BORDER_RADIUS:
+      case Constants.Name.BORDER_BOTTOM_LEFT_RADIUS:
+      case Constants.Name.BORDER_BOTTOM_RIGHT_RADIUS:
+      case Constants.Name.BORDER_TOP_LEFT_RADIUS:
+      case Constants.Name.BORDER_TOP_RIGHT_RADIUS:
+        return 0;
+      case Constants.Name.BORDER_WIDTH:
+      case Constants.Name.BORDER_TOP_WIDTH:
+      case Constants.Name.BORDER_LEFT_WIDTH:
+      case Constants.Name.BORDER_RIGHT_WIDTH:
+      case Constants.Name.BORDER_BOTTOM_WIDTH:
+        return 0;
+      case Constants.Name.BORDER_COLOR:
+      case Constants.Name.BORDER_TOP_COLOR:
+      case Constants.Name.BORDER_LEFT_COLOR:
+      case Constants.Name.BORDER_RIGHT_COLOR:
+      case Constants.Name.BORDER_BOTTOM_COLOR:
+        return "black";
     }
     return originalValue;
   }

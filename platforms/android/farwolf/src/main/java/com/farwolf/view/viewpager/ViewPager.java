@@ -1,26 +1,22 @@
 package com.farwolf.view.viewpager;
 
-import com.farwolf.libary.R;
-import com.farwolf.view.viewpager.Indicator.OnItemClick;
-
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.LinearLayout;
+
+import com.farwolf.libary.R;
+import com.farwolf.view.viewpager.Indicator.OnItemClick;
 
 public class ViewPager extends LinearLayout{
 
 	android.support.v4.view.ViewPager viewpager;
-	
 
 
-	Indicator indicator;
+
+	public Indicator indicator;
 	
 	public ViewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -33,14 +29,18 @@ public class ViewPager extends LinearLayout{
 		 init();
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	public void setPreloadSize(int size)
+	{
+		viewpager.setOffscreenPageLimit(size);
+	}
 	
 	void init()
 	{
 		LayoutInflater.from(getContext()).inflate(getViewId(), this);
 		viewpager=(android.support.v4.view.ViewPager) findViewById(R.id.api_viewpager);
 		indicator=(Indicator) findViewById(R.id.api_indicator);
-	
+
 		indicator.setOnItemClickListener(new OnItemClick() {
 			
 			@Override

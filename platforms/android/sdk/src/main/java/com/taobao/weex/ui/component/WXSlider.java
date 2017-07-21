@@ -34,6 +34,7 @@ import com.taobao.weex.WXEnvironment;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.WXSDKManager;
 import com.taobao.weex.annotation.Component;
+import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.common.Constants;
 import com.taobao.weex.dom.WXDomObject;
 import com.taobao.weex.dom.WXEvent;
@@ -125,6 +126,13 @@ public class WXSlider extends WXVContainer<FrameLayout> {
     return view;
   }
 
+
+  @JSMethod
+  public void rework()
+  {
+    setAutoPlay("true");
+  }
+
   /**
    * Slider is not a regular container,top/left/right/bottom not apply to view,expect indicator.
    */
@@ -163,8 +171,8 @@ public class WXSlider extends WXVContainer<FrameLayout> {
 
   @Override
   public boolean containsGesture(WXGestureType WXGestureType) {
-    //TODO Slider don't support any gesture for now.
-    return false;
+    //Enable gesture for slider
+    return super.containsGesture(WXGestureType);
   }
 
   @Override

@@ -9,5 +9,5 @@
 #import <WeexSDK/WeexSDK.h>
 static NSMutableDictionary *map;
 @interface WXStaticModule :  NSObject < WXModuleProtocol>
-
+-(id)get:(NSString*)key;
 @end

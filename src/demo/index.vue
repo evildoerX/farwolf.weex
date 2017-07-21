@@ -21,6 +21,7 @@
                 <a href="refresh.js" class="btn"> <text style="color:#ffffff">refresh</text></a>
                 <a href="loading.js" class="btn"> <text style="color:#ffffff">loading</text></a>
                 <a href="tabpage.js" class="btn"> <text style="color:#ffffff">tab</text></a>
+                <a href="pickerdemo.js" class="btn"> <text style="color:#ffffff">地址选择</text></a>
             </div>
 
 

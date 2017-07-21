@@ -7,7 +7,7 @@
 //
 
 #import "CollectionControl.h"
-
+#import "SplashControl.h"
 @interface CollectionControl ()
 
 @end
@@ -15,8 +15,9 @@
 @implementation CollectionControl
 
 - (void)viewDidLoad {
+      self.page=[SplashControl getPage:@"关注"];
     [super viewDidLoad];
-        self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/recycler" withExtension:@"js"];
+//        self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/recycler" withExtension:@"js"];
     // Do any additional setup after loading the view.
 }
 
@@ -24,6 +25,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [self.navigationController.navigationBar setTranslucent:false];
+//}
+//
+//-(void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    [self.navigationController.navigationBar setTranslucent:true];
+//}
+
 
 /*
 #pragma mark - Navigation

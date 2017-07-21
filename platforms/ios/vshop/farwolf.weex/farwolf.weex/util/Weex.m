@@ -13,6 +13,11 @@
 #import "WXFImageComponent.h"
 #import "WXStaticModule.h"
 #import "WXFarwolfModule.h"
+#import "WXFEmbedComponent.h"
+#import "ProgressModule.h"
+#import "WXPrefModule.h"
+#import "WXFPicker.h"
+#import "WXFPickerModule.h"
 
 @implementation Weex
 
@@ -30,22 +35,21 @@
     [WXSDKEngine registerModule:@"net" withClass:[WXNetModule class]];
     [WXSDKEngine registerModule:@"static" withClass:[WXStaticModule class]];
     [WXSDKEngine registerModule:@"farwolf" withClass:[WXFarwolfModule class]];
-    
-    
+    [WXSDKEngine registerModule:@"progress" withClass:[ProgressModule class]];
+      [WXSDKEngine registerModule:@"pref" withClass:[WXPrefModule class]];
+        [WXSDKEngine registerModule:@"fpicker" withClass:[WXFPickerModule class]];
     
     [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
     [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
     [WXSDKEngine registerComponent:@"a" withClass:[WXPushComponent class]];
     [WXSDKEngine registerComponent:@"floading" withClass:[WXLoadingView class]];
     [WXSDKEngine registerComponent:@"image" withClass:[WXFImageComponent class]];
-    
-//     [WXSDKEngine registerComponent:@"floading" withClass:[WXLoadingIndicator class]];
-    
-//    [WXSDKEngine registerComponent:@"imageBtn" withClass:[WXImgButtonComponent class]];
-    
+    [WXSDKEngine registerComponent:@"embed" withClass:[WXFEmbedComponent class]];
+    [WXSDKEngine registerComponent:@"wheel" withClass:[WXFPicker class]];
+ 
     
     
-//    [WXLog setLogLevel: WXLogLevelLog];
+    [WXLog setLogLevel: WXLogLevelOff];
     
 }
 
@@ -59,17 +63,61 @@
     basedir=dir;
 }
 
++(void)setBaseUrl:(NSString *)url
+{
+    //    NSString *url= weexInstance.scriptURL.absoluteString;
+    NSString *s=[s replace:@"root:" withString:@""];
+    
+    if([url startWith:@"http"])
+    {
+        NSArray *n=  [url split:@":"];
+        if(n.count==3)
+        {
+            url=[[[[[[@"" add:n[0]] add:@":"] add:n[1]] add:@":"] add:[n[2] split:@"/"][0]] add:@"/"];
+        }
+        else if(n.count==3)
+        {
+            url=[[[@"" add:n[0]] add:[n[1] split:@"/"][0]] add:@"/"] ;
+        }
+        
+        url=[url add:s];
+        
+        if(![basedir isEqualToString:@""])
+            url=[[url add:basedir]add:@"/"];
+    }
+    else
+    {
+        NSArray *n= [url split:@"/app/"];
+        url=[n[0] add:@"/app/"] ;
+    }
+    baseurl=url;
+    
+}
++(NSString*)getBaseUrl
+{
+    return baseurl;
+}
+
 +(void)startDebug:(NSString*)ip port:(NSString*)port
 {
-//     [WXDevTool setDebug:YES];
+     [WXDevTool setDebug:YES];
     NSString *url=[[[[@"ws://" add:ip]add:@":"]add:port]add:@"/debugProxy/native"];
     [WXDevTool launchDevToolDebugWithUrl:url];
-   
+//   [WXLog setLogLevel:WXLogLevelLog];
+//     [WXDevTool setDebug:YES];
+    
+//     [WXDebugTool setDebug:YES];
 }
 
 
 +(NSString*)getFinalUrl:(NSString*)url weexInstance:(WXSDKInstance*)weexInstance
 {
+    if([url startWith:@"root:"])
+    {
+        url=[url replace:@"root:" withString:[Weex getBaseUrl]];
+        return url;
+    }
+   
      return [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
 }
 

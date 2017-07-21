@@ -10,8 +10,8 @@
 
 @implementation WXNetModule
 @synthesize weexInstance;
-WX_EXPORT_METHOD(@selector(post:param:header:start:success:exception:compelete:))
-WX_EXPORT_METHOD(@selector(get:param:header:start:success:exception:compelete:))
+WX_EXPORT_METHOD(@selector(post:param:header:start:success:compelete:exception:))
+WX_EXPORT_METHOD(@selector(get:param:header:start:success:compelete:exception:))
 
 -(void)fetch:(BOOL)usepost url:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start exception:(WXModuleKeepAliveCallback)exception success:(WXModuleKeepAliveCallback)success compelete:(WXModuleKeepAliveCallback)compelete
 {
@@ -19,6 +19,7 @@ WX_EXPORT_METHOD(@selector(get:param:header:start:success:exception:compelete:))
     j.url=url;
     j.header=header;
     j.param=param;
+   
     [j excuteNoLimit:^{
         start(@{},false);
     } success:^(Json *j) {
@@ -33,13 +34,13 @@ WX_EXPORT_METHOD(@selector(get:param:header:start:success:exception:compelete:))
 
 
 
--(void)post:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start  success:(WXModuleKeepAliveCallback)success exception:(WXModuleKeepAliveCallback)exception compelete:(WXModuleKeepAliveCallback)compelete
+-(void)post:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start  success:(WXModuleKeepAliveCallback)success  compelete:(WXModuleKeepAliveCallback)compelete exception:(WXModuleKeepAliveCallback)exception
 {
     [self fetch:true url:url param:param header:header start:start exception:exception success:success compelete:compelete];
 }
 
 
--(void)get:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start  success:(WXModuleKeepAliveCallback)success exception:(WXModuleKeepAliveCallback)exception compelete:(WXModuleKeepAliveCallback)compelete
+-(void)get:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start  success:(WXModuleKeepAliveCallback)success  compelete:(WXModuleKeepAliveCallback)compelete exception:(WXModuleKeepAliveCallback)exception
 {
     [self fetch:false url:url param:param header:header start:start exception:exception success:success compelete:compelete];
 }

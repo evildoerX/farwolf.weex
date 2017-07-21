@@ -8,7 +8,11 @@
 
 #import "TabController.h"
 #import "WXNormalViewContrller.h"
-@interface TabController ()
+#import "TabSelector.h"
+#import "WeexFactory.h"
+#import "farwolf.h"
+#import "WXStaticModule.H"
+@interface TabController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -16,20 +20,71 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.edgesForExtendedLayout = UIRectEdgeNone;
 //    [self setSelectedIndex:1];
     
 //    [self load];
- 
+     [self setDelegate:self];
     for(UINavigationController *n in self.viewControllers)
     {
         UIViewController *vb= n.childViewControllers[0];
         [vb viewDidLoad];
     }
-//    [self.viewControllers[3] loadView];
-    
-//    [self loadView];
-    // Do any additional setup after loading the view.
+    [self loadTabBar];
+    CGFloat w=[UIScreen mainScreen].bounds.size.width;
+    [self.tabBar setShadowImage:[self imageWithColor:[@"#1296db" toColor] size:CGSizeMake(w,0.5)]];
+    [[UIApplication sharedApplication]setStatusBarHidden:false];;
+    [self regist:@"tabselect" method:@selector(tabselect:)];
+
 }
+-(void)tabselect:(NSNotification*)n
+{
+   NSString *name=  n.userInfo[@"name"];
+    
+    if([@"推荐" isEqualToString:name])
+    {
+         [self setSelectedIndex:0];
+    }
+    else if([@"电视剧" isEqualToString:name])
+    {
+         [self setSelectedIndex:1];
+    }
+    else if([@"电影" isEqualToString:name])
+    {
+         [self setSelectedIndex:2];
+    }
+
+    else if([@"关注" isEqualToString:name])
+    {
+         [self setSelectedIndex:3];
+    }
+    else if([@"我的" isEqualToString:name])
+    {
+         [self setSelectedIndex:4];
+    }
+    
+    
+
+
+}
+-(UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    if (!color || size.width <=0 || size.height <=0) return nil;
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size,NO, 0);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,15 +92,6 @@
 }
 
 
--(void)load
-{
-//    [self createSub:@"app/index" title:@"主页"];
-     [self addChildViewController:[self createSub:@"app/index" title:@"主页" img:@"" select:@""]];
-     [self addChildViewController:[self createSub:@"app/wechat" title:@"发现" img:@"" select:@""]];
-     [self addChildViewController:[self createSub:@"app/photo" title:@"photo" img:@"" select:@""]];
-     [self addChildViewController:[self createSub:@"app/net" title:@"网络" img:@"" select:@""]];
-     [self addChildViewController:[self createSub:@"app/list" title:@"列表" img:@"" select:@""]];
-}
 
 
 -(UINavigationController*)createSub:(NSString*)url title:(NSString*)title img:(NSString*)img select:(NSString*)selectimg
@@ -62,16 +108,136 @@
      [vc viewDidLoad];
     return nav;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
-*/
+
+-(void)loadTabBar
+{
+    //    UITabBarController *tabc=(UITabBarController*)self.window.rootViewController;
+    NSArray *n=self.tabBar.items ;
+    self.tabBar.tintColor=[@"#1296db" toColor];
+    for (UITabBarItem *i in n) {
+        
+        TabSelector *ts=[self getSelector:i.title];
+        UIImage *un=[[UIImage imageNamed:ts.unselect] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        
+        UIImage *sel=[[UIImage imageNamed:ts.select]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        i.image=un;
+        i.selectedImage=sel;
+        
+        
+        
+        
+        CGRect rect = [[UIScreen mainScreen] bounds];
+        CGSize size = rect.size;
+        CGFloat width = size.width;
+        CGFloat height = size.height;
+        CGFloat scale_screen = [UIScreen mainScreen].scale;
+        NSLog(@"print %f,%f",width*scale_screen,height*scale_screen);
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController NS_AVAILABLE_IOS(3_0)
+{
+ 
+    NSInteger index = [tabBarController.viewControllers indexOfObject:viewController];
+    if(index>1)
+    {
+        NSArray *dex=@[@"推荐",@"电视剧",@"电影",@"关注",@"我的"];
+     return YES;
+//        WXStaticModule *n=[WXStaticModule new];
+//        if([n get:@"user"]!=nil)
+//        {
+//            return YES;
+//        }
+//        else{
+//        
+//            NSURL *url= [[NSBundle mainBundle] URLForResource:@"app/busi/account/login" withExtension:@"js"];;
+//            [WeexFactory render:url compelete:^(Page *p) {
+//                WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
+//                
+//                vc.hidesBottomBarWhenPushed = YES;
+//               
+//                vc.nativeCallback=^(NSObject *res){
+//           
+////                    [self setSelectedIndex:index];
+////                    self.selectedViewController=tabBarController.viewControllers[index];
+////                    [self tabBarController:self didSelectViewController:tabBarController.viewControllers[index]];
+//                };
+// 
+//                vc.page=p;
+//                 UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
+//                [self presentViewController:nav animated:true completion:^{
+//                    
+//                }];
+//                
+//            }];
+//            
+//            return  NO;
+//        }
+        
+        
+        
+        
+    }
+    else
+    {
+        return YES;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+-(TabSelector*)getSelector:(NSString*)t
+{
+    TabSelector *ts=[TabSelector alloc];
+    
+    if([t isEqual:@"推荐"])
+    {
+        [ts initWithImg:@"menu_home_30" select:@"menu_home_30o"];
+    }
+    else if([t isEqual:@"电视剧"])
+    {
+        [ts initWithImg:@"serial_u" select:@"serial"];
+    }
+    else if([t isEqual:@"电影"])
+    {
+        [ts initWithImg:@"mv_un_30" select:@"mv_30"];
+    }
+    else if([t isEqual:@"关注"])
+    {
+        [ts initWithImg:@"co_u" select:@"co"];
+    }
+    else if([t isEqual:@"我的"])
+    {
+        [ts initWithImg:@"menu_my_30" select:@"menu_my_30o"];
+    }
+    
+    return ts;
+}
+
+
 
 @end

@@ -15,7 +15,7 @@ public class WXStaticModule extends WXModule {
     static HashMap<String,Object> m=new HashMap<>();
 
 
-    @JSMethod
+    @JSMethod(uiThread = false)
     public Object get(String key)
     {
           return m.get(key);

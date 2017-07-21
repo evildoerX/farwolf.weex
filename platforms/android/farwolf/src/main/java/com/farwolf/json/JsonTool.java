@@ -1,13 +1,13 @@
 package com.farwolf.json;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JsonTool {
 	
@@ -20,9 +20,9 @@ public class JsonTool {
 	{
 		return new Gson().fromJson(s, c);
 	}
-	public static <T> List<T> toList(JSONArray ja,Class<T> c)  
+	public static <T> ArrayList<T> toList(JSONArray ja,Class<T> c)
 	{
-		List<T> l=new ArrayList<T>();
+		ArrayList<T> l=new ArrayList<T>();
 		if(ja==null)
 		{
 			return l;

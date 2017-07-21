@@ -18,10 +18,15 @@
  */
 package com.taobao.weex;
 
+import android.app.Application;
+import android.content.pm.ApplicationInfo;
+import android.test.mock.MockApplication;
+import com.taobao.weex.adapter.IWXHttpAdapter;
 import com.taobao.weex.bridge.WXBridgeManagerTest;
 import com.taobao.weex.common.TestModule;
 import com.taobao.weex.common.TestModuleFactory;
 import com.taobao.weex.dom.TestDomObject;
+import com.taobao.weex.http.WXStreamModule;
 import com.taobao.weex.ui.component.TestComponent;
 import com.taobao.weex.ui.component.WXComponent;
 
@@ -30,6 +35,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -37,8 +43,7 @@ import org.robolectric.annotation.Config;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by sospartan on 7/20/16.
@@ -88,7 +93,6 @@ public class WXSDKEngineTest {
 
     assertFalse(WXSDKEngine.registerModuleWithFactory(null,new TestModuleFactory(TestModule.class),true));
     assertTrue(WXSDKEngine.registerModuleWithFactory("test1",new TestModuleFactory(TestModule.class),true));
-//    assertFalse(WXSDKEngine.registerModuleWithFactory("test1",null,true));
   }
 
 

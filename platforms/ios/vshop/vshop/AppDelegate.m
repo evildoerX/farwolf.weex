@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "farwolf_weex.h"
 #import "TabController.h"
+#import "TabbarModule.h"
 @interface AppDelegate ()
 
 @end
@@ -18,8 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Weex setBaseDir:@"mv"];
     [Weex initWeex:@"farwolf" appName:@"vshop" appVersion:@"1.0.0"];
-    [Weex startDebug:@"192.168.2.122" port:@"8088"];
+    [WXSDKEngine registerModule:@"tabbar" withClass:[TabbarModule class]];
+//     [WXLog setLogLevel:WXLogLevelOff];
+//    [Weex startDebug:@"192.168.1.100" port:@"8088"];
 //    TabController *tab=[TabController new];
     //1.创建Window
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

@@ -14,10 +14,14 @@
 		4D2665471ECD84CD00664B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2665461ECD84CD00664B38 /* Assets.xcassets */; };
 		4D26654A1ECD84CD00664B38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2665481ECD84CD00664B38 /* LaunchScreen.storyboard */; };
 		4D2665521ECD85AF00664B38 /* app in Resources */ = {isa = PBXBuildFile; fileRef = 4D2665511ECD85AF00664B38 /* app */; };
+		4D2DB4AA1F04E21200D47B46 /* TabbarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DB4A91F04E21200D47B46 /* TabbarModule.m */; };
+		4D76B27F1EF8BAC800BD7FF6 /* MainPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D76B27E1EF8BAC800BD7FF6 /* MainPageControl.m */; };
+		4DAD919E1EF21B7E0020ED5F /* SplashControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD919D1EF21B7E0020ED5F /* SplashControl.m */; };
+		4DB88F241F1B7A89004C5A1A /* SerialControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB88F231F1B7A89004C5A1A /* SerialControl.m */; };
+		4DB88F271F1B7AE3004C5A1A /* MovieControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB88F261F1B7AE3004C5A1A /* MovieControl.m */; };
 		4DBAB2D81ED5232D00389B2C /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBAB2D71ED5232D00389B2C /* TabController.m */; };
-		4DD211861ED6876A003269F7 /* ClassifyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD211851ED6876A003269F7 /* ClassifyControl.m */; };
+		4DC74A911EF1332100D9128B /* TabSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC74A901EF1332100D9128B /* TabSelector.m */; };
 		4DD211891ED68820003269F7 /* CollectionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD211881ED68820003269F7 /* CollectionControl.m */; };
-		4DD2118C1ED68894003269F7 /* ShopingBusControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2118B1ED68894003269F7 /* ShopingBusControl.m */; };
 		4DD2118F1ED68912003269F7 /* MineControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2118E1ED68912003269F7 /* MineControl.m */; };
 		6DA829C2CE98309408F940A4 /* libPods-vshop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEB74A40716872F81AB2240 /* libPods-vshop.a */; };
 /* End PBXBuildFile section */
@@ -34,14 +38,22 @@
 		4D2665491ECD84CD00664B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D26654B1ECD84CD00664B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2665511ECD85AF00664B38 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
+		4D2DB4A81F04E21200D47B46 /* TabbarModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarModule.h; sourceTree = "<group>"; };
+		4D2DB4A91F04E21200D47B46 /* TabbarModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarModule.m; sourceTree = "<group>"; };
+		4D76B27D1EF8BAC800BD7FF6 /* MainPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageControl.h; sourceTree = "<group>"; };
+		4D76B27E1EF8BAC800BD7FF6 /* MainPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageControl.m; sourceTree = "<group>"; };
+		4DAD919C1EF21B7E0020ED5F /* SplashControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashControl.h; sourceTree = "<group>"; };
+		4DAD919D1EF21B7E0020ED5F /* SplashControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashControl.m; sourceTree = "<group>"; };
+		4DB88F221F1B7A89004C5A1A /* SerialControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialControl.h; sourceTree = "<group>"; };
+		4DB88F231F1B7A89004C5A1A /* SerialControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialControl.m; sourceTree = "<group>"; };
+		4DB88F251F1B7AE3004C5A1A /* MovieControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieControl.h; sourceTree = "<group>"; };
+		4DB88F261F1B7AE3004C5A1A /* MovieControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieControl.m; sourceTree = "<group>"; };
 		4DBAB2D61ED5232D00389B2C /* TabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4DBAB2D71ED5232D00389B2C /* TabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
-		4DD211841ED6876A003269F7 /* ClassifyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyControl.h; sourceTree = "<group>"; };
-		4DD211851ED6876A003269F7 /* ClassifyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyControl.m; sourceTree = "<group>"; };
+		4DC74A8F1EF1332100D9128B /* TabSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabSelector.h; sourceTree = "<group>"; };
+		4DC74A901EF1332100D9128B /* TabSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabSelector.m; sourceTree = "<group>"; };
 		4DD211871ED68820003269F7 /* CollectionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionControl.h; sourceTree = "<group>"; };
 		4DD211881ED68820003269F7 /* CollectionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionControl.m; sourceTree = "<group>"; };
-		4DD2118A1ED68894003269F7 /* ShopingBusControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopingBusControl.h; sourceTree = "<group>"; };
-		4DD2118B1ED68894003269F7 /* ShopingBusControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopingBusControl.m; sourceTree = "<group>"; };
 		4DD2118D1ED68912003269F7 /* MineControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineControl.h; sourceTree = "<group>"; };
 		4DD2118E1ED68912003269F7 /* MineControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineControl.m; sourceTree = "<group>"; };
 		4FEB74A40716872F81AB2240 /* libPods-vshop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vshop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,9 +95,13 @@
 		4D2665391ECD84CD00664B38 /* vshop */ = {
 			isa = PBXGroup;
 			children = (
+				4D2FE5E21EFBAAD200FA325D /* module */,
+				4DC74A8E1EF1331800D9128B /* bean */,
 				4DD211831ED68751003269F7 /* tab */,
 				4D26653D1ECD84CD00664B38 /* AppDelegate.h */,
 				4D26653E1ECD84CD00664B38 /* AppDelegate.m */,
+				4DAD919C1EF21B7E0020ED5F /* SplashControl.h */,
+				4DAD919D1EF21B7E0020ED5F /* SplashControl.m */,
 				4DBAB2D61ED5232D00389B2C /* TabController.h */,
 				4DBAB2D71ED5232D00389B2C /* TabController.m */,
 				4D2665401ECD84CD00664B38 /* ViewController.h */,
@@ -107,17 +123,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4D2FE5E21EFBAAD200FA325D /* module */ = {
+			isa = PBXGroup;
+			children = (
+				4D2DB4A81F04E21200D47B46 /* TabbarModule.h */,
+				4D2DB4A91F04E21200D47B46 /* TabbarModule.m */,
+			);
+			name = module;
+			sourceTree = "<group>";
+		};
+		4DC74A8E1EF1331800D9128B /* bean */ = {
+			isa = PBXGroup;
+			children = (
+				4DC74A8F1EF1332100D9128B /* TabSelector.h */,
+				4DC74A901EF1332100D9128B /* TabSelector.m */,
+			);
+			name = bean;
+			sourceTree = "<group>";
+		};
 		4DD211831ED68751003269F7 /* tab */ = {
 			isa = PBXGroup;
 			children = (
-				4DD211841ED6876A003269F7 /* ClassifyControl.h */,
-				4DD211851ED6876A003269F7 /* ClassifyControl.m */,
 				4DD211871ED68820003269F7 /* CollectionControl.h */,
 				4DD211881ED68820003269F7 /* CollectionControl.m */,
-				4DD2118A1ED68894003269F7 /* ShopingBusControl.h */,
-				4DD2118B1ED68894003269F7 /* ShopingBusControl.m */,
 				4DD2118D1ED68912003269F7 /* MineControl.h */,
 				4DD2118E1ED68912003269F7 /* MineControl.m */,
+				4D76B27D1EF8BAC800BD7FF6 /* MainPageControl.h */,
+				4D76B27E1EF8BAC800BD7FF6 /* MainPageControl.m */,
+				4DB88F221F1B7A89004C5A1A /* SerialControl.h */,
+				4DB88F231F1B7A89004C5A1A /* SerialControl.m */,
+				4DB88F251F1B7AE3004C5A1A /* MovieControl.h */,
+				4DB88F261F1B7AE3004C5A1A /* MovieControl.m */,
 			);
 			name = tab;
 			sourceTree = "<group>";
@@ -263,14 +299,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DAD919E1EF21B7E0020ED5F /* SplashControl.m in Sources */,
 				4D2665421ECD84CD00664B38 /* ViewController.m in Sources */,
-				4DD211861ED6876A003269F7 /* ClassifyControl.m in Sources */,
 				4DD2118F1ED68912003269F7 /* MineControl.m in Sources */,
+				4DB88F241F1B7A89004C5A1A /* SerialControl.m in Sources */,
 				4DBAB2D81ED5232D00389B2C /* TabController.m in Sources */,
+				4DB88F271F1B7AE3004C5A1A /* MovieControl.m in Sources */,
 				4D26653F1ECD84CD00664B38 /* AppDelegate.m in Sources */,
 				4D26653C1ECD84CD00664B38 /* main.m in Sources */,
+				4D2DB4AA1F04E21200D47B46 /* TabbarModule.m in Sources */,
 				4DD211891ED68820003269F7 /* CollectionControl.m in Sources */,
-				4DD2118C1ED68894003269F7 /* ShopingBusControl.m in Sources */,
+				4D76B27F1EF8BAC800BD7FF6 /* MainPageControl.m in Sources */,
+				4DC74A911EF1332100D9128B /* TabSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +361,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -369,6 +410,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -396,7 +438,7 @@
 				INFOPLIST_FILE = vshop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.vshop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.movie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -413,7 +455,7 @@
 				INFOPLIST_FILE = vshop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.vshop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.movie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

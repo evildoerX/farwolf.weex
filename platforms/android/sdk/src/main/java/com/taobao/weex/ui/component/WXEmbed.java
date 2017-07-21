@@ -19,6 +19,7 @@
 package com.taobao.weex.ui.component;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -39,6 +40,12 @@ import com.taobao.weex.dom.WXDomObject;
 import com.taobao.weex.utils.WXLogUtils;
 import com.taobao.weex.utils.WXUtils;
 import com.taobao.weex.utils.WXViewUtils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 @Component(lazyload = false)
 public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleListener,NestedContainer {
 
@@ -277,12 +284,45 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
     }
 
     ViewGroup.LayoutParams layoutParams = getHostView().getLayoutParams();
-    sdkInstance.renderByUrl(WXPerformance.DEFAULT,
-                            url,
-                            null, null, layoutParams.width,
-                            layoutParams.height,
-                            WXRenderStrategy.APPEND_ASYNC);
+    this.loadUrl(url,sdkInstance,layoutParams);
     return sdkInstance;
+  }
+
+  public void loadUrl(String url,WXSDKInstance instance,ViewGroup.LayoutParams layoutParams)
+  {
+    if(url.startsWith("http"))
+    {
+      instance.renderByUrl(WXPerformance.DEFAULT, url, null, null, WXRenderStrategy.APPEND_ASYNC);
+    }
+    else
+    {
+      try {
+        instance.render(WXPerformance.DEFAULT, loadAsset(url, instance.getContext()), null, null, WXRenderStrategy.APPEND_ASYNC);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  public static String loadAsset(String path, Context context) throws IOException {
+    if (context == null || TextUtils.isEmpty(path)) {
+      return null;
+    }
+    InputStream inputStream = null;
+    BufferedReader bufferedReader = null;
+
+    inputStream = context.getAssets().open(path);
+    StringBuilder builder = new StringBuilder(inputStream.available() + 10);
+    bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    char[] data = new char[4096];
+    int len = -1;
+    while ((len = bufferedReader.read(data)) > 0) {
+      builder.append(data, 0, len);
+    }
+
+    return builder.toString();
+
+
   }
 
   @Override

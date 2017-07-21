@@ -11,7 +11,8 @@
 @implementation WXStaticModule
 @synthesize weexInstance;
 
-WX_EXPORT_METHOD(@selector(get:))
+WX_EXPORT_METHOD_SYNC(@selector(get:))
+WX_EXPORT_METHOD(@selector(remove:))
 WX_EXPORT_METHOD(@selector(set:value:))
 -(id)get:(NSString*)key
 {
@@ -20,11 +21,17 @@ WX_EXPORT_METHOD(@selector(set:value:))
     return [map objectForKey:key];
 }
 
--(void)set:(NSString*)key value:(NSObject*)V
+-(void)set:(NSString*)key value:(NSObject*)v
 {
     if(map==nil)
         map=[NSMutableDictionary new];
-    [map setValue:V forKey:key];
+    [map setValue:v forKey:key];
+}
+
+
+-(void)remove:(NSString*)key
+{
+    [map removeObjectForKey:key];
 }
 
 @end

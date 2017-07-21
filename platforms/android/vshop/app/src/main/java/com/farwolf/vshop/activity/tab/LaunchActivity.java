@@ -22,11 +22,8 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.HashMap;
 
-import static com.farwolf.vshop.activity.tab.MainActivity.Classify;
-import static com.farwolf.vshop.activity.tab.MainActivity.Collection;
 import static com.farwolf.vshop.activity.tab.MainActivity.MINE;
 import static com.farwolf.vshop.activity.tab.MainActivity.MainPage;
-import static com.farwolf.vshop.activity.tab.MainActivity.ShopingBus;
 
 /**   
  * @ClassName LaunchActivity.java 
@@ -63,14 +60,14 @@ public class LaunchActivity extends Activity {
 	public void jump()
 	{
 
+
+
 		final HashMap<String,String> ex=new 	HashMap<String,String>();
-//		ex.put("app/busi/account/login.js",MainPage);
-		ex.put("index.js",MainPage);
-		ex.put("list.js",Classify);
-//		ex.put("recycler.js",Collection);
-		ex.put("input.js",Collection);
-		ex.put("wechat.js",ShopingBus);
-		ex.put("photo.js",MINE);
+		ex.put("app/busi/tab/main/mainpage.js",MainPage);
+//		ex.put("app/busi/tab/class/classify.js",Classify);
+//		ex.put("app/busi/tab/collection/viewpager.js",Collection);
+//		ex.put("app/busi/tab/shopbus.js",ShopingBus);
+		ex.put("app/busi/tab/mine.js",MINE);
 		for(Object key:ex.keySet().toArray())
 		{
 			final String url=key+"";
@@ -80,7 +77,7 @@ public class LaunchActivity extends Activity {
 					finishCount++;
 					String name=ex.get(url);
 					holder.put(name,p);
-					if(finishCount==5)
+					if(finishCount==2)
 					{
 
 

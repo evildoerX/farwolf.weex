@@ -365,10 +365,10 @@
         NSMutableDictionary *temp=[NSMutableDictionary new];
         for(NSString *key in n)
         {
-            NSString *value=self.param[key];
-            value = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            
-            [temp setValue:value forKey:key];
+            NSObject *value=self.param[key];
+            NSString *t=[@"" add:value];
+            t = [t stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [temp setValue:t forKey:key];
         }
         //        value = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
       return  [manager GET:url parameters:temp success:^(AFHTTPRequestOperation *operation, id responseObject) {

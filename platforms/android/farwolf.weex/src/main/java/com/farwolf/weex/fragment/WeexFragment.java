@@ -1,35 +1,44 @@
 package com.farwolf.weex.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.farwolf.base.FragmentBase;
+import com.farwolf.util.FileTool;
+import com.farwolf.weex.R;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
 
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
+
+import java.io.IOException;
 import java.util.HashMap;
 
-import com.farwolf.weex.R;
+@EFragment
+public class WeexFragment extends FragmentBase implements IWXRenderListener {
 
 
-public class WeexFragment extends Fragment implements IWXRenderListener {
-
+  @ViewById
+  FrameLayout fragment_container;
 
   private String mBundleUrl;
-  private FrameLayout mContainer;
+
+
+
+
   private WXSDKInstance mWXSDKInstance;
 
   public WeexFragment(){
 
   }
 
-  public static WeexFragment newInstance(String bundleUrl) {
-    WeexFragment fragment = new WeexFragment();
+  public static WeexFragment_ newInstance(String bundleUrl) {
+    WeexFragment_ fragment = new WeexFragment_();
+//    fragment.setCache(true);
     Bundle args = new Bundle();
     args.putString(WXSDKInstance.BUNDLE_URL, bundleUrl);
     fragment.setArguments(args);
@@ -44,26 +53,38 @@ public class WeexFragment extends Fragment implements IWXRenderListener {
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    View view = View.inflate(getActivity(), R.layout.fragment_weex, null);
-    mContainer = (FrameLayout) view.findViewById(R.id.fragment_container);
-
     mBundleUrl = getArguments() != null ? getArguments().getString(WXSDKInstance.BUNDLE_URL) : null;
     mWXSDKInstance = new WXSDKInstance(getActivity());
     mWXSDKInstance.registerRenderListener(this);
     HashMap<String, Object> options = new HashMap<>();
     options.put(WXSDKInstance.BUNDLE_URL, mBundleUrl);
-    mWXSDKInstance.renderByUrl("Weex Fragment Sample", mBundleUrl,options, null, WXRenderStrategy.APPEND_ASYNC);
+
+
+
+    if(mBundleUrl.startsWith("http"))
+    {
+      mWXSDKInstance.renderByUrl("farwolf", mBundleUrl, null, null, WXRenderStrategy.APPEND_ASYNC);
+    }
+    else
+    {
+      try {
+        mWXSDKInstance.render("farwolf", FileTool.loadAsset(mBundleUrl, this.getContext()), null, null, WXRenderStrategy.APPEND_ASYNC);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    super.onCreate(savedInstanceState);
+
+
+
   }
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                           Bundle savedInstanceState) {
-    if (mContainer.getParent() != null) {
-      ((ViewGroup) mContainer.getParent()).removeView(mContainer);
-    }
-    return mContainer;
+  public int getViewId() {
+    return  R.layout.fragment_weex;
   }
+
+
 
   @Override
   public void onStart() {
@@ -112,7 +133,7 @@ public class WeexFragment extends Fragment implements IWXRenderListener {
 
   @Override
   public void onViewCreated(WXSDKInstance instance, View view) {
-    mContainer.addView(view);
+    fragment_container.addView(view);
   }
 
   @Override

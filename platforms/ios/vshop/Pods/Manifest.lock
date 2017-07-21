@@ -47,6 +47,7 @@ PODS:
     - farwolf
     - Masonry (~> 0.6.3)
     - SDWebImage (~> 3.8)
+    - SocketRocket (~> 0.4.2)
     - WeexSDK
     - WXDevtool (~> 0.9.5)
   - FontAwesome+iOS (0.1.4)
@@ -79,7 +80,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SocketRocket (0.5.1)
+  - SocketRocket (0.4.2)
   - SRMonthPicker (0.2.10)
   - SSLunarDate (0.0.1)
   - TOCropViewController (2.0.12)
@@ -87,7 +88,7 @@ PODS:
   - UICountingLabel (1.2.0)
   - UIViewController_PopUp (0.0.2)
   - WeexSDK (0.14.0):
-    - SocketRocket
+    - SocketRocket (~> 0.4.2)
   - WXDevtool (0.9.5):
     - WeexSDK
   - YYModel (1.0.4)
@@ -139,7 +140,7 @@ SPEC CHECKSUMS:
   DOPDropDownMenu-Enhanced: 9ec473b16351b5b0b2d6ef87e7f666fe5ff54ad5
   farwolf: 0c5b94f9437e7b67e3951a7565ebf5c2fc8aea08
   farwolf.business: dac235353f260775f36ad022cb361d2a61fa951b
-  farwolf.weex: 586976980385307a5f9af29ff23ceceb4a80bab4
+  farwolf.weex: 08c6b93be020a4381435d7e706cfcbfc38a545ef
   FontAwesome+iOS: 9070b682a9255ca0fdc34bcfb129ad0ba2b73b87
   FSCalendar: 5e348e1352f7513096812e4023e39b64b856bb7e
   GSKStretchyHeaderView: affdd9f3ae6d6f3cea31dccf604367c617d037ad
@@ -152,18 +153,18 @@ SPEC CHECKSUMS:
   PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
   SRMonthPicker: d3c639e82f525f1c10d1ad7f4bbdf180d404942b
   SSLunarDate: d5d7d581f7e7e157c8d704a5f053b4ebcf760bba
   TOCropViewController: e6e31b38d785a901e5651a1e7fff71bcda6c5214
   UCZProgressView: 55836987c15ee6efb7cd6dfe297556602ee46c94
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   UIViewController_PopUp: 1f5133c841e811103d6b3f143618f3a00080a590
-  WeexSDK: 6a3a361ea8ea02cc07132f3f14629197e348016c
+  WeexSDK: 850a63dfcb88d33c3dbcdc11595e1b3e9a5e14a4
   WXDevtool: 5135a5c6f4426fb635babb9eacfa14352bc66dc6
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YZHeaderScaleImage: 1ca4ed11644a4ccad7c4370de2fcbc8f6e145793
 
-PODFILE CHECKSUM: f10720250630562f626c36dd704573461cf040cc
+PODFILE CHECKSUM: 9cdccd682d01c96a2e0497e986dd561ae4213787
 
 COCOAPODS: 1.1.1

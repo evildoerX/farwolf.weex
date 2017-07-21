@@ -1,15 +1,15 @@
 <template>
 
+        <refresh class="refresh" id="rex" :key="key" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+            <div style="flex-direction: row"  >
 
-        <refresh class="refresh" id="rex" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
-            <div style="flex-direction: row">
-                <div style="width: 50;height: 50;position: absolute;" :style="{visibility:refreshing ? 'show':'hidden'}"><floading class="indicator"  > </floading></div>
-                <image ref="ll" src="img/pull_arrow.png" class="limg" :style="{transform:'rotate('+deg+'deg)',visibility:refreshing ? 'hidden':'show'}" ></image>
+                <floading class="indicator"    v-if="refreshing"  color="#555555" > </floading>
+
+                <image ref="ll" src="root:img/pull_arrow.png" class="limg" :style="{transform:'rotate('+deg+'deg)'}"  v-if="!refreshing" ></image>
                 <div style="align-items: center;">
                     <text class="refreshText">{{rtext}}</text>
                     <text    style="font-size: 25; color: #888888;">上次更新:{{updatetime}}</text>
                 </div>
-
             </div>
         </refresh>
 
@@ -21,32 +21,39 @@
             return {
                 refreshing: false,
                 rtext:'下拉以加载',
-                updatetime:'上次更新：没有更新',
+                updatetime:'没有更新',
                 offset:0,
                 deg:20,
-                pulldistance:180
+                pulldistance:180,
+                key:"ky"+Math.random()
             }
         },
         methods: {
             onrefresh (event) {
                 if(this.offset>=this.pulldistance)
                 {
+
                     this.refreshing = true
                     this.rtext="加载中"
-                    this.$emit('refresh');
+                    this.$emit('onRefresh');
+//                    setTimeout(() => {
+//                        this.refreshing = false
+//                    }, 2000)
                 }
             },
             end()
             {
                 this.refreshing = false;
-                this.deg=0;
-                this.updatetime=this.getNowFormatDate();
+//                this.deg=0;
+//                this.updatetime=this.getNowFormatDate();
 //                this.rtext='下拉以加载'
 
             },
             onpullingdown (event) {
 
-                var dis=event.pullingDistance*-1;
+                var dis=event.pullingDistance;
+                if(dis<0)
+                    dis*=-1;
                 this.offset=dis;
 
                 if(this.refreshing==false)
@@ -60,7 +67,10 @@
                         this.deg=180;
                     }
                     else {
-                        this.deg=dis/this.pulldistance*180;
+                        var p=dis/this.pulldistance;
+                        if(p>1)
+                            p==1;
+                        this.deg=p*180;
                         this.rtext='下拉以加载'
                     }
                 }
@@ -97,7 +107,7 @@
 </script>
 <style scoped>
     .limg{
-        width:32;height:46;
+        width:32;height:46;;
     }
     .refresh {
         height: 128;
@@ -117,6 +127,7 @@
         height: 40;
         width: 40;
         margin-right: 10;
+
     }
     .panel {
         width: 600px;

@@ -8,12 +8,11 @@ import com.farwolf.weex.activity.WeexActivity;
 import com.farwolf.weex.activity.WeexActivity_;
 import com.farwolf.weex.core.WeexFactory;
 import com.farwolf.weex.core.WeexFactory_;
+import com.farwolf.weex.util.Weex;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.common.WXModule;
 
-/**
- * <a></a> 标签的href跳转页面由此module的openURL方法执行
- */
+
 public class WXEventModule extends WXModule {
 
   private static final String WEEX_CATEGORY = "com.taobao.android.intent.category.WEEX";
@@ -26,8 +25,17 @@ public class WXEventModule extends WXModule {
     if (TextUtils.isEmpty(url)) {
       return;
     }
-
-    String realurl=getRealUrl(url);
+//    url= Weex.getRootUrl(url,this.mWXSDKInstance);
+    String realurl="";
+    if(url.startsWith("root:"))
+    {
+        realurl=url.replace("root:",Weex.baseurl);
+    }
+    else
+    {
+      url= Weex.getRootUrl(url,this.mWXSDKInstance);
+      realurl=getRealUrl(url);
+    }
     WeexFactory w= WeexFactory_.getInstance_(mWXSDKInstance.getContext());
     WeexActivity a=  (WeexActivity)this.mWXSDKInstance.getContext();
     w.jump(realurl, WeexActivity_.class,a.rootid);
@@ -36,16 +44,24 @@ public class WXEventModule extends WXModule {
 
   public String getRealUrl(String url)
   {
+
+    if(url.startsWith("./"))
+    {
+      url=url.substring(2);
+    }
     if(url.startsWith("/"))
     {
        url=url.substring(1);
     }
-    if(!url.contains("../"))
+    if(url.contains("/./"))
     {
-      return url;
+      url=url.replace("/./","/");
     }
+
     String q[]=url.split("\\.\\.\\/");
     String x[]= q[0].split("\\/");
+    if(q.length==1)
+      return q[0];
     String p="";
     if(x.length>=q.length-1)
     {

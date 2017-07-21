@@ -38,11 +38,16 @@
 - (id<WXImageOperationProtocol>)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)userInfo completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock
 {
  
+//     NSLog([@"loader:" add: url]);
     if([url contains:@"base64==="])
     {
         NSArray *n= [url split:@"base64==="];
         url=n[1];
       
+    }
+    if([url startWith:@"root:"])
+    {
+        url=[url replace:@"root:" withString:[Weex getBaseUrl]];
     }
         
     return (id<WXImageOperationProtocol>)[[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:url] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {

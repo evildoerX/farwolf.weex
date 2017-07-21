@@ -209,10 +209,9 @@ typedef NS_ENUM(NSInteger, Direction) {
         if (_infinite) {
             [self.scrollView setContentOffset:CGPointMake(self.width * 2, 0) animated:YES];
         } else {
-            // the currentindex will be set at the end of animation
-            NSInteger nextIndex = self.currentIndex + 1;
-            if(nextIndex < _itemViews.count) {
-                [self.scrollView setContentOffset:CGPointMake(nextIndex * self.width, 0) animated:YES];
+            _currentIndex += 1;
+            if (_currentIndex - 1 < _itemViews.count) {
+                [self.scrollView setContentOffset:CGPointMake(_currentIndex * self.width, 0) animated:YES];
             }
         }
     }

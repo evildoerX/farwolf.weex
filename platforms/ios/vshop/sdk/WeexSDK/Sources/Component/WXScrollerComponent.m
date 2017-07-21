@@ -53,6 +53,7 @@
     CGSize _contentSize;
     BOOL _listenLoadMore;
     BOOL _scrollEvent;
+    BOOL _bounce;
     CGFloat _loadMoreOffset;
     CGFloat _previousLoadMoreContentHeight;
     CGFloat _offsetAccuracy;
@@ -107,7 +108,9 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
         _lastScrollEventFiredOffset = CGPointMake(0, 0);
         _scrollDirection = attributes[@"scrollDirection"] ? [WXConvert WXScrollDirection:attributes[@"scrollDirection"]] : WXScrollDirectionVertical;
         _showScrollBar = attributes[@"showScrollbar"] ? [WXConvert BOOL:attributes[@"showScrollbar"]] : YES;
-        _pagingEnabled = attributes[@"pagingEnabled"] ? [WXConvert BOOL:attributes[@"pagingEnabled"]] : NO;
+         _bounce = attributes[@"bounce"] ? [WXConvert BOOL:attributes[@"bounce"]] : YES;
+        
+         _pagingEnabled = attributes[@"pagingEnabled"] ? [WXConvert BOOL:attributes[@"pagingEnabled"]] : NO;
         _loadMoreOffset = attributes[@"loadmoreoffset"] ? [WXConvert WXPixelType:attributes[@"loadmoreoffset"] scaleFactor:self.weexInstance.pixelScaleFactor] : 0;
         _loadmoreretry = attributes[@"loadmoreretry"] ? [WXConvert NSUInteger:attributes[@"loadmoreretry"]] : 0;
         _listenLoadMore = [events containsObject:@"loadmore"];
@@ -145,7 +148,7 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
     scrollView.showsHorizontalScrollIndicator = _showScrollBar;
     scrollView.scrollEnabled = _scrollable;
     scrollView.pagingEnabled = _pagingEnabled;
-    scrollView.alwaysBounceVertical=YES;
+    scrollView.alwaysBounceVertical=_bounce;
     if (self.ancestorScroller) {
         scrollView.scrollsToTop = NO;
     } else {
@@ -193,6 +196,12 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
     if (attributes[@"loadmoreoffset"]) {
         _loadMoreOffset = [WXConvert WXPixelType:attributes[@"loadmoreoffset"] scaleFactor:self.weexInstance.pixelScaleFactor];
     }
+    
+    if (attributes[@"bounce"]) {
+        _bounce = [WXConvert BOOL:attributes[@"bounce"]];
+        ((UIScrollView *)self.view).alwaysBounceVertical=_bounce;
+    }
+    
     
     if (attributes[@"loadmoreretry"]) {
         NSUInteger loadmoreretry = [WXConvert NSUInteger:attributes[@"loadmoreretry"]];
@@ -468,6 +477,8 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
         _direction = @"up";
         [self handleLoadMore];
     }
+   
+    _lastContentOffset = scrollView.contentOffset;
     
     CGFloat scaleFactor = self.weexInstance.pixelScaleFactor;
     [_refreshComponent pullingdown:@{
@@ -476,8 +487,7 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
              REFRESH_PULLINGDISTANCE: @(scrollView.contentOffset.y/scaleFactor),
              @"type":@"pullingdown"
     }];
-    _lastContentOffset = scrollView.contentOffset;
-    
+
     // check sticky
     [self adjustSticky];
     [self handleAppear];

@@ -21,6 +21,7 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.io.File;
 
@@ -43,8 +44,8 @@ public class UpdateDialog extends ViewBase {
     @Bean
     AppMainfest appMainfest;
 
-//    @Pref
-//    UpdatePref_ pref;
+    @Pref
+    UpdatePref_ pref;
 
     public UpdateDialog(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -77,10 +78,10 @@ public class UpdateDialog extends ViewBase {
     @Click
     public void ignoreClicked() {
 
-//        Toast.makeText(getActivity(), pref.version().get(),Toast.LENGTH_LONG);
-//        pref.edit().version().put(this.data.versionName).apply();
-//        pref.edit().time().put(System.currentTimeMillis()).apply();
-//        f.dismiss();
+        Toast.makeText(getActivity(), pref.version().get(),Toast.LENGTH_LONG);
+        pref.edit().version().put(this.data.versionName).apply();
+        pref.edit().time().put(System.currentTimeMillis()).apply();
+        f.dismiss();
     }
 
     @Click

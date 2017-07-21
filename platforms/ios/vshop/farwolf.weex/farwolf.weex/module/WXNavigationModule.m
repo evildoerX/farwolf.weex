@@ -12,10 +12,10 @@
 @synthesize weexInstance;
 WX_EXPORT_METHOD(@selector(push:))
 WX_EXPORT_METHOD(@selector(pushParam:param:))
-WX_EXPORT_METHOD(@selector(pushFull:param:callback:animated:))
+WX_EXPORT_METHOD(@selector(pushFull:param:navbarVisibility:callback:animated:))
 WX_EXPORT_METHOD(@selector(back))
 WX_EXPORT_METHOD(@selector(backFull:animated:))
-WX_EXPORT_METHOD(@selector(presentFull:param:createNav:callback:animated:))
+WX_EXPORT_METHOD(@selector(presentFull:param:navbarVisibility:createNav:callback:animated:))
 WX_EXPORT_METHOD(@selector(present:))
 WX_EXPORT_METHOD(@selector(dismiss))
 WX_EXPORT_METHOD(@selector(dismissFull:animated:))
@@ -25,37 +25,39 @@ WX_EXPORT_METHOD_SYNC(@selector(param))
 WX_EXPORT_METHOD(@selector(setRoot:))
 
 WX_EXPORT_METHOD(@selector(addBackGestureSelfControl))
-
+WX_EXPORT_METHOD(@selector(invokeNativeCallBack:))
 
 -(void)push:(NSString *)url
 {
-    [self pushFull:url param:nil callback:nil animated:true];
+    [self pushFull:url param:nil navbarVisibility:@"visibale"  callback:nil animated:true];
+    
 }
 -(void)pushParam:(NSString *)url param:(NSDictionary*)param
 {
-    [self pushFull:url param:param callback:nil animated:true];
+     [self pushFull:url param:param navbarVisibility:@"visibale" callback:nil animated:true];
 }
--(void)pushFull:(NSString *)url param:(NSDictionary*)param callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated
+-(void)pushFull:(NSString *)url param:(NSDictionary*)param  navbarVisibility:(NSString*) navbarVisibility callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated
 {
+    if([url startWith:@"root:"])
+    {
+        url=[url replace:@"root:" withString:[Weex getBaseUrl]];
+    }
     NSString *newURL = url;
     if ([url hasPrefix:@"//"]) {
         newURL = [NSString stringWithFormat:@"http:%@", url];
     } else if (![url hasPrefix:@"http"]) {
         newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
     }
-//    WXNormalViewContrller *vc=[WXNormalViewContrller new];
-//    vc.sourceURL=[NSURL URLWithString:newURL];
-//    vc.param=param;
-//    vc.callback=callback;
-//    [[weexInstance.viewController navigationController] pushViewController:vc animated:animated];
-    
+ 
  
     [WeexFactory render:[NSURL URLWithString:newURL] compelete:^(Page *p) {
         WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
         vc.hidesBottomBarWhenPushed = YES;
         vc.page=p;
+        vc.instance=p.instance;
         vc.param=param;
         vc.callback=callback;
+        vc.navbarVisibility=navbarVisibility;
         [[weexInstance.viewController navigationController] pushViewController:vc animated:animated];
         
     }];
@@ -104,41 +106,30 @@ WX_EXPORT_METHOD(@selector(addBackGestureSelfControl))
 
 -(void)present:(NSString *)url
 {
-    [self presentFull:url param:nil createNav:true callback:nil animated:true];
+    [self presentFull:url param:nil navbarVisibility:@"visiable" createNav:true callback:nil animated:true];
 }
 
--(void)presentFull:(NSString *)url param:(NSDictionary*)param createNav:(BOOL)createNav callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated
+-(void)presentFull:(NSString *)url param:(NSDictionary*)param navbarVisibility:(NSString*) navbarVisibility   createNav:(BOOL)createNav callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated
 {
+    if([url startWith:@"root:"])
+    {
+        url=[url replace:@"root:" withString:[Weex getBaseUrl]];
+    }
     NSString *newURL = url;
     if ([url hasPrefix:@"//"]) {
         newURL = [NSString stringWithFormat:@"http:%@", url];
     } else if (![url hasPrefix:@"http"]) {
         newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
     }
-//    WXNormalViewContrller *vc=[WXNormalViewContrller new];
-//    vc.param=param;
-//    vc.sourceURL=[NSURL URLWithString:newURL];
-//    vc.callback=callback;
-//    
-//    if(createNav)
-//    {
-//        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
-//        [weexInstance.viewController presentViewController:nav animated:animated completion:^{
-//            
-//        }];
-//     }
-//    else
-//    {
-//        [weexInstance.viewController presentViewController:vc animated:animated completion:^{
-//        }];
-//    }
-    
+ 
     
     
     [WeexFactory render:[NSURL URLWithString:newURL] compelete:^(Page *p) {
         WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
+        vc.navbarVisibility=navbarVisibility;
         vc.hidesBottomBarWhenPushed = YES;
         vc.page=p;
+        vc.instance=p.instance;
         vc.param=param;
         vc.callback=callback;
         if(createNav)
@@ -161,10 +152,24 @@ WX_EXPORT_METHOD(@selector(addBackGestureSelfControl))
  
 }
 
+-(void)invokeNativeCallBack:(NSObject*)res
+{
+    
+    if(((WXNormalViewContrller*)weexInstance.viewController).nativeCallback!=nil)
+    ((WXNormalViewContrller*)weexInstance.viewController).nativeCallback(res);
+}
+
 
 -(void)dismiss
 {
-    [self dismissFull:nil animated:true];
+    WXNormalViewContrller *vc= weexInstance.viewController;
+  
+    if(vc.navigationController!=nil)
+    {
+        [vc.navigationController dismiss:true];
+    }
+    else
+        [vc dismiss:true];
 }
 -(void)setRoot:(NSString*)rootid
 {
@@ -174,6 +179,8 @@ WX_EXPORT_METHOD(@selector(addBackGestureSelfControl))
 
 -(void)addBackGestureSelfControl
 {
+//    if(  weexInstance.viewController.navigationController.interactivePopGestureRecognizer.delegate==nil)
+    weexInstance.viewController.navigationController.interactivePopGestureRecognizer.delegate=nil;
      weexInstance.viewController.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 -(void)dismissFull:(NSDictionary*)param animated:(BOOL)animated
