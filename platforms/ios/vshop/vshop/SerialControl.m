@@ -18,4 +18,11 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navbarVisibility =@"hidden";
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 @end

@@ -111,7 +111,7 @@
 </style>
 <script>
     var pull =require('./pullrefresh.vue')
-    var flist =require('./flist.vue')
+    var flist =require('./../component/flist.vue')
 
     const modal = weex.requireModule('modal')
     const LOADMORE_COUNT = 10

@@ -296,7 +296,7 @@
                     if (completedReloadSection) {
                         [_tableView reloadSections:[NSIndexSet indexSetWithIndex:insertIndex - 1] withRowAnimation:UITableViewRowAnimationNone];
                     }
-                    
+                     
                     [_tableView endUpdates];
                 } @catch (NSException *exception) {
                     WXLogError(@"list insert component occurs exception %@", exception);

@@ -29,12 +29,12 @@ WX_EXPORT_METHOD(@selector(invokeNativeCallBack:))
 
 -(void)push:(NSString *)url
 {
-    [self pushFull:url param:nil navbarVisibility:@"visibale"  callback:nil animated:true];
+    [self pushFull:url param:nil navbarVisibility:@"hidden"  callback:nil animated:true];
     
 }
 -(void)pushParam:(NSString *)url param:(NSDictionary*)param
 {
-     [self pushFull:url param:param navbarVisibility:@"visibale" callback:nil animated:true];
+     [self pushFull:url param:param navbarVisibility:@"hidden" callback:nil animated:true];
 }
 -(void)pushFull:(NSString *)url param:(NSDictionary*)param  navbarVisibility:(NSString*) navbarVisibility callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated
 {
@@ -53,6 +53,7 @@ WX_EXPORT_METHOD(@selector(invokeNativeCallBack:))
     [WeexFactory render:[NSURL URLWithString:newURL] compelete:^(Page *p) {
         WXNormalViewContrller *vc=[[WXNormalViewContrller alloc]initWithSourceURL:url];
         vc.hidesBottomBarWhenPushed = YES;
+     
         vc.page=p;
         vc.instance=p.instance;
         vc.param=param;
@@ -106,7 +107,7 @@ WX_EXPORT_METHOD(@selector(invokeNativeCallBack:))
 
 -(void)present:(NSString *)url
 {
-    [self presentFull:url param:nil navbarVisibility:@"visiable" createNav:true callback:nil animated:true];
+    [self presentFull:url param:nil navbarVisibility:@"hidden" createNav:true callback:nil animated:true];
 }
 
 -(void)presentFull:(NSString *)url param:(NSDictionary*)param navbarVisibility:(NSString*) navbarVisibility   createNav:(BOOL)createNav callback:(WXModuleKeepAliveCallback)callback animated:(BOOL)animated

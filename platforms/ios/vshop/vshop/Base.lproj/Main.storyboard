@@ -154,7 +154,7 @@
         <scene sceneID="moB-AM-5wG">
             <objects>
                 <navigationController id="QQR-eC-f02" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JPn-DA-fOJ">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="JPn-DA-fOJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,7 +194,7 @@
             <objects>
                 <navigationController id="lZJ-X4-ALr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="电视剧" id="QOL-on-dT5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7uG-b9-fil">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" translucent="NO" id="7uG-b9-fil">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,7 +234,7 @@
             <objects>
                 <navigationController id="Qox-Yc-LAm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="电影" id="EAm-pB-S08"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="tRo-d3-Vly">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" translucent="NO" id="tRo-d3-Vly">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -274,7 +274,7 @@
             <objects>
                 <navigationController id="0xy-TS-37R" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="关注" id="jzL-6n-SJ1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zpb-8k-4y1">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" translucent="NO" id="zpb-8k-4y1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>

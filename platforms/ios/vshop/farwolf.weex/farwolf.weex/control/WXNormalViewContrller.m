@@ -316,6 +316,7 @@ BOOL isshowErr;
         [self.navigationController.navigationBar setTranslucent:false];
     }
      [self resetFrame];
+       self.view.backgroundColor=[@"#333333" toColor];
     
 //     [self regist:@"weex_error" method:@selector(onWeexError:)];
 }
