@@ -777,9 +777,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	// var host='http://127.0.0.1:8080/api/'
-	// var host='http://192.168.1.100:8080/'
+
 	var host = 'http://119.29.222.167/movie/';
+	// var host='http://192.168.1.100:8080/'
+
 
 	exports.default = {
 
