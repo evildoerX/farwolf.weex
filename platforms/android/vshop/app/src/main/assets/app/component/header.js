@@ -41,24 +41,25 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(14)
+	__vue_styles__.push(__webpack_require__(33)
 	)
-	__vue_styles__.push(__webpack_require__(15)
+	__vue_styles__.push(__webpack_require__(34)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(16)
+	__vue_exports__ = __webpack_require__(35)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(17)
+	var __vue_template__ = __webpack_require__(36)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -90,20 +91,8 @@
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+
+/***/ 33:
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -142,7 +131,8 @@
 	}
 
 /***/ }),
-/* 15 */
+
+/***/ 34:
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -157,7 +147,8 @@
 	}
 
 /***/ }),
-/* 16 */
+
+/***/ 35:
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -216,6 +207,9 @@
 	    },
 
 	    methods: {
+	        titleClick: function titleClick() {
+	            this.$emit('titleClick');
+	        },
 	        backTo: function backTo() {
 	            var nav = weex.requireModule("navigator");
 	            nav.back();
@@ -250,7 +244,8 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 17 */
+
+/***/ 36:
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -284,13 +279,11 @@
 	      marginTop: "30",
 	      fontSize: "35",
 	      fontWeight: "bold"
+	    },
+	    on: {
+	      "click": _vm.titleClick
 	    }
 	  }, [_vm._v(_vm._s(_vm.title))]), _c('div', {
-	    staticStyle: {
-	      height: "128",
-	      width: "100"
-	    }
-	  }), _c('div', {
 	    staticStyle: {
 	      height: "1",
 	      backgroundColor: "#111111",
@@ -304,4 +297,5 @@
 	module.exports.render._withStripped = true
 
 /***/ })
-/******/ ]);
+
+/******/ });

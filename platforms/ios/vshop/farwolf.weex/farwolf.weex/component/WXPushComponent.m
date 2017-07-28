@@ -23,6 +23,10 @@
         if (attributes[@"navbarVisibility"]) {
             _navbarVisibility = attributes[@"navbarVisibility"];
         }
+        else
+        {
+            _navbarVisibility=@"hidden";
+        }
     }
     return self;
 }

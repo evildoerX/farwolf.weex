@@ -18,6 +18,7 @@
 #import "WXPrefModule.h"
 #import "WXFPicker.h"
 #import "WXFPickerModule.h"
+#import "WXFWebComponent.h"
 
 @implementation Weex
 
@@ -46,7 +47,7 @@
     [WXSDKEngine registerComponent:@"image" withClass:[WXFImageComponent class]];
     [WXSDKEngine registerComponent:@"embed" withClass:[WXFEmbedComponent class]];
     [WXSDKEngine registerComponent:@"wheel" withClass:[WXFPicker class]];
- 
+    [WXSDKEngine registerComponent:@"web" withClass:[WXFWebComponent class]];
     
     
     [WXLog setLogLevel: WXLogLevelOff];

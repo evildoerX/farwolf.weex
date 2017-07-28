@@ -3,9 +3,9 @@
         <div style="height: 128;width: 100;margin-top: 82;" v-if="back" @click="backTo" >
             <image src="root:img/back.png" style="width: 80;height: 80"></image>
         </div>
-        <text style="flex: 1;color: #ffffff;text-align: center;margin-top: 30;font-size: 35;font-weight: bold">{{title}}</text>
-        <div style="height: 128;width: 100;">
-        </div>
+        <text style="flex: 1;color: #ffffff;text-align: center;margin-top: 30;font-size: 35;font-weight: bold;" @click="titleClick">{{title}}</text>
+        <!--<div style="height: 128;width: 100;">-->
+        <!--</div>-->
           <div style="height: 1;background-color: #111111;position: absolute;bottom: 0;left: 0;right: 0">
 
           </div>
@@ -51,7 +51,10 @@
             }
         },
         methods: {
-
+            titleClick()
+            {
+                this.$emit('titleClick');
+            },
             backTo()
             {
                 var nav=weex.requireModule("navigator");

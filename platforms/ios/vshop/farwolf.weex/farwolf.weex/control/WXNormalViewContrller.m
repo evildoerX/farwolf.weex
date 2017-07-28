@@ -144,21 +144,20 @@
     if([@"hidden" isEqualToString: self.navbarVisibility ])
     {
         [self.navigationController.navigationBar setHidden:true];
+        delt=0;
     }
     if([@"transparent" isEqualToString: self.navbarVisibility ])
     {
         delt=0;
     }
     
-    if([self.navigationController.navigationBar isHidden])
-    {
-        delt=0;
-    }
+    
     if((self.tabBarController!=nil||self.navigationController.tabBarController!=nil)&&count==1)
     {
         delt+=49.0;
     }
-    self.instance.frame = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-delt);
+    [self.instance setFrame:CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-delt)];
+ 
 }
 -(void)onNotify:(NSNotification*)n
 {
@@ -379,21 +378,7 @@ BOOL isshowErr;
     _instance = [[WXSDKInstance alloc] init];
  
     
-    int count=self.navigationController.viewControllers.count;
-    CGFloat delt=64;
-    if([@"transparent" isEqualToString: self.navbarVisibility ])
-    {
-        delt=0;
-    }
-    if([self.navigationController.navigationBar isHidden])
-    {
-        delt=0;
-    }
-    if((self.tabBarController!=nil||self.navigationController.tabBarController!=nil)&&count==1)
-    {
-        delt+=49.0;
-    }
-    self.instance.frame = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-delt);
+    [self resetFrame];
     _instance.pageObject = self;
     _instance.pageName = [[WXUtility urlByDeletingParameters:sourceURL] absoluteString];
     _instance.viewController = self;

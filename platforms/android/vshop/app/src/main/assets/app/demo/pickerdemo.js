@@ -50,14 +50,14 @@
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(141)
+	__vue_styles__.push(__webpack_require__(170)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(142)
+	__vue_exports__ = __webpack_require__(171)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(144)
+	var __vue_template__ = __webpack_require__(173)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -90,7 +90,7 @@
 
 /***/ }),
 
-/***/ 48:
+/***/ 80:
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -119,14 +119,14 @@
 
 /***/ }),
 
-/***/ 141:
+/***/ 170:
 /***/ (function(module, exports) {
 
 	module.exports = {}
 
 /***/ }),
 
-/***/ 142:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -148,7 +148,7 @@
 	//
 	//
 
-	var location = __webpack_require__(143);
+	var location = __webpack_require__(172);
 
 	var picker;
 	exports.default = {
@@ -171,7 +171,7 @@
 
 /***/ }),
 
-/***/ 143:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -180,7 +180,7 @@
 	    value: true
 	});
 
-	var data = __webpack_require__(48);
+	var data = __webpack_require__(80);
 
 	exports.default = {
 	    get: function get(res) {
@@ -194,7 +194,7 @@
 	        picker.setItems2(this.toArray(l[0].children));
 	        picker.setTheme('#f9f9f9', '#4c4c4c');
 
-	        var index1 = 0;
+	        var index1 = 0;x;
 	        var index2 = 0;
 	        var index3 = 0;
 	        //每个滚轮的change事件
@@ -244,7 +244,7 @@
 
 /***/ }),
 
-/***/ 144:
+/***/ 173:
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

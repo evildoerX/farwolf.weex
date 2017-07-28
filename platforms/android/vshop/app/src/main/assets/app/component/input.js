@@ -50,14 +50,14 @@
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(54)
+	__vue_styles__.push(__webpack_require__(56)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(55)
+	__vue_exports__ = __webpack_require__(57)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(56)
+	var __vue_template__ = __webpack_require__(58)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -90,7 +90,7 @@
 
 /***/ }),
 
-/***/ 54:
+/***/ 56:
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -103,7 +103,7 @@
 
 /***/ }),
 
-/***/ 55:
+/***/ 57:
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -131,6 +131,9 @@
 	        placeholder_color: {
 	            default: '#ffffff'
 
+	        },
+	        bgcolor: {
+	            default: 'transparent'
 	        },
 	        color: {
 	            default: '#000000'
@@ -207,7 +210,7 @@
 
 /***/ }),
 
-/***/ 56:
+/***/ 58:
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -226,7 +229,8 @@
 	    },
 	    style: {
 	      'color': _vm.color,
-	      'placeholder-color': _vm.placeholder_color
+	      'placeholder-color': _vm.placeholder_color,
+	      'background-color': _vm.bgcolor
 	    },
 	    attrs: {
 	      "returnKeyType": _vm.return_key_type,

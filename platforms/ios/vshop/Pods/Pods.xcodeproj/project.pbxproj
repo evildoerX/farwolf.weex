@@ -268,6 +268,8 @@
 		4B0C02F8760BE479F21A59A483895A7F /* WXFImageComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = A7643F341B7CE334399EF915A5B456DA /* WXFImageComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BF6F7538721111F7745193F08D16E92 /* Pods-vshop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A3A5022879419765E368541D2F0FA3 /* Pods-vshop-dummy.m */; };
 		4C4A20CBC02C1DF5C33819F2DFA3D69A /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A75A0607271526B66694A6AC4A1B3B0A /* PNColor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4D2D936F1F28C7A700D57B32 /* WXFWebComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D2D936D1F28C7A700D57B32 /* WXFWebComponent.h */; };
+		4D2D93701F28C7A700D57B32 /* WXFWebComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D936E1F28C7A700D57B32 /* WXFWebComponent.m */; };
 		4DBC5CC9717F89681A58C27DFF45A7DF /* WXRecyclerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB762D129EE87AABE99FD2BEC08C5D33 /* WXRecyclerComponent.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4DC7EF5A2099FB1C1DB991D24F45EBD1 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E183A0C63050B7883AE07553E71E51E6 /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4DDD81F66F234E8CDD0BA7D1E9039CC9 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE927FE941ECA6F4BCF3633842EDB48 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1516,7 +1518,7 @@
 		07C7E254F9417CC82AB8177B76511BD0 /* WXComponent+ViewManagement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WXComponent+ViewManagement.h"; sourceTree = "<group>"; };
 		07E38F4750FB3F2948BC9F5AFB5FECE7 /* GSKStretchyHeaderView+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GSKStretchyHeaderView+Protected.h"; path = "GSKStretchyHeaderView/Classes/Private/GSKStretchyHeaderView+Protected.h"; sourceTree = "<group>"; };
 		07FECF6010D05DEC99320DFF1BD8D97C /* WXRootViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXRootViewController.h; sourceTree = "<group>"; };
-		089C6B31BF61D4B58C7A0CF7302AAF6C /* libUICountingLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libUICountingLabel.a; path = libUICountingLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		089C6B31BF61D4B58C7A0CF7302AAF6C /* libUICountingLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUICountingLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		092383585795F393DC3256B2654CA154 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		09366ED2D21B13BEBFB03600EB864DD2 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
 		0A67AB647BCCB20B9D85E8745CA90233 /* PickerType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PickerType.m; sourceTree = "<group>"; };
@@ -1573,7 +1575,7 @@
 		17D992941D222ED2FAD44D608C568F82 /* BaiduMapAPI_Radar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Radar.framework; path = BaiduMapKit/BaiduMapAPI_Radar.framework; sourceTree = "<group>"; };
 		18031EFBD200968FF54DD5AEF4E19B67 /* farwolf_weex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = farwolf_weex.m; sourceTree = "<group>"; };
 		185DE6A728EF6173B35D11249809F3D2 /* WXStorageModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXStorageModule.h; sourceTree = "<group>"; };
-		1881BACB1918773F0408A0AF91093152 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libIQKeyboardManager.a; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1881BACB1918773F0408A0AF91093152 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18938F428C4096B99EA3DC2F17513231 /* BMKSuggestionSearchOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKSuggestionSearchOption.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKSuggestionSearchOption.h; sourceTree = "<group>"; };
 		18D8853B260F7980469CE3E1278BA354 /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		193F961939602D04887676F039E96130 /* WXDebugTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXDebugTool.m; sourceTree = "<group>"; };
@@ -1581,7 +1583,7 @@
 		197BB94DFB2947C62ABA13B16BAF8753 /* BMKOfflineMapType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKOfflineMapType.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKOfflineMapType.h; sourceTree = "<group>"; };
 		1981972761EB192CD93DF3D71392D2D0 /* WXListComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXListComponent.m; sourceTree = "<group>"; };
 		19C174DA1A120BE3A28D646535A26B4D /* WXAppConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXAppConfiguration.m; sourceTree = "<group>"; };
-		19C709908340A90B8D509B944891D51C /* libPods-vshop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-vshop.a"; path = "libPods-vshop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C709908340A90B8D509B944891D51C /* libPods-vshop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vshop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EA5EEF73CEB2804A16765AE1D6495A /* TOCropView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropView.m; path = TOCropViewController/Views/TOCropView.m; sourceTree = "<group>"; };
 		19FA94B1CD0637C78484F9400F57353E /* BMKBaseComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKBaseComponent.h; path = BaiduMapKit/BaiduMapAPI_Base.framework/Headers/BMKBaseComponent.h; sourceTree = "<group>"; };
 		1A547DB1AF26F0360D5F29F534C668E7 /* BMKBusLineSearchOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKBusLineSearchOption.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKBusLineSearchOption.h; sourceTree = "<group>"; };
@@ -1613,7 +1615,7 @@
 		2158A9000CCA57BF35452921ED0FDFC3 /* SSHolidayHK.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSHolidayHK.m; path = SSLunarDate/SSHolidayHK.m; sourceTree = "<group>"; };
 		217E14B7D2102C366144532461AE027D /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		21B6F63841BC09186F53A5CFC8F50E19 /* WXNormalViewContrller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXNormalViewContrller.m; sourceTree = "<group>"; };
-		2254F21CD2F3B91EB9D7D29C02E22767 /* Layout.c */ = {isa = PBXFileReference; includeInIndex = 1; path = Layout.c; sourceTree = "<group>"; };
+		2254F21CD2F3B91EB9D7D29C02E22767 /* Layout.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = Layout.c; sourceTree = "<group>"; };
 		227D3982AD027DF5F53109DE9617D6F1 /* Weex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Weex.m; sourceTree = "<group>"; };
 		22C37BD1F9C32627E92A20E9BAD449C6 /* BMKShareUrlSearchOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKShareUrlSearchOption.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKShareUrlSearchOption.h; sourceTree = "<group>"; };
 		22C3FECD9C8B9F64B9139E1B9DE79397 /* WXLoadingComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXLoadingComponent.h; sourceTree = "<group>"; };
@@ -1633,13 +1635,13 @@
 		25440B80DB21F88B13C4B6FF0B0C4565 /* CALayer+FSExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+FSExtension.h"; path = "FSCalendar/CALayer+FSExtension.h"; sourceTree = "<group>"; };
 		25B73E3CD8E6B59F3B82A5C9E8B065C0 /* WXEditComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXEditComponent.h; sourceTree = "<group>"; };
 		266A1A24F86EBFE6FEAC984DC3D52F27 /* FSCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
-		266BFC7D99A795DEE8E892097F7D7162 /* libSDCycleScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDCycleScrollView.a; path = libSDCycleScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		266BFC7D99A795DEE8E892097F7D7162 /* libSDCycleScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDCycleScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		26912F9A84D5C91AE4C89D22E52D6A7E /* WXImgButtonComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXImgButtonComponent.m; sourceTree = "<group>"; };
 		2697C3C22D80EDE9885DD72484C62B06 /* MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerController.h; path = MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
 		271824016E2FA426F73EFC9E55866B22 /* SocketRocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SocketRocket-dummy.m"; sourceTree = "<group>"; };
 		273061D3E787F5FC5D9926B101635769 /* DACircularProgress-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DACircularProgress-dummy.m"; sourceTree = "<group>"; };
 		2778E26081398CE7495BD387FCED4F35 /* NSString+Farwolf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Farwolf.h"; sourceTree = "<group>"; };
-		282472615C65CB73482A112270F75CF0 /* libCHXBannerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCHXBannerView.a; path = libCHXBannerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		282472615C65CB73482A112270F75CF0 /* libCHXBannerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCHXBannerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		284ADD291748F45F088F26F6498BF706 /* NSTimer+Weex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Weex.h"; sourceTree = "<group>"; };
 		2864F613013F793DDFC9E391E3909544 /* FileJson.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FileJson.m; sourceTree = "<group>"; };
 		2878EA8707CD32BFF6B3B77033B43641 /* SDCycleScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDCycleScrollView.m; path = SDCycleScrollView/Lib/SDCycleScrollView/SDCycleScrollView.m; sourceTree = "<group>"; };
@@ -1649,7 +1651,7 @@
 		2A24050FAD08DEF1336543FBA73429A3 /* FSCalendarEventIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarEventIndicator.m; path = FSCalendar/FSCalendarEventIndicator.m; sourceTree = "<group>"; };
 		2AF80AEF6880F4D00D064F1B5E17646B /* ItemView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
 		2B5EAC4C4095ED8F2A1C81DBD2840227 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		2BA822CF3126F2103BB5330C9E10DBFE /* libSSLunarDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSSLunarDate.a; path = libSSLunarDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA822CF3126F2103BB5330C9E10DBFE /* libSSLunarDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSSLunarDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCC0EE6464521EC7F694C3F2B3EA1A3 /* WXComponent+Display.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WXComponent+Display.m"; sourceTree = "<group>"; };
 		2CDC93B58DFE52F8352775520AB6B0A8 /* qrcodecase@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "qrcodecase@2x.png"; sourceTree = "<group>"; };
 		2D180970E13004136B750A3F7C57BD79 /* PNBarChart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNBarChart.m; path = PNChart/PNBarChart.m; sourceTree = "<group>"; };
@@ -1659,7 +1661,7 @@
 		2E8B68FFE236D5727A71D945D284BD00 /* WXWeakObjectWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXWeakObjectWrapper.h; sourceTree = "<group>"; };
 		2E9813BB265A3CE57F7264B2F7740F19 /* DACircularProgress-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DACircularProgress-prefix.pch"; sourceTree = "<group>"; };
 		2F17B5B801B73001BF9D122031A9A6CE /* BMKPointAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKPointAnnotation.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKPointAnnotation.h; sourceTree = "<group>"; };
-		2F2245FDB1004B938564FF2858106065 /* WXRoundedRect.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = WXRoundedRect.mm; sourceTree = "<group>"; };
+		2F2245FDB1004B938564FF2858106065 /* WXRoundedRect.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = WXRoundedRect.mm; sourceTree = "<group>"; };
 		2F24ABED4CA32683C7C05B27366C32A0 /* WXAssert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXAssert.m; sourceTree = "<group>"; };
 		2F328001C9B5E4156536F0F26D5155E5 /* GSKStretchyHeaderView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GSKStretchyHeaderView.xcconfig; sourceTree = "<group>"; };
 		2F377F8475A7A03CA27F0B4F1A621B73 /* BMKPoiSearchOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKPoiSearchOption.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKPoiSearchOption.h; sourceTree = "<group>"; };
@@ -1671,7 +1673,7 @@
 		306EC44554EB7E05832E8A20AF532C09 /* WXThreadSafeMutableArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXThreadSafeMutableArray.h; sourceTree = "<group>"; };
 		308E541941494AC8331E1BAA7D1A72AA /* BMKTileLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKTileLayer.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKTileLayer.h; sourceTree = "<group>"; };
 		309A0667847234298B2D87ADE180C6CD /* PNChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PNChart.xcconfig; sourceTree = "<group>"; };
-		30B64BC78655D2246E2E2BEFA9ECC745 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = TOCropViewController/de.lproj; sourceTree = "<group>"; };
+		30B64BC78655D2246E2E2BEFA9ECC745 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = TOCropViewController/de.lproj; sourceTree = "<group>"; };
 		30CFA155B3FCD1087D234DA0095D765E /* UploadImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UploadImage.h; sourceTree = "<group>"; };
 		3134272DA3605DD7305F214C584BFC08 /* farwolf_weex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = farwolf_weex.h; sourceTree = "<group>"; };
 		315CC078CC525CD70EA13A880B267A32 /* WXDebugLoggerBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXDebugLoggerBridge.m; sourceTree = "<group>"; };
@@ -1696,7 +1698,7 @@
 		356120ED9BB71DECBBC86A113EBDE80E /* WXUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXUtility.h; sourceTree = "<group>"; };
 		36D628EE2E09FC39F693B06030D81580 /* GSKStretchyHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GSKStretchyHeaderView.h; path = GSKStretchyHeaderView/Classes/GSKStretchyHeaderView.h; sourceTree = "<group>"; };
 		378BC73EAA95D10E947FF325E3CE4639 /* NSString+FSExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+FSExtension.m"; path = "FSCalendar/NSString+FSExtension.m"; sourceTree = "<group>"; };
-		37935EB4861A8379EE4BDCB5460FF243 /* libGSKStretchyHeaderView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGSKStretchyHeaderView.a; path = libGSKStretchyHeaderView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		37935EB4861A8379EE4BDCB5460FF243 /* libGSKStretchyHeaderView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGSKStretchyHeaderView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0026C8E3121EE6C9BF57E587FA8A7 /* SSHolidayCountry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSHolidayCountry.m; path = SSLunarDate/SSHolidayCountry.m; sourceTree = "<group>"; };
 		389B943FF376D4288675800D6B4A27AE /* NetTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NetTableViewController.h; sourceTree = "<group>"; };
 		38B7803D2DA89D053B39BCEA086993FA /* PNRadarChartDataItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNRadarChartDataItem.m; path = PNChart/PNRadarChartDataItem.m; sourceTree = "<group>"; };
@@ -1711,7 +1713,7 @@
 		3A683B61BA956D97DF5264DAA1E420F9 /* WXNotifyModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXNotifyModule.m; sourceTree = "<group>"; };
 		3A858584FD759CE2A71BE8055A790217 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		3B65033F738C5073D3F05F3E8FE3912E /* GSKGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GSKGeometry.h; path = GSKStretchyHeaderView/Classes/GSKGeometry.h; sourceTree = "<group>"; };
-		3BC29794DF2A30BF8784D93AD7765BEC /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = TOCropViewController/ja.lproj; sourceTree = "<group>"; };
+		3BC29794DF2A30BF8784D93AD7765BEC /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = TOCropViewController/ja.lproj; sourceTree = "<group>"; };
 		3C94A61809D7AA0F2F92C2EDF5C763C9 /* UIView+SDExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+SDExtension.m"; path = "SDCycleScrollView/Lib/SDCycleScrollView/UIView+SDExtension.m"; sourceTree = "<group>"; };
 		3CB437C020C22DB0F01EB6DA088F53A0 /* Region.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		3CFB7CF08A0A5D96395027D9AAC6EB0D /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
@@ -1742,7 +1744,7 @@
 		446282E64EC354A80F29AB21D6A8C6EA /* CollectionItemView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CollectionItemView.h; sourceTree = "<group>"; };
 		44670D507BE6F1AFE9D3C5A7763E9F7B /* IQKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardManager.m; path = IQKeyboardManager/IQKeyboardManager.m; sourceTree = "<group>"; };
 		451FA56393DD5FE92E374BC47CC4E474 /* WXPolyfillSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXPolyfillSet.h; sourceTree = "<group>"; };
-		45717D5697C18D07A447A9539F62FE17 /* libDOPDropDownMenu-Enhanced.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libDOPDropDownMenu-Enhanced.a"; path = "libDOPDropDownMenu-Enhanced.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45717D5697C18D07A447A9539F62FE17 /* libDOPDropDownMenu-Enhanced.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libDOPDropDownMenu-Enhanced.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DE482F2B7E640114189D645A10707B /* FSCalendar+IBExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FSCalendar+IBExtension.h"; path = "FSCalendar/FSCalendar+IBExtension.h"; sourceTree = "<group>"; };
 		4633135E44680133DE2098F111A97E13 /* BMKCloudSearch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKCloudSearch.h; path = BaiduMapKit/BaiduMapAPI_Cloud.framework/Headers/BMKCloudSearch.h; sourceTree = "<group>"; };
 		4683B086698869B53F5B621FEFD98EBB /* GSKStretchyHeaderView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GSKStretchyHeaderView-dummy.m"; sourceTree = "<group>"; };
@@ -1771,16 +1773,18 @@
 		4D169C7FFF845A5DAD65393FE14ACE15 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCroppedImageAttributes.h; path = TOCropViewController/Models/TOCroppedImageAttributes.h; sourceTree = "<group>"; };
 		4D1EA73980D8A9DA23B8D1405F972833 /* UIScrollView+GSKStretchyHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+GSKStretchyHeaderView.m"; path = "GSKStretchyHeaderView/Classes/Private/UIScrollView+GSKStretchyHeaderView.m"; sourceTree = "<group>"; };
 		4D2D266F4246C246D51125D51A3119C8 /* WXFPickerModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXFPickerModule.h; sourceTree = "<group>"; };
+		4D2D936D1F28C7A700D57B32 /* WXFWebComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXFWebComponent.h; sourceTree = "<group>"; };
+		4D2D936E1F28C7A700D57B32 /* WXFWebComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXFWebComponent.m; sourceTree = "<group>"; };
 		4D2F33666412AD366D818A29E54BB019 /* WXModuleMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXModuleMethod.h; sourceTree = "<group>"; };
 		4D6DE81D136A02BEE7375A73712DE2C2 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
-		4DD9BA55B89E270ED0CA0C8E804BF374 /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = Base.lproj; path = TOCropViewController/Base.lproj; sourceTree = "<group>"; };
+		4DD9BA55B89E270ED0CA0C8E804BF374 /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Base.lproj; path = TOCropViewController/Base.lproj; sourceTree = "<group>"; };
 		4DE2978072A22A305EF2918F5BAEE954 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		4E12F9C3FB2550982F18081326BA1438 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		4EF66ACC637648F2C69BACADEBE98D0E /* CHXBannerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CHXBannerView.m; path = CHXBannerView/Source/CHXBannerView.m; sourceTree = "<group>"; };
 		4F0042CD4968273415D97F7FB5013496 /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
 		4F4E344B1DC73D498BBA6728FEA30F47 /* FSCalendarFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarFlowLayout.h; path = FSCalendar/FSCalendarFlowLayout.h; sourceTree = "<group>"; };
 		4F77D04707CF2F4A2F997776802C8547 /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstantsInternal.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
-		502C0552C2D04C3E736B5D086EC71844 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = TOCropViewController/ru.lproj; sourceTree = "<group>"; };
+		502C0552C2D04C3E736B5D086EC71844 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ru.lproj; path = TOCropViewController/ru.lproj; sourceTree = "<group>"; };
 		5035F589A7A925485E733228B988AFFF /* SSLunarDateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSLunarDateFormatter.h; path = SSLunarDate/SSLunarDateFormatter.h; sourceTree = "<group>"; };
 		50AF8EDA9C4C33088F71F73FFA7A735D /* BMKMultiPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKMultiPoint.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKMultiPoint.h; sourceTree = "<group>"; };
 		50C9FCD815BC8F6CAEF8291DA9A39739 /* SSHolidayManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSHolidayManager.m; path = SSLunarDate/SSHolidayManager.m; sourceTree = "<group>"; };
@@ -1788,7 +1792,7 @@
 		50E2523037CAC6F60A3E5F74BF310E88 /* ZDatePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZDatePicker.h; sourceTree = "<group>"; };
 		50F8FAC5190F7285297BF441438F78BD /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
 		512E2523BE66132F4CDA32BAAC69112E /* MonthPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MonthPicker.m; sourceTree = "<group>"; };
-		517E8605FF4B88412CBF897F11AB4EF8 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = Resources/FontAwesome.ttf; sourceTree = "<group>"; };
+		517E8605FF4B88412CBF897F11AB4EF8 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = Resources/FontAwesome.ttf; sourceTree = "<group>"; };
 		5193D7DBC46AE8BD61672616684336E5 /* PNGenericChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNGenericChart.h; path = PNChart/PNGenericChart.h; sourceTree = "<group>"; };
 		51E71C0BBF168EE6C72B8D66E3972CE2 /* CCQrCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCQrCode.h; sourceTree = "<group>"; };
 		53641671033D7BB9B447571A007EDD0B /* WXComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXComponent.h; sourceTree = "<group>"; };
@@ -1796,7 +1800,7 @@
 		544B27AC04F036CB3228C418C88F0E4A /* WXRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXRootView.h; sourceTree = "<group>"; };
 		546A24BA4EAB8E9B79AB16CCE2E73262 /* UIBezierPath+Weex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Weex.m"; sourceTree = "<group>"; };
 		54AA52C0DDFC40ABBAFF8017542BD9E5 /* NSObject+WXSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WXSwizzle.m"; sourceTree = "<group>"; };
-		54AEB63DE162F1F08F9524A7FE877B23 /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYModel.a; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		54AEB63DE162F1F08F9524A7FE877B23 /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B374D90239C8F3BA9DD91DC76040A4 /* UpdateChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UpdateChecker.h; sourceTree = "<group>"; };
 		551D2BF43DE213BF8F68CB2CD4C58D7C /* WXStreamModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXStreamModule.m; sourceTree = "<group>"; };
 		5566942D80999DFA120E25768FF729F5 /* BMKShape.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKShape.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKShape.h; sourceTree = "<group>"; };
@@ -1813,7 +1817,7 @@
 		57D02DB0A1650211ED51D3F58E3A1720 /* KoaPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KoaPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
 		58E25E83C28EDC075566A9138304011A /* WXTextInputComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXTextInputComponent.m; sourceTree = "<group>"; };
 		5920EE35DF48AE02C4AB0CA8993DD38D /* backwhit@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "backwhit@3x.png"; sourceTree = "<group>"; };
-		5982EC9496B7FEBA91C28C25A4E270A8 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "TOCropViewController/zh-Hant.lproj"; sourceTree = "<group>"; };
+		5982EC9496B7FEBA91C28C25A4E270A8 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "TOCropViewController/zh-Hant.lproj"; sourceTree = "<group>"; };
 		59E75A943A69571880FBDAE885C0D4B7 /* TOCropViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropViewController.m; path = TOCropViewController/TOCropViewController.m; sourceTree = "<group>"; };
 		5A558D529CC0413DE99ED0DA7828F8D4 /* JsonReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JsonReader.h; sourceTree = "<group>"; };
 		5A855D09595181A8A1F610D5E0404220 /* ProgressModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ProgressModule.h; sourceTree = "<group>"; };
@@ -1845,7 +1849,7 @@
 		5E7EE1885DD18BEC9F482BDA7994B6E1 /* BMKLocationVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKLocationVersion.h; path = BaiduMapKit/BaiduMapAPI_Location.framework/Headers/BMKLocationVersion.h; sourceTree = "<group>"; };
 		5E928CEC42B3618A7F74CE5B5255461F /* IQToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQToolbar.m; path = IQKeyboardManager/IQToolbar/IQToolbar.m; sourceTree = "<group>"; };
 		5EBECAFDC253293C796202FA43FEFB4D /* BMKArcline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKArcline.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKArcline.h; sourceTree = "<group>"; };
-		5EEF0A9B8E22D9B8C0C8D37E3D1A95BD /* libfarwolf.weex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libfarwolf.weex.a; path = libfarwolf.weex.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEF0A9B8E22D9B8C0C8D37E3D1A95BD /* libfarwolf.weex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfarwolf.weex.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F216619C3BA200C6C162558A7185703 /* WXModuleMethod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXModuleMethod.m; sourceTree = "<group>"; };
 		5F4F8162F60A828E1996B30C0644A6D1 /* BMKMapComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKMapComponent.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKMapComponent.h; sourceTree = "<group>"; };
 		5F5C5865FB2FBCCA8E79673F0163816F /* NSDate+FSExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+FSExtension.m"; path = "FSCalendar/NSDate+FSExtension.m"; sourceTree = "<group>"; };
@@ -1855,7 +1859,7 @@
 		6023407380A5A2E56AD97F9FD345E0CE /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SRWebSocket.m; sourceTree = "<group>"; };
 		6046FB85FD707443536D88643BA2EB92 /* WXEventModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXEventModule.m; sourceTree = "<group>"; };
 		6071BA024437E331FE59FD2ADE831781 /* WXSliderComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXSliderComponent.h; sourceTree = "<group>"; };
-		61F23B85C6B9F50310DB851D950221A7 /* libFSCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFSCalendar.a; path = libFSCalendar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		61F23B85C6B9F50310DB851D950221A7 /* libFSCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFSCalendar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6201894321FF981ED89A45ABD2A3F8D2 /* FSCalendarCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionView.h; path = FSCalendar/FSCalendarCollectionView.h; sourceTree = "<group>"; };
 		6298FE9807E91955AA82120C39CA0745 /* BMKTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKTypes.h; path = BaiduMapKit/BaiduMapAPI_Base.framework/Headers/BMKTypes.h; sourceTree = "<group>"; };
 		62E0EDDEB2DEB651EA8C92B302880B4F /* WXAComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXAComponent.h; sourceTree = "<group>"; };
@@ -1885,13 +1889,13 @@
 		66AB2C63C3917727BF6C914855E2449B /* WXErrorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXErrorView.h; sourceTree = "<group>"; };
 		66B3002513BE117787F4AB696BF050D5 /* SSHolidayUK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSHolidayUK.h; path = SSLunarDate/SSHolidayUK.h; sourceTree = "<group>"; };
 		66F829CF07AD6191E23CDB8CF90E0AA1 /* WXComponent+Navigation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WXComponent+Navigation.h"; sourceTree = "<group>"; };
-		676BE4A65247C14F9317D191121A4084 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		676BE4A65247C14F9317D191121A4084 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		677F25F6D5F2E547B4B630322ED24EBE /* weex.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = weex.storyboard; sourceTree = "<group>"; };
 		67A86991216F464036EE8E06B71B7DD3 /* PNCircleChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNCircleChart.h; path = PNChart/PNCircleChart.h; sourceTree = "<group>"; };
 		67D1901F7250A1E9A8ACCE3ED9760518 /* PNPieChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNPieChart.h; path = PNChart/PNPieChart.h; sourceTree = "<group>"; };
 		682155CA782B3F2DEA3C986C53E7F650 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
 		6833DD76C19B15C4A6C1595C07B4F4C3 /* WXFarwolfModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXFarwolfModule.m; sourceTree = "<group>"; };
-		68C20A1F5D1E996B69B2299C96C6B88D /* libfarwolf.business.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libfarwolf.business.a; path = libfarwolf.business.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C20A1F5D1E996B69B2299C96C6B88D /* libfarwolf.business.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfarwolf.business.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D371A949426285FF9FF319CC671014 /* DACircularProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
 		695D6B122B44C7DCBD22F61B1498FE6D /* JSValue+Weex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSValue+Weex.m"; sourceTree = "<group>"; };
 		695DE65990D4AFDD4F27DFBA30A8D59B /* LPPhotoViewer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPhotoViewer.m; path = LPPhotoViewer/LPPhotoViewer.m; sourceTree = "<group>"; };
@@ -1900,7 +1904,7 @@
 		69CD268E80CC89A704803E3F3A86DEDA /* Pods-vshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vshop.release.xcconfig"; sourceTree = "<group>"; };
 		69DE8ECD61FEB5878A3B611082A30D8B /* WXDivComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXDivComponent.m; sourceTree = "<group>"; };
 		69E1557ED3FA05C02F70C98E7BD9B813 /* NSDate+Farwolf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+Farwolf.h"; sourceTree = "<group>"; };
-		6A0615E82027ACE909B551AFA15435BF /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = TOCropViewController/id.lproj; sourceTree = "<group>"; };
+		6A0615E82027ACE909B551AFA15435BF /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = id.lproj; path = TOCropViewController/id.lproj; sourceTree = "<group>"; };
 		6A2E0A098F344A9424BD1086EA48857C /* BMKShareURLSearch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKShareURLSearch.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKShareURLSearch.h; sourceTree = "<group>"; };
 		6A6CF5663E8ED2AA5EFEA5495DFA4DFA /* WXRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXRootView.m; sourceTree = "<group>"; };
 		6A8208F4A227EE7F9279F384E2A97678 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
@@ -1924,7 +1928,7 @@
 		71123F39A4FF53F6978C88B28CA4A8DD /* WXComponent+Events.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WXComponent+Events.m"; sourceTree = "<group>"; };
 		71AB31D432E540DDEE79473BF65A3F1B /* Indicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Indicator.m; sourceTree = "<group>"; };
 		722FF0BC9278E1E3A0EB94F84283C9B1 /* DOPDropDownMenu-Enhanced.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "DOPDropDownMenu-Enhanced.xcconfig"; sourceTree = "<group>"; };
-		72652490DB9E41E1F392BFFB858EB153 /* libFontAwesome+iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libFontAwesome+iOS.a"; path = "libFontAwesome+iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72652490DB9E41E1F392BFFB858EB153 /* libFontAwesome+iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libFontAwesome+iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C064FE9E2D47FEE2A5500D71BA39CD /* UIViewController+PopUp.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PopUp.m"; path = "UIViewController_PopUp/UIViewController+PopUp.m"; sourceTree = "<group>"; };
 		72EEC897A1AD4816E31B6B4E9DD61345 /* Page.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		732D4495494294860AC2112398EFF84B /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
@@ -1938,13 +1942,13 @@
 		74BF8C97B6769283482B2AA51E518486 /* SSLunarDate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSLunarDate-prefix.pch"; sourceTree = "<group>"; };
 		755DDACB86EFA726B37EB5BC68517336 /* BMKTileLayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKTileLayerView.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKTileLayerView.h; sourceTree = "<group>"; };
 		75A1A2971B1CA3EE6E156CDE61D4014F /* WeexFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WeexFactory.h; sourceTree = "<group>"; };
-		75EDB5D374CDDB243583A3989AD3F099 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = TOCropViewController/pt.lproj; sourceTree = "<group>"; };
+		75EDB5D374CDDB243583A3989AD3F099 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pt.lproj; path = TOCropViewController/pt.lproj; sourceTree = "<group>"; };
 		760DB69F27B39AD58274820E8A549364 /* WXImageComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXImageComponent.m; sourceTree = "<group>"; };
-		760F67E03A20434C830D3CA608F95F22 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		760F67E03A20434C830D3CA608F95F22 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		763EE175B81D17B20044BF2F413F7199 /* farwolf.business-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "farwolf.business-dummy.m"; sourceTree = "<group>"; };
 		766ADF2E3FA4C20E5970AC984FF2A02C /* Picker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Picker.m; sourceTree = "<group>"; };
 		7743DB3CDE7C2716801126347A40DCC3 /* TBWXDevTool.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TBWXDevTool.framework; sourceTree = "<group>"; };
-		77B51BAB44E93FFD8431AD73D62E6D40 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = TOCropViewController/nl.lproj; sourceTree = "<group>"; };
+		77B51BAB44E93FFD8431AD73D62E6D40 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nl.lproj; path = TOCropViewController/nl.lproj; sourceTree = "<group>"; };
 		77BD71062220ADBA703A0ABC2EC92856 /* LPPhotoViewer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LPPhotoViewer-dummy.m"; sourceTree = "<group>"; };
 		781BBF77020DF49D458BB9D55D31D7C4 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		782748E235757BF3FA36FA03663752E8 /* WXView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXView.h; sourceTree = "<group>"; };
@@ -1952,14 +1956,14 @@
 		7831D668D719070F6C92769F2E622BAD /* WXComponent+PseudoClassManagement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WXComponent+PseudoClassManagement.h"; sourceTree = "<group>"; };
 		78C3AE60C4246B889FAE590B858FE970 /* WXGlobalEventModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXGlobalEventModule.h; sourceTree = "<group>"; };
 		78F30E78CCF87B3920187347CC0FF6A9 /* WXModalUIModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXModalUIModule.h; sourceTree = "<group>"; };
-		79552F2B0BABD7B69151ADF4624F5ACA /* libTOCropViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTOCropViewController.a; path = libTOCropViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		79552F2B0BABD7B69151ADF4624F5ACA /* libTOCropViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTOCropViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7993180E21322E4609F7F9D2B66398C1 /* MMDrawerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerController.m; path = MMDrawerController/MMDrawerController.m; sourceTree = "<group>"; };
 		7994E2B599CF628760C470E933B0E6B3 /* CADisplayLink+CHXBannerViewAddition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CADisplayLink+CHXBannerViewAddition.m"; path = "CHXBannerView/Source/CADisplayLink+CHXBannerViewAddition.m"; sourceTree = "<group>"; };
 		79C4C7DCA465DB39FFBB47C2451E72D9 /* Screen.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Screen.m; sourceTree = "<group>"; };
 		7A080744C509FB7011F4D90F8EE7774D /* ViewPager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewPager.m; sourceTree = "<group>"; };
 		7A1F8A72838CD078E9C01CF0E9B89B09 /* CHXBannerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CHXBannerView.h; path = CHXBannerView/Source/CHXBannerView.h; sourceTree = "<group>"; };
 		7A89BC1FC296473616AA9AE1F7C9FC2B /* WXCanvasModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXCanvasModule.h; sourceTree = "<group>"; };
-		7AA630AB3F495E25094D5EB53C83907C /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = TOCropViewController/tr.lproj; sourceTree = "<group>"; };
+		7AA630AB3F495E25094D5EB53C83907C /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = tr.lproj; path = TOCropViewController/tr.lproj; sourceTree = "<group>"; };
 		7AC2361055BDF2D6E540093093D82C74 /* WXDatePickerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXDatePickerManager.m; sourceTree = "<group>"; };
 		7B214B4F961864CAD643027113775718 /* PNChartLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNChartLabel.m; path = PNChart/PNChartLabel.m; sourceTree = "<group>"; };
 		7B2D6907AB7077E545EA83D25972CBC7 /* WXTextAreaComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXTextAreaComponent.h; sourceTree = "<group>"; };
@@ -1979,7 +1983,7 @@
 		7EA3B2A93AC068BBBC6D3EB9C2061A02 /* WXLoadingComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXLoadingComponent.m; sourceTree = "<group>"; };
 		7F32EB93B161F9F165659D3A3D93AD81 /* BMKAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKAnnotation.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKAnnotation.h; sourceTree = "<group>"; };
 		7F878106E6E250D2FB252774FDBDF744 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
-		7FC1E6CA697D5AD6C247CD64BDAD0958 /* libPNChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPNChart.a; path = libPNChart.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC1E6CA697D5AD6C247CD64BDAD0958 /* libPNChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPNChart.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A3150D3BCCC898C7843B7FE0420824 /* PNCircleChart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNCircleChart.m; path = PNChart/PNCircleChart.m; sourceTree = "<group>"; };
 		81C3118F5B1E9CD42E7A2FCB151187C8 /* mapapi.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		81C693218038794D1B0739EBEFFA12D3 /* WXPushComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXPushComponent.h; sourceTree = "<group>"; };
@@ -1998,7 +2002,7 @@
 		8554E67FA440C3E1E648FBC8B9886BAA /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
 		85934FED7E75DBA8F44109C9CDC56AD6 /* WXNetModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXNetModule.h; sourceTree = "<group>"; };
 		85C1AC6E7695FE3ECF5BFA3163E571D4 /* SSHolidayCountry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSHolidayCountry.h; path = SSLunarDate/SSHolidayCountry.h; sourceTree = "<group>"; };
-		85CEA2C8DEB385D4D5789E13AEA9865F /* libWeexSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWeexSDK.a; path = libWeexSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		85CEA2C8DEB385D4D5789E13AEA9865F /* libWeexSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWeexSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		861AB99FBB581BC88E1914DC4EC6781D /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTitleBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h; sourceTree = "<group>"; };
 		861B81A65EFBA1FA1E1A532B2CA3024D /* WXWebSocketDefaultImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXWebSocketDefaultImpl.m; sourceTree = "<group>"; };
 		8649FFF3A89F583CB83B8E9C6292159C /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
@@ -2014,7 +2018,7 @@
 		8919688C8B74D2548617C6E73913C79B /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		891B3B9FF0A5A67C22719765119FD3EA /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		8934BD81DBEB4F9813919810F630DB96 /* WXStaticModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXStaticModule.m; sourceTree = "<group>"; };
-		899983668174744B79A9FADF80E957DF /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "TOCropViewController/zh-Hans.lproj"; sourceTree = "<group>"; };
+		899983668174744B79A9FADF80E957DF /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "TOCropViewController/zh-Hans.lproj"; sourceTree = "<group>"; };
 		89AE00D80F1217757F82A911FDD9EE43 /* LPPhotoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPhotoView.m; path = LPPhotoViewer/LPPhotoView.m; sourceTree = "<group>"; };
 		89DD34CB1280414F73C1F9E856BE1847 /* WXComponent+ViewManagement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WXComponent+ViewManagement.m"; sourceTree = "<group>"; };
 		89FDD8B5819AED007AA191A595A74332 /* StateView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = StateView.h; sourceTree = "<group>"; };
@@ -2028,7 +2032,7 @@
 		8D6BF049D677885A8BAE1B53C89C695B /* WXTextAreaComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXTextAreaComponent.m; sourceTree = "<group>"; };
 		8DD2085B3F8E2863224C21F41E2A27E3 /* WXRecyclerUpdateController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXRecyclerUpdateController.m; sourceTree = "<group>"; };
 		8DF9F7381854982CA11ABA442610CE27 /* CircleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
-		8DFF1B693551BF107308ECBA5A128B2B /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = TOCropViewController/vi.lproj; sourceTree = "<group>"; };
+		8DFF1B693551BF107308ECBA5A128B2B /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = vi.lproj; path = TOCropViewController/vi.lproj; sourceTree = "<group>"; };
 		8E3757A2958F015F43DA09478AAB657D /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Cloud.framework; path = BaiduMapKit/BaiduMapAPI_Cloud.framework; sourceTree = "<group>"; };
 		8E4B12C0FEB0955091E7B159AC40EDBC /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		8E53666C9FB21B5567030FFCC9878607 /* UIView+FSExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+FSExtension.h"; path = "FSCalendar/UIView+FSExtension.h"; sourceTree = "<group>"; };
@@ -2055,7 +2059,7 @@
 		93517E1F5C6C7657E246563B8993B189 /* ListViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ListViewProgressView.h; sourceTree = "<group>"; };
 		935692DA7FF217026FC63CDBA8F8A039 /* BMKOfflineMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKOfflineMap.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKOfflineMap.h; sourceTree = "<group>"; };
 		937D4562069703F4748654415CE210BF /* NSString+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93B5BF545F376378BE7FD08D97E6DFFC /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerBarButtonItem.m; path = MMDrawerController/MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		93C2169B8192A7E087B4DEFC4F6D2817 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		93FFADF21AC61F2A1A2418930A6228E9 /* LPPVTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPVTransition.m; path = LPPhotoViewer/LPPVTransition.m; sourceTree = "<group>"; };
@@ -2064,7 +2068,7 @@
 		94DA4B7550FB13548AFC027529B3E983 /* TOCropViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TOCropViewController-dummy.m"; sourceTree = "<group>"; };
 		94FA039C5219E95A8DC7D03A67772EAB /* PNChartLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNChartLabel.h; path = PNChart/PNChartLabel.h; sourceTree = "<group>"; };
 		950196249EC782886CF432F9609AEB9A /* SSHolidayWest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSHolidayWest.m; path = SSLunarDate/SSHolidayWest.m; sourceTree = "<group>"; };
-		9504C01BBD20F6E6B98E64F0C19611D8 /* TOCropViewControllerBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TOCropViewControllerBundle.bundle; path = TOCropViewControllerBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9504C01BBD20F6E6B98E64F0C19611D8 /* TOCropViewControllerBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOCropViewControllerBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		952B4462AE4D09BBC973CB220E523303 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		953951B13EC1EA3D19201AEC35887B27 /* WXWeakObjectWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXWeakObjectWrapper.m; sourceTree = "<group>"; };
 		954A93E3B32129B3612843853B0C9C30 /* BMKPoiSearch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKPoiSearch.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKPoiSearch.h; sourceTree = "<group>"; };
@@ -2088,7 +2092,7 @@
 		9B4ACA2F10B45CCB0D58017D23798121 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		9B8CE529907B0BF91E6234531094835C /* WXDisplayQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXDisplayQueue.h; sourceTree = "<group>"; };
 		9BB936FC320DBE7E82D46993D6467EE2 /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
-		9BC5C12A89EEB756A8D0BDF9C223084D /* libDACircularProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDACircularProgress.a; path = libDACircularProgress.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC5C12A89EEB756A8D0BDF9C223084D /* libDACircularProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDACircularProgress.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE7F8769EA293F81FF4A1CF69C840D0 /* Picker.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = Picker.xib; sourceTree = "<group>"; };
 		9BF496C891631BCEFFBC2E026B0E6D78 /* TOCropScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropScrollView.m; path = TOCropViewController/Views/TOCropScrollView.m; sourceTree = "<group>"; };
 		9C9C68C0FD78BE4B3714E8717673ADAF /* WXWebComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXWebComponent.m; sourceTree = "<group>"; };
@@ -2109,7 +2113,7 @@
 		A1128B7158CD5A75C48535FF89C508BA /* WXHandlerFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXHandlerFactory.h; sourceTree = "<group>"; };
 		A15EF046E7CE85FB8F295460400510C2 /* FSCalendarConstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarConstance.m; path = FSCalendar/FSCalendarConstance.m; sourceTree = "<group>"; };
 		A17E4148223D040E20EC9CD5DE1F75F0 /* WXLength.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXLength.m; sourceTree = "<group>"; };
-		A19B92B3E1482849DA4C59ADFB74E89F /* libKoaPullToRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKoaPullToRefresh.a; path = libKoaPullToRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19B92B3E1482849DA4C59ADFB74E89F /* libKoaPullToRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKoaPullToRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BA11451F8186EB578559A512571B74 /* PNScatterChartData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNScatterChartData.h; path = PNChart/PNScatterChartData.h; sourceTree = "<group>"; };
 		A2034BB2F19AC0A250BD1762E23F77F7 /* Pods-vshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vshop.debug.xcconfig"; sourceTree = "<group>"; };
 		A23117D4DB6C68F8699E4C54C40A7E10 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -2163,7 +2167,7 @@
 		B23841EBB2DD5368752DE237E8D29699 /* CHXBannerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHXBannerView.xcconfig; sourceTree = "<group>"; };
 		B253C464E534410BE90783ABDEB405AF /* WXComponent+Layout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WXComponent+Layout.h"; sourceTree = "<group>"; };
 		B29F3322689730C52B8A296DB1086FA1 /* WXHandlerFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXHandlerFactory.m; sourceTree = "<group>"; };
-		B2A299587F77FDFD59A32641D7C851EC /* libYZHeaderScaleImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYZHeaderScaleImage.a; path = libYZHeaderScaleImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A299587F77FDFD59A32641D7C851EC /* libYZHeaderScaleImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYZHeaderScaleImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D0ED665397F55EB3C7AD8A65EB084E /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
 		B2F5C36DF5F8267D2B8F1FF0B90FEC22 /* WXTransform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXTransform.h; sourceTree = "<group>"; };
 		B32DDBB93614DAF42C79338C33D19914 /* WXNavigationProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXNavigationProtocol.h; sourceTree = "<group>"; };
@@ -2206,12 +2210,12 @@
 		BA5547047E605637E83C5A61F857A626 /* WXRecyclerUpdateController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXRecyclerUpdateController.h; sourceTree = "<group>"; };
 		BA8C45A8B3850E33D68E0EAFD84D65F7 /* WXDebugTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXDebugTool.h; sourceTree = "<group>"; };
 		BA92795C9DFFCD3712DC342C67E20B5A /* FontAwesome+iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "FontAwesome+iOS.xcconfig"; sourceTree = "<group>"; };
-		BA9930956F662797C002F379460DDE4C /* libUIViewController_PopUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libUIViewController_PopUp.a; path = libUIViewController_PopUp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA9930956F662797C002F379460DDE4C /* libUIViewController_PopUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIViewController_PopUp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB88BB18425AC8F74906160EAD92353 /* Pods-vshop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vshop-frameworks.sh"; sourceTree = "<group>"; };
 		BB365FED808485CF5E730CFA72E93488 /* BMKGeneralDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKGeneralDelegate.h; path = BaiduMapKit/BaiduMapAPI_Base.framework/Headers/BMKGeneralDelegate.h; sourceTree = "<group>"; };
 		BBB997C95373F327182CE1AADC94476A /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		BBCC6C4069D7837C7ECC0949AB52498B /* UIImage+CropRotate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropRotate.h"; path = "TOCropViewController/Models/UIImage+CropRotate.h"; sourceTree = "<group>"; };
-		BC50F2BEDBBB4E4936D1DA18BE1768BD /* libSocketRocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSocketRocket.a; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC50F2BEDBBB4E4936D1DA18BE1768BD /* libSocketRocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6D58C38E6BC368733A38786401B5E0 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
 		BCB4D875EF05F02E47D5AA36B0C40517 /* WXThreadSafeMutableArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXThreadSafeMutableArray.m; sourceTree = "<group>"; };
 		BCD6FA52EC1E20572F52A8CF98146051 /* UIViewController_PopUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController_PopUp-dummy.m"; sourceTree = "<group>"; };
@@ -2227,7 +2231,7 @@
 		BF0DAC95B2AB5F72AA8CC45E8A2DA85C /* PickerType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PickerType.h; sourceTree = "<group>"; };
 		BF119C0F5585CBA6B7B81E5FC759F6E1 /* WXResourceLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXResourceLoader.m; sourceTree = "<group>"; };
 		BF944EF79AE1C124134AED789F78715F /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
-		BF9A691E50C8F4C562C293170BDD9F72 /* libUCZProgressView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libUCZProgressView.a; path = libUCZProgressView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF9A691E50C8F4C562C293170BDD9F72 /* libUCZProgressView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUCZProgressView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA85A8064604A35ED3FF476034AB09C /* WXInvocationConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXInvocationConfig.m; sourceTree = "<group>"; };
 		C00F30D3BE78E31055B5948E2CB97803 /* SSHolidayTW.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSHolidayTW.m; path = SSLunarDate/SSHolidayTW.m; sourceTree = "<group>"; };
 		C0667271D5D420D7E9D7992597550296 /* WXWebViewModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXWebViewModule.m; sourceTree = "<group>"; };
@@ -2257,7 +2261,7 @@
 		C82CAC7951D1BC2A8E03D55A8E516F90 /* ResourceBundle-TOCropViewControllerBundle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TOCropViewControllerBundle-Info.plist"; sourceTree = "<group>"; };
 		C844ACA9D6E9DA7113003AB45B234919 /* WXSDKInstance_private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXSDKInstance_private.h; sourceTree = "<group>"; };
 		C8577847C6F671505CBA6182993F7FC7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		C90A40FD0C92B795EB9E9F3C8E6CA520 /* libfarwolf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libfarwolf.a; path = libfarwolf.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90A40FD0C92B795EB9E9F3C8E6CA520 /* libfarwolf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfarwolf.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C972F5238A4AAA7A28A9D17414F86E35 /* WXNavigatorModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXNavigatorModule.h; sourceTree = "<group>"; };
 		C9761B5C44ED7958A8C7F7973E0A1234 /* WXSliderNeighborComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXSliderNeighborComponent.h; sourceTree = "<group>"; };
 		C97AB7F883398166298AF13B8900BEEA /* UpdateChecker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UpdateChecker.m; sourceTree = "<group>"; };
@@ -2276,7 +2280,7 @@
 		CC4B832240C469D011A02B4968E62CE9 /* WXRuleManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXRuleManager.m; sourceTree = "<group>"; };
 		CCCD0A3C49A5B970908DD9DD604F556A /* GSKStretchyHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GSKStretchyHeaderView.m; path = GSKStretchyHeaderView/Classes/GSKStretchyHeaderView.m; sourceTree = "<group>"; };
 		CCE24FFD39FB1E5840C1AC9CA7482AB5 /* TADotView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TADotView.m; path = SDCycleScrollView/Lib/SDCycleScrollView/PageControl/TADotView.m; sourceTree = "<group>"; };
-		CCEB5712A99E5F5D215F188F81A9F287 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = TOCropViewController/it.lproj; sourceTree = "<group>"; };
+		CCEB5712A99E5F5D215F188F81A9F287 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = TOCropViewController/it.lproj; sourceTree = "<group>"; };
 		CDB1F9C46A9D7D87F2A34F1D3B1AC190 /* PNRadarChart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNRadarChart.m; path = PNChart/PNRadarChart.m; sourceTree = "<group>"; };
 		CDEC68D3129603285967BE49831AC531 /* CollectionItemView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CollectionItemView.m; sourceTree = "<group>"; };
 		CE85835B1901D0BC5407C9072633099E /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
@@ -2287,7 +2291,7 @@
 		CF37EC498C08350B239D676188B23477 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIViewController_PopUp/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		CFC82D0FF1FD7971AB5C1BD5F16F3C7E /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		CFEA3BA0EADB4CC3D8F93A1BBFC7DBB1 /* ErrorControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ErrorControl.h; sourceTree = "<group>"; };
-		D02B261DE0E56DF5182CC7B71444C994 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = TOCropViewController/es.lproj; sourceTree = "<group>"; };
+		D02B261DE0E56DF5182CC7B71444C994 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = TOCropViewController/es.lproj; sourceTree = "<group>"; };
 		D0726E8127240AB7DB7006C9E664B095 /* farwolf_business.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = farwolf_business.m; sourceTree = "<group>"; };
 		D088A854F99233EBAC03144117380114 /* WXDiffUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXDiffUtil.h; sourceTree = "<group>"; };
 		D0A30F44680CAA8AFD3E3D04B7D56C14 /* JsonReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JsonReader.m; sourceTree = "<group>"; };
@@ -2301,7 +2305,7 @@
 		D3C81C035F6EA3C31BAA76526F14728D /* LocationPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LocationPicker.m; sourceTree = "<group>"; };
 		D3CADC9780EE813124C8DC50779C9680 /* farwolf_business.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = farwolf_business.h; sourceTree = "<group>"; };
 		D3CF491D41CBE2F11C07F72C1C053D7D /* WXAnimationModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXAnimationModule.h; sourceTree = "<group>"; };
-		D42E5709368CD023F1732ED766D8355C /* libLunar.c */ = {isa = PBXFileReference; includeInIndex = 1; name = libLunar.c; path = SSLunarDate/libLunar.c; sourceTree = "<group>"; };
+		D42E5709368CD023F1732ED766D8355C /* libLunar.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = libLunar.c; path = SSLunarDate/libLunar.c; sourceTree = "<group>"; };
 		D441363EED4AF90BF4A3CFE1FA88920C /* TOCropToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropToolbar.h; path = TOCropViewController/Views/TOCropToolbar.h; sourceTree = "<group>"; };
 		D47A8B16252AD7ADF09BD1A2DFB3FA64 /* FAImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		D4C782AE0B3EE706E1F4437D9E295A51 /* FSCalendarStickyHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarStickyHeader.h; path = FSCalendar/FSCalendarStickyHeader.h; sourceTree = "<group>"; };
@@ -2315,7 +2319,7 @@
 		D640246E960A961FDDA00B22B4F70150 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOActivityCroppedImageProvider.h; path = TOCropViewController/Models/TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
 		D65AD86F546B6BC2AD6C16FF193EC18D /* WXDebugLoggerBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXDebugLoggerBridge.h; sourceTree = "<group>"; };
 		D75551FC8295D9C5F516C7D3D9B201DE /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		D76BA2402F21A75C72C463F14A0A3B1F /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ar.lproj; path = TOCropViewController/ar.lproj; sourceTree = "<group>"; };
+		D76BA2402F21A75C72C463F14A0A3B1F /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ar.lproj; path = TOCropViewController/ar.lproj; sourceTree = "<group>"; };
 		D81F1860596EBD00692D5D0033273D63 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		D824561EA9036CD4E19C986DD797D851 /* WXWebSocketDefaultImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXWebSocketDefaultImpl.h; sourceTree = "<group>"; };
 		D82CFEBA25DA1A4717FF0AB8CEAD816C /* WXPhotoModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXPhotoModule.h; sourceTree = "<group>"; };
@@ -2323,7 +2327,7 @@
 		D89197081974FCC44F8641359408EF0A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		D8E448C7E29B9BDCBCE418AA7D78A5CB /* UIViewController+Farwolf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Farwolf.h"; sourceTree = "<group>"; };
 		D9433410704A549193DABBEE6103A55A /* WXStreamModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXStreamModule.h; sourceTree = "<group>"; };
-		D94CB86DF1DFD051BE64DF137046C767 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = TOCropViewController/pl.lproj; sourceTree = "<group>"; };
+		D94CB86DF1DFD051BE64DF137046C767 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pl.lproj; path = TOCropViewController/pl.lproj; sourceTree = "<group>"; };
 		D94D8B9F2C51C2347FE557706A223D27 /* BMKRouteSearchType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKRouteSearchType.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKRouteSearchType.h; sourceTree = "<group>"; };
 		D9CFEC8436BAB37062615890C5E66D69 /* WXClipboardModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXClipboardModule.h; sourceTree = "<group>"; };
 		DA5AD344C85FAA26612FF9632648AFDD /* PNScatterChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PNScatterChart.h; path = PNChart/PNScatterChart.h; sourceTree = "<group>"; };
@@ -2335,7 +2339,7 @@
 		DB1C5AFF99D5028796692CAA1471F079 /* FileReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FileReader.m; sourceTree = "<group>"; };
 		DBB45EB5CA6B4E712BA5E7743483A727 /* BMKMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKMapView.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKMapView.h; sourceTree = "<group>"; };
 		DBB71A9D853835F5E009F62F85E8921E /* WXFPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXFPicker.h; sourceTree = "<group>"; };
-		DBBBDBD9AC27524423822A3909C6B134 /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = TOCropViewController/ko.lproj; sourceTree = "<group>"; };
+		DBBBDBD9AC27524423822A3909C6B134 /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ko.lproj; path = TOCropViewController/ko.lproj; sourceTree = "<group>"; };
 		DBD46E2A2B561A2D771262813CAA6CE0 /* WXLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXLog.m; sourceTree = "<group>"; };
 		DBE30BEA8D56A154CEFB9BCF432CC52D /* YZHeaderScaleImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YZHeaderScaleImage-prefix.pch"; sourceTree = "<group>"; };
 		DC068A6D018DB096F968067E89428E5E /* WXCellComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXCellComponent.m; sourceTree = "<group>"; };
@@ -2353,7 +2357,7 @@
 		DF03A4B548638482DB58E6363A28A171 /* SRMonthPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SRMonthPicker-dummy.m"; sourceTree = "<group>"; };
 		DF2A782DD64F9A5A7B812A99BFED370A /* WXVideoComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXVideoComponent.m; sourceTree = "<group>"; };
 		DF66514A4A6DF3FD7E2071A7ADD32904 /* BMKCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKCircle.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKCircle.h; sourceTree = "<group>"; };
-		DF8F53E24FA176057F6560F3BE3C9E2F /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = TOCropViewController/en.lproj; sourceTree = "<group>"; };
+		DF8F53E24FA176057F6560F3BE3C9E2F /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = TOCropViewController/en.lproj; sourceTree = "<group>"; };
 		DFA56029F0981463075DCA4FD843609D /* WXConvert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXConvert.m; sourceTree = "<group>"; };
 		E04D4816742430D0FF032E5AA29DDAE3 /* WXComponentMethod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXComponentMethod.m; sourceTree = "<group>"; };
 		E09F549AA4EA8F4E28E3219D1A5348BE /* BMKMapStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKMapStatus.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKMapStatus.h; sourceTree = "<group>"; };
@@ -2363,7 +2367,7 @@
 		E1A5C08D2D6928E40CC9E0312A20E126 /* WXThreadSafeCounter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXThreadSafeCounter.m; sourceTree = "<group>"; };
 		E1EAA6E8F57BD682BCBCBAA95E3C8B54 /* WXComponent+Navigation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WXComponent+Navigation.m"; sourceTree = "<group>"; };
 		E267C0B3D56D98E84736D441537DBD52 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Map.framework; path = BaiduMapKit/BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
-		E2D5D54E077EC129CA1A918FA1A90A60 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = da.lproj; path = TOCropViewController/da.lproj; sourceTree = "<group>"; };
+		E2D5D54E077EC129CA1A918FA1A90A60 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = da.lproj; path = TOCropViewController/da.lproj; sourceTree = "<group>"; };
 		E2FDD226868BC6BA6BA7CB7CFA75D8EA /* FSCalendarHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarHeader.m; path = FSCalendar/FSCalendarHeader.m; sourceTree = "<group>"; };
 		E3358AB3B98B13B41694D1B1A8FCD0FD /* BMKRadarComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKRadarComponent.h; path = BaiduMapKit/BaiduMapAPI_Radar.framework/Headers/BMKRadarComponent.h; sourceTree = "<group>"; };
 		E33A42F351AFCE0261A06C17AC5C302B /* DOPDropDownMenu-Enhanced-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DOPDropDownMenu-Enhanced-dummy.m"; sourceTree = "<group>"; };
@@ -2382,7 +2386,7 @@
 		E5918650826F80AA5153BA869A7A7B65 /* WXMetaModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXMetaModule.h; sourceTree = "<group>"; };
 		E5DA4658CC3900645BF929A176D4FD84 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManager/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		E612E61258B7F681EAA3A03DC5FDBA0D /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		E745407F351B15A9794D57EAC375E03D /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = TOCropViewController/fr.lproj; sourceTree = "<group>"; };
+		E745407F351B15A9794D57EAC375E03D /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = TOCropViewController/fr.lproj; sourceTree = "<group>"; };
 		E7541883D398863A468AFB90693E033D /* WXDomModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXDomModule.m; sourceTree = "<group>"; };
 		E7B432CE2836BF4A57AE31DF68A3984F /* BMKMapManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKMapManager.h; path = BaiduMapKit/BaiduMapAPI_Base.framework/Headers/BMKMapManager.h; sourceTree = "<group>"; };
 		E7C3DC6F2F5B184E87F960A090AB0560 /* WXNavigationDefaultImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXNavigationDefaultImpl.m; sourceTree = "<group>"; };
@@ -2400,25 +2404,25 @@
 		EAE7BACA9ABBB7A973D02B53477812EB /* SSLunarDateHoliday.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSLunarDateHoliday.h; path = SSLunarDate/SSLunarDateHoliday.h; sourceTree = "<group>"; };
 		EB177A604362D5E4CC38FDE2CBB00227 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Utils.framework; path = BaiduMapKit/BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
 		EB339684048E89ED425567819A2ED433 /* BMKSearchVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKSearchVersion.h; path = BaiduMapKit/BaiduMapAPI_Search.framework/Headers/BMKSearchVersion.h; sourceTree = "<group>"; };
-		EB55C3EB5B62BBB5208FE7B03EC73F0B /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB55C3EB5B62BBB5208FE7B03EC73F0B /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB2805C758DEDE07946F53493AB389B /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		EBFD1548C043C6F0653D7185FAE62EDE /* FontAwesome+iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome+iOS-dummy.m"; sourceTree = "<group>"; };
 		EC130AFDCB71D9087D1F4EF4A5F4D38D /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		EC15DC3B8860E303EC572BED59CB4C4D /* WXPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXPage.h; sourceTree = "<group>"; };
 		EC4A0114F55FF0A5970C24CCC3A401E4 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUITextFieldView+Additions.h"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
-		EC5C5F8200E08E312D2E85A0FD8034C6 /* native-bundle-main.js */ = {isa = PBXFileReference; includeInIndex = 1; path = "native-bundle-main.js"; sourceTree = "<group>"; };
+		EC5C5F8200E08E312D2E85A0FD8034C6 /* native-bundle-main.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; path = "native-bundle-main.js"; sourceTree = "<group>"; };
 		ECAF253CAF13331EDA148F06AD52CBEC /* UICountingLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		ECE2EBEC8E50D3854FE1CA461BD72A6B /* IQBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.h; sourceTree = "<group>"; };
 		ED1F28305A49EE73FC4FEFCEAB952C1E /* WXLoadingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXLoadingView.m; sourceTree = "<group>"; };
 		ED45657523DE07C1291A59B7A780FF1E /* WXTimerModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXTimerModule.h; sourceTree = "<group>"; };
 		ED9E4C82ECE013BFE6E3491603BE3A20 /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
-		EDB1A21A59D777A10F813BC0DAB5CA77 /* libSRMonthPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSRMonthPicker.a; path = libSRMonthPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB1A21A59D777A10F813BC0DAB5CA77 /* libSRMonthPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSRMonthPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDC48836F5D805DA56B4C784EEC4961 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		EE526A2E5A9DC9906506A120F2256A5D /* WXCanvasModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXCanvasModule.m; sourceTree = "<group>"; };
 		EE72045162F71CF2289FC4822AAD4474 /* WXResourceRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXResourceRequest.m; sourceTree = "<group>"; };
 		EF4F0EE73E356D25220DF34968030A41 /* WXLength.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXLength.h; sourceTree = "<group>"; };
 		EF748AAFBD02EF0AF0555B81402D93D1 /* WXResourceRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXResourceRequest.h; sourceTree = "<group>"; };
-		EF9C7AEC9B726AE39400DCCE346E7AAB /* libMMDrawerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMMDrawerController.a; path = libMMDrawerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9C7AEC9B726AE39400DCCE346E7AAB /* libMMDrawerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMMDrawerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFDAEB60747765AC90772B4C81BF8F3 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDCollectionViewCell.m; path = SDCycleScrollView/Lib/SDCycleScrollView/SDCollectionViewCell.m; sourceTree = "<group>"; };
 		F0183A79EAD838ABEDDFA065E1AEFDCB /* WXJSExceptionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WXJSExceptionInfo.h; sourceTree = "<group>"; };
 		F0432A49BE70726ECB7E9DAE9F5EB0FC /* SRMonthPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SRMonthPicker.xcconfig; sourceTree = "<group>"; };
@@ -2429,7 +2433,7 @@
 		F294030649A20994338F62DEF1B384CC /* libssl.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssl.a; path = BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		F2A48506238BC813FB421CEFC1E49010 /* PNScatterChartDataItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PNScatterChartDataItem.m; path = PNChart/PNScatterChartDataItem.m; sourceTree = "<group>"; };
 		F2DEE0F341B9330293FCD7DF7953993C /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		F329FED3E25C282CEBD410646B4E24E1 /* GSKGeometry.c */ = {isa = PBXFileReference; includeInIndex = 1; name = GSKGeometry.c; path = GSKStretchyHeaderView/Classes/GSKGeometry.c; sourceTree = "<group>"; };
+		F329FED3E25C282CEBD410646B4E24E1 /* GSKGeometry.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = GSKGeometry.c; path = GSKStretchyHeaderView/Classes/GSKGeometry.c; sourceTree = "<group>"; };
 		F3C3D0670B502C4A341B699EA06E4BF2 /* AppUrls.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppUrls.m; sourceTree = "<group>"; };
 		F3CF3AC5E87AEED58D808B3F8BF08291 /* farwolf-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "farwolf-dummy.m"; sourceTree = "<group>"; };
 		F4050B2F1A59B1B406D233991042D87E /* JsonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JsonProtocol.h; sourceTree = "<group>"; };
@@ -2442,9 +2446,9 @@
 		F54372E00AF84448267DDF907BD8BC97 /* WXSimulatorShortcutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXSimulatorShortcutManager.m; sourceTree = "<group>"; };
 		F603C634B0EA8F209EA8E356C209634C /* SRMonthPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRMonthPicker.m; path = Pod/Classes/SRMonthPicker.m; sourceTree = "<group>"; };
 		F61065D2E3E0C49992D06A2ECA1BCF92 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
-		F61EF1880BBBC55B8A90B6E296E7699F /* libLPPhotoViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libLPPhotoViewer.a; path = libLPPhotoViewer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F61EF1880BBBC55B8A90B6E296E7699F /* libLPPhotoViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLPPhotoViewer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6429F4D9D3785102C95E94F41F12EEA /* TAPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TAPageControl.m; path = SDCycleScrollView/Lib/SDCycleScrollView/PageControl/TAPageControl.m; sourceTree = "<group>"; };
-		F64C5007E59314879643C3165B14DC5F /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F64C5007E59314879643C3165B14DC5F /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F654E082316A96B6444B3C68F249B308 /* WXJSCoreBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WXJSCoreBridge.m; sourceTree = "<group>"; };
 		F661A53AC5052897334C831ED71E9FDF /* NSObject+Farwolf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+Farwolf.h"; sourceTree = "<group>"; };
 		F71DACE91E365DC99D49524FC22D4F7C /* BMKOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BMKOverlayView.h; path = BaiduMapKit/BaiduMapAPI_Map.framework/Headers/BMKOverlayView.h; sourceTree = "<group>"; };
@@ -2775,7 +2779,6 @@
 			children = (
 				7A00EFC6484B2C8E6A9B560C99304763 /* Sources */,
 			);
-			name = WeexSDK;
 			path = WeexSDK;
 			sourceTree = "<group>";
 		};
@@ -2807,7 +2810,6 @@
 				B39CDCECEE618BF29BA48FA5BFA87877 /* Screen.h */,
 				79C4C7DCA465DB39FFBB47C2451E72D9 /* Screen.m */,
 			);
-			name = Util;
 			path = Util;
 			sourceTree = "<group>";
 		};
@@ -2819,7 +2821,6 @@
 				07FECF6010D05DEC99320DFF1BD8D97C /* WXRootViewController.h */,
 				10924ACC0027E4531F8FDE24B314D32F /* WXRootViewController.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -2834,7 +2835,6 @@
 				72C064FE9E2D47FEE2A5500D71BA39CD /* UIViewController+PopUp.m */,
 				EC5F23482A3A6E007C561E9A39A869C5 /* Support Files */,
 			);
-			name = UIViewController_PopUp;
 			path = UIViewController_PopUp;
 			sourceTree = "<group>";
 		};
@@ -2849,7 +2849,6 @@
 				FD0F4F2349E8915372CBF74DB06D1945 /* CHXBannerViewDelegate.h */,
 				20BF07BCF9180F32DB625CCD8AF7DBEA /* Support Files */,
 			);
-			name = CHXBannerView;
 			path = CHXBannerView;
 			sourceTree = "<group>";
 		};
@@ -2877,7 +2876,6 @@
 				DACED0FAE0E1F86BC6EA23E92E09CC49 /* WXServiceFactory.h */,
 				8C2141DC5CA25CD5DAE7F8D05D4023E8 /* WXServiceFactory.m */,
 			);
-			name = Manager;
 			path = Manager;
 			sourceTree = "<group>";
 		};
@@ -2899,7 +2897,6 @@
 				75A1A2971B1CA3EE6E156CDE61D4014F /* WeexFactory.h */,
 				0D487BD53028558F850B1E4347CE1C37 /* WeexFactory.m */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -2913,7 +2910,6 @@
 				5772AFDF30975795E838F22258FEF44C /* YYModel.h */,
 				FF41F82EC3962DFD4149A1A762EE2417 /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -2962,7 +2958,6 @@
 				493E94AEB453E56094905D07E0668548 /* UIView+FSExtension.m */,
 				B995A666E4FA83425B3138D7F4A4CC56 /* Support Files */,
 			);
-			name = FSCalendar;
 			path = FSCalendar;
 			sourceTree = "<group>";
 		};
@@ -2983,7 +2978,6 @@
 				B3577501F5B2178891D3AF724A55760C /* WXMonitor.h */,
 				74737ED898C34CFEE62D65A0FF16ADE1 /* WXMonitor.m */,
 			);
-			name = Monitor;
 			path = Monitor;
 			sourceTree = "<group>";
 		};
@@ -3012,7 +3006,6 @@
 				7D83D9C1ABD7803C7C41960D517F0E34 /* Resources */,
 				B8E4440B446347638BD9EC0F9B120C32 /* Support Files */,
 			);
-			name = TOCropViewController;
 			path = TOCropViewController;
 			sourceTree = "<group>";
 		};
@@ -3022,7 +3015,6 @@
 				BA8C45A8B3850E33D68E0EAFD84D65F7 /* WXDebugTool.h */,
 				193F961939602D04887676F039E96130 /* WXDebugTool.m */,
 			);
-			name = Debug;
 			path = Debug;
 			sourceTree = "<group>";
 		};
@@ -3035,7 +3027,6 @@
 				A5573B3546835A170C89FB129A515973 /* DALabeledCircularProgressView.m */,
 				F730132A7197CC47DB63C5F4B7055CE6 /* Support Files */,
 			);
-			name = DACircularProgress;
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
@@ -3045,7 +3036,6 @@
 				30CFA155B3FCD1087D234DA0095D765E /* UploadImage.h */,
 				D57C70434ABE42E505A19C8BD5E05D60 /* UploadImage.m */,
 			);
-			name = view;
 			path = view;
 			sourceTree = "<group>";
 		};
@@ -3058,7 +3048,6 @@
 				94DBF327BCD9DBB770C0C22F50FF25E4 /* Subclass */,
 				AC8AABD0244635FDD5C9E79783360E2E /* Support Files */,
 			);
-			name = MMDrawerController;
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
@@ -3071,7 +3060,6 @@
 				B422F95C1B78653CA20717B8C1CAABB7 /* WXComponent+Layout.m */,
 				23AFF8588264D79CDB3B8B78B88E0119 /* WXLayoutDefine.h */,
 			);
-			name = Layout;
 			path = Layout;
 			sourceTree = "<group>";
 		};
@@ -3095,7 +3083,6 @@
 				874D947D7CAAF90FEDBE6018D60D652D /* fail.png */,
 				2CDC93B58DFE52F8352775520AB6B0A8 /* qrcodecase@2x.png */,
 			);
-			name = image;
 			path = image;
 			sourceTree = "<group>";
 		};
@@ -3129,7 +3116,6 @@
 				E8BEF06A7714F45DAC80EDA1DD027515 /* ViewController+MASAdditions.m */,
 				9943B1CC1B1E169B6E67724806F6E1DC /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -3216,7 +3202,6 @@
 				FE0317369B1AF6FFFCD5EF02AC01C39E /* Resources */,
 				AAC10849515A1077FD8100122C1B2620 /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -3296,7 +3281,6 @@
 				2501614B2275EF6DC6DDB2C0F2C0BAB5 /* SSLunarDateType.h */,
 				5A1EF9DC1BF012420E5D4F650442BB84 /* Support Files */,
 			);
-			name = SSLunarDate;
 			path = SSLunarDate;
 			sourceTree = "<group>";
 		};
@@ -3329,7 +3313,6 @@
 				EC5C5F8200E08E312D2E85A0FD8034C6 /* native-bundle-main.js */,
 				9F1E7E30B742FE522E0ED7328EF51AC7 /* wx_load_error@3x.png */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -3397,7 +3380,6 @@
 			children = (
 				EA8D5C39BBB2FDEBC87905C53C2B4EB1 /* resources */,
 			);
-			name = farwolf.weex;
 			path = farwolf.weex;
 			sourceTree = "<group>";
 		};
@@ -3434,7 +3416,6 @@
 				451FA56393DD5FE92E374BC47CC4E474 /* WXPolyfillSet.h */,
 				5AA209FF0E3784EE43AB0764A376D987 /* WXPolyfillSet.m */,
 			);
-			name = Bridge;
 			path = Bridge;
 			sourceTree = "<group>";
 		};
@@ -3538,7 +3519,6 @@
 				0A467D87914563C1CE5B71B7B7F4F774 /* Frameworks */,
 				A5331D0BA69264D357BDA4C3553A0677 /* Resources */,
 			);
-			name = BaiduMapKit;
 			path = BaiduMapKit;
 			sourceTree = "<group>";
 		};
@@ -3549,7 +3529,6 @@
 				6023407380A5A2E56AD97F9FD345E0CE /* SRWebSocket.m */,
 				2B6000DD92625CD250444337E55A0E2A /* Support Files */,
 			);
-			name = SocketRocket;
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
@@ -3583,7 +3562,6 @@
 				3C94A61809D7AA0F2F92C2EDF5C763C9 /* UIView+SDExtension.m */,
 				A697E58234319E127F4E2DD54C2D2FCF /* Support Files */,
 			);
-			name = SDCycleScrollView;
 			path = SDCycleScrollView;
 			sourceTree = "<group>";
 		};
@@ -3626,7 +3604,6 @@
 				F2A48506238BC813FB421CEFC1E49010 /* PNScatterChartDataItem.m */,
 				944A2B7DD14DFF884671E703408AD171 /* Support Files */,
 			);
-			name = PNChart;
 			path = PNChart;
 			sourceTree = "<group>";
 		};
@@ -3644,7 +3621,6 @@
 				D8E448C7E29B9BDCBCE418AA7D78A5CB /* UIViewController+Farwolf.h */,
 				A08D8BA7DD1C69391534EFFDB9FC838E /* UIViewController+Farwolf.m */,
 			);
-			name = Extersion;
 			path = Extersion;
 			sourceTree = "<group>";
 		};
@@ -3662,7 +3638,6 @@
 				EC8568FB1DCA38B2B9CA10D33070FB75 /* Resources */,
 				D3283E9259F9DCCB85E2E822EB0B3E83 /* Support Files */,
 			);
-			name = "FontAwesome+iOS";
 			path = "FontAwesome+iOS";
 			sourceTree = "<group>";
 		};
@@ -3705,7 +3680,6 @@
 				C3EAC7C5D1D8E9C63E1C0B75C42178D0 /* WXRoundedRect.h */,
 				2F2245FDB1004B938564FF2858106065 /* WXRoundedRect.mm */,
 			);
-			name = Display;
 			path = Display;
 			sourceTree = "<group>";
 		};
@@ -3741,7 +3715,6 @@
 				DBDDAF6BD6116EA02E1B559A8C3078B2 /* Picker */,
 				818D4BC10D993EB3411D81E72E78F8A8 /* TableView */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -3773,7 +3746,6 @@
 				5B48C692371E031AA9320CB107E56CE0 /* WXStaticModule.h */,
 				8934BD81DBEB4F9813919810F630DB96 /* WXStaticModule.m */,
 			);
-			name = module;
 			path = module;
 			sourceTree = "<group>";
 		};
@@ -3786,7 +3758,6 @@
 				CC00918ABC4808307EDA99DC0088C715 /* updater */,
 				2721498F352A40EE42FBE7CC1BE3A344 /* view */,
 			);
-			name = farwolf.business;
 			path = farwolf.business;
 			sourceTree = "<group>";
 		};
@@ -3814,7 +3785,6 @@
 				C08B378BC09684D30FE436359ECDCEB9 /* View */,
 				E30AB19E08002026A50D79346AE50051 /* WebSocket */,
 			);
-			name = Sources;
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -3823,7 +3793,6 @@
 			children = (
 				677F25F6D5F2E547B4B630322ED24EBE /* weex.storyboard */,
 			);
-			name = storyboard;
 			path = storyboard;
 			sourceTree = "<group>";
 		};
@@ -3895,7 +3864,6 @@
 				93FFADF21AC61F2A1A2418930A6228E9 /* LPPVTransition.m */,
 				7BCA67A08569ED512F31384E2C94970A /* Support Files */,
 			);
-			name = LPPhotoViewer;
 			path = LPPhotoViewer;
 			sourceTree = "<group>";
 		};
@@ -3938,7 +3906,6 @@
 				89FDD8B5819AED007AA191A595A74332 /* StateView.h */,
 				B7B06BA2AA263982F856FE897AFFDF0B /* StateView.m */,
 			);
-			name = TableView;
 			path = TableView;
 			sourceTree = "<group>";
 		};
@@ -3963,7 +3930,6 @@
 				8755B12C355B027C6C7E9854C1B10716 /* WXComponent+Events.h */,
 				71123F39A4FF53F6978C88B28CA4A8DD /* WXComponent+Events.m */,
 			);
-			name = Events;
 			path = Events;
 			sourceTree = "<group>";
 		};
@@ -3981,7 +3947,6 @@
 				64C02EDF0D0F88E0FE686344A864BC6A /* WXSectionDataController.h */,
 				01F3BA69C88D7A32FD78BD16A0812718 /* WXSectionDataController.m */,
 			);
-			name = Recycler;
 			path = Recycler;
 			sourceTree = "<group>";
 		};
@@ -3992,7 +3957,6 @@
 				16A8836AD9CE4200C736AEF005A7BEAB /* UIScrollView+HeaderScaleImage.m */,
 				3CA67407FF5DB25C863C86146E8F3AE5 /* Support Files */,
 			);
-			name = YZHeaderScaleImage;
 			path = YZHeaderScaleImage;
 			sourceTree = "<group>";
 		};
@@ -4032,7 +3996,6 @@
 				C678E30A3557EDC60AC43CB4D041881F /* util */,
 				BADFC220B910BE974DBE46006D8D1B2E /* view */,
 			);
-			name = farwolf.weex;
 			path = farwolf.weex;
 			sourceTree = "<group>";
 		};
@@ -4050,7 +4013,6 @@
 				FAA76D9EE2B3F13774D8509453E43959 /* UIView+GSKTransplantSubviews.m */,
 				BDC8104D2B916622197D84C4F5CCD1A8 /* Support Files */,
 			);
-			name = GSKStretchyHeaderView;
 			path = GSKStretchyHeaderView;
 			sourceTree = "<group>";
 		};
@@ -4075,7 +4037,6 @@
 				5A558D529CC0413DE99ED0DA7828F8D4 /* JsonReader.h */,
 				D0A30F44680CAA8AFD3E3D04B7D56C14 /* JsonReader.m */,
 			);
-			name = Http;
 			path = Http;
 			sourceTree = "<group>";
 		};
@@ -4127,8 +4088,9 @@
 				ED1F28305A49EE73FC4FEFCEAB952C1E /* WXLoadingView.m */,
 				81C693218038794D1B0739EBEFFA12D3 /* WXPushComponent.h */,
 				643806528C0F57DD9DD048C47B60751F /* WXPushComponent.m */,
+				4D2D936D1F28C7A700D57B32 /* WXFWebComponent.h */,
+				4D2D936E1F28C7A700D57B32 /* WXFWebComponent.m */,
 			);
-			name = component;
 			path = component;
 			sourceTree = "<group>";
 		};
@@ -4149,7 +4111,6 @@
 				308291DAEECF16B668B22EDE66196C57 /* Core */,
 				9B0772DBA9224443EC1D9E47C0CFBBF3 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -4170,7 +4131,6 @@
 				34B4B9A4E0FA01F46FFA4D91F5E22691 /* Version.h */,
 				8200EEBBF91130DB6B37884FF24BB953 /* Version.m */,
 			);
-			name = bean;
 			path = bean;
 			sourceTree = "<group>";
 		};
@@ -4192,7 +4152,6 @@
 				1BE3E8815478E13F0FBD99C0A326A237 /* WXURLRewriteProtocol.h */,
 				F4633A8C64C5A4682978451DF641A83A /* WXValidateProtocol.h */,
 			);
-			name = Protocol;
 			path = Protocol;
 			sourceTree = "<group>";
 		};
@@ -4234,7 +4193,6 @@
 				3A4A903D7C632230FF8F3414EE06EBF7 /* NetViewController.h */,
 				FEB44F7B31A25D7C60978CD41436A6B2 /* NetViewController.m */,
 			);
-			name = ViewController;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -4262,7 +4220,6 @@
 			children = (
 				3F215F0DC7B096F4D175BEE556EF069E /* Resources */,
 			);
-			name = WeexSDK;
 			path = WeexSDK;
 			sourceTree = "<group>";
 		};
@@ -4333,7 +4290,6 @@
 				9C9C68C0FD78BE4B3714E8717673ADAF /* WXWebComponent.m */,
 				8666C6EF3FFA8A72DB8284EFCE0BE2CD /* Recycler */,
 			);
-			name = Component;
 			path = Component;
 			sourceTree = "<group>";
 		};
@@ -4375,7 +4331,6 @@
 				2E8B68FFE236D5727A71D945D284BD00 /* WXWeakObjectWrapper.h */,
 				953951B13EC1EA3D19201AEC35887B27 /* WXWeakObjectWrapper.m */,
 			);
-			name = Utility;
 			path = Utility;
 			sourceTree = "<group>";
 		};
@@ -4387,7 +4342,6 @@
 				B6E2711594E24B6708F9D98E28719E22 /* WXWebSocketLoader.h */,
 				5CA53E9CFA57D1A879D8F79430B272D3 /* WXWebSocketLoader.m */,
 			);
-			name = Loader;
 			path = Loader;
 			sourceTree = "<group>";
 		};
@@ -4402,7 +4356,6 @@
 				6DAE6AFFBEDD5018A215648D3F66116D /* View */,
 				A7516881A5B3A42A256B9CA0C9A52065 /* ViewController */,
 			);
-			name = farwolf;
 			path = farwolf;
 			sourceTree = "<group>";
 		};
@@ -4414,7 +4367,6 @@
 				408832E17782FD3197B4C4D5ED63CB6E /* WXURLRewriteDefaultImpl.h */,
 				F803FAC2062C34749DFEC3D84B3C6C01 /* WXURLRewriteDefaultImpl.m */,
 			);
-			name = Handler;
 			path = Handler;
 			sourceTree = "<group>";
 		};
@@ -4425,7 +4377,6 @@
 				1CDCE91C02ACF115556AB5D063D5ABAD /* UICountingLabel.m */,
 				490FE1A3CA3DAB3B1EEA5E32E7355960 /* Support Files */,
 			);
-			name = UICountingLabel;
 			path = UICountingLabel;
 			sourceTree = "<group>";
 		};
@@ -4458,7 +4409,6 @@
 				040A41EC77E29C88BCA592C7258A51D6 /* FPicker.h */,
 				3F767846F64B82D02BB2C0D9FA31FB32 /* FPicker.m */,
 			);
-			name = view;
 			path = view;
 			sourceTree = "<group>";
 		};
@@ -4469,7 +4419,6 @@
 				059F16827823E5966BA1CF23A88F4AA3 /* WXSDKEngine.m */,
 				0CC6C9FDDCFEDEDE564FE23F93ACD26C /* WXSDKError.h */,
 			);
-			name = Engine;
 			path = Engine;
 			sourceTree = "<group>";
 		};
@@ -4536,7 +4485,6 @@
 				782748E235757BF3FA36FA03663752E8 /* WXView.h */,
 				A28686E126DC3833CD80E719386AB26C /* WXView.m */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -4565,7 +4513,6 @@
 				EC15DC3B8860E303EC572BED59CB4C4D /* WXPage.h */,
 				4782A2901F423FFDB7310B270A0E51A5 /* WXPage.m */,
 			);
-			name = util;
 			path = util;
 			sourceTree = "<group>";
 		};
@@ -4576,7 +4523,6 @@
 				F603C634B0EA8F209EA8E356C209634C /* SRMonthPicker.m */,
 				F85EFC47AB5973CCD8F5F02B45F0A5DA /* Support Files */,
 			);
-			name = SRMonthPicker;
 			path = SRMonthPicker;
 			sourceTree = "<group>";
 		};
@@ -4587,7 +4533,6 @@
 				FFA7C4ECB123F899F4B34C88F1401D1F /* MBProgressHUD.m */,
 				4C4E9C524F94BC94ECF62550BF9E6DE2 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -4602,7 +4547,6 @@
 				7E170A9EDE5ED23384BA89B66018959C /* UpdateJsonReader.m */,
 				9F3AC327A7C70F3E7B71E23BFF69F561 /* bean */,
 			);
-			name = updater;
 			path = updater;
 			sourceTree = "<group>";
 		};
@@ -4624,7 +4568,6 @@
 				1726647A44BC11B02D0A89CD00124CE9 /* UCZProgressView.m */,
 				D1496F9A063CE2E403A246CEE77E010D /* Support Files */,
 			);
-			name = UCZProgressView;
 			path = UCZProgressView;
 			sourceTree = "<group>";
 		};
@@ -4699,7 +4642,6 @@
 				AE3F84D660C59CA321F1F73C70D4BBBD /* WXWebViewModule.h */,
 				C0667271D5D420D7E9D7992597550296 /* WXWebViewModule.m */,
 			);
-			name = Module;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -4719,7 +4661,6 @@
 				50E2523037CAC6F60A3E5F74BF310E88 /* ZDatePicker.h */,
 				6ADA8048DE81D53A527D2DB7E8AB7716 /* ZDatePicker.m */,
 			);
-			name = Picker;
 			path = Picker;
 			sourceTree = "<group>";
 		};
@@ -4732,7 +4673,6 @@
 				861B81A65EFBA1FA1E1A532B2CA3024D /* WXWebSocketDefaultImpl.m */,
 				6DF421FFCBB46861E13A762259ED117F /* WXWebSocketHandler.h */,
 			);
-			name = WebSocket;
 			path = WebSocket;
 			sourceTree = "<group>";
 		};
@@ -4743,7 +4683,6 @@
 				13D03F64D532EF88BD8D1F89D9647448 /* KoaPullToRefresh.m */,
 				A17793AD56B470B10AF0B63AF1A90077 /* Support Files */,
 			);
-			name = KoaPullToRefresh;
 			path = KoaPullToRefresh;
 			sourceTree = "<group>";
 		};
@@ -4757,7 +4696,6 @@
 				E58E5A176AB25B851E13D2CB3B1BB0E6 /* WXNormalViewContrller.h */,
 				21B6F63841BC09186F53A5CFC8F50E19 /* WXNormalViewContrller.m */,
 			);
-			name = control;
 			path = control;
 			sourceTree = "<group>";
 		};
@@ -4769,7 +4707,6 @@
 				32FD41680EA673B4D334D49EA9C24C01 /* FileReader.h */,
 				DB1C5AFF99D5028796692CAA1471F079 /* FileReader.m */,
 			);
-			name = http;
 			path = http;
 			sourceTree = "<group>";
 		};
@@ -4789,7 +4726,6 @@
 				7A424A35027D7B5111D82407CCD50951 /* storyboard */,
 				F898EEB2199D085A065FECBA9F4E5522 /* xib */,
 			);
-			name = resources;
 			path = resources;
 			sourceTree = "<group>";
 		};
@@ -4823,7 +4759,6 @@
 				5BC2AB4B237AFADF568B0FCC6DE8F268 /* WXResourceResponse.h */,
 				634171D84226B0BC3ED2C6D08211379A /* WXResourceResponse.m */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -4840,7 +4775,6 @@
 				64C6A6D95060ECB2E6CC2EAFFAE67F56 /* WXSDKInstance.m */,
 				C844ACA9D6E9DA7113003AB45B234919 /* WXSDKInstance_private.h */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -4856,7 +4790,6 @@
 				80D7D2DB9918A95C6F0B23545FD1FE34 /* Support Files */,
 				351FE8E1879BEC5BF6B2729D8646ACFC /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -4874,7 +4807,6 @@
 			children = (
 				38B6BF875735B17C4F24C5107F2352DE /* Frameworks */,
 			);
-			name = WXDevtool;
 			path = WXDevtool;
 			sourceTree = "<group>";
 		};
@@ -4905,7 +4837,6 @@
 			children = (
 				9BE7F8769EA293F81FF4A1CF69C840D0 /* Picker.xib */,
 			);
-			name = xib;
 			path = xib;
 			sourceTree = "<group>";
 		};
@@ -4919,7 +4850,6 @@
 				98B8753068FB1CA32DE39CF4F5785FF6 /* ViewPager.h */,
 				7A080744C509FB7011F4D90F8EE7774D /* ViewPager.m */,
 			);
-			name = Indicator;
 			path = Indicator;
 			sourceTree = "<group>";
 		};
@@ -4941,7 +4871,6 @@
 				48BB92B70A5E024BFEFC70FF786E86A5 /* DOPDropDownMenu.m */,
 				FA116820C1F444F1888E4805A008C4BB /* Support Files */,
 			);
-			name = "DOPDropDownMenu-Enhanced";
 			path = "DOPDropDownMenu-Enhanced";
 			sourceTree = "<group>";
 		};
@@ -5458,6 +5387,7 @@
 				BBF3B889957D2483B44490BFD97906B3 /* UIAlertView+AFNetworking.h in Headers */,
 				F2A1BCB468B6DFE52AFB26F9F978F2EB /* UIButton+AFNetworking.h in Headers */,
 				B1F746ADDBC5CFAAF7EF9394BE77D04F /* UIImage+AFNetworking.h in Headers */,
+				4D2D936F1F28C7A700D57B32 /* WXFWebComponent.h in Headers */,
 				EF4E9E8FC47EEAD69D6646F348561C74 /* UIImageView+AFNetworking.h in Headers */,
 				F1CBDBF365D26FBDF9A5681130AC7AA6 /* UIKit+AFNetworking.h in Headers */,
 				F143C4672AED921D368B6CA693FD4B81 /* UIProgressView+AFNetworking.h in Headers */,
@@ -6652,6 +6582,7 @@
 				B7B68F6C4C7AB9B5534E302C0294363B /* AFSecurityPolicy.m in Sources */,
 				9CD045C05109B439531678FFFD3AB3AA /* AFURLConnectionOperation.m in Sources */,
 				FDA9997EE6394039FFACE9D14EF45FC6 /* AFURLRequestSerialization.m in Sources */,
+				4D2D93701F28C7A700D57B32 /* WXFWebComponent.m in Sources */,
 				EB9D6721087F60A8142E49E40E8D41AF /* AFURLResponseSerialization.m in Sources */,
 				3DA3BAA7ECA955ED5CCDEF669BC7D019 /* AFURLSessionManager.m in Sources */,
 				69695557EF00D89A2594B2F9ADF437EE /* UIActivityIndicatorView+AFNetworking.m in Sources */,

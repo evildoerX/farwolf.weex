@@ -29,4 +29,11 @@
 
 - (void)goForward;
 
+- (void)setUrl:(NSString *)url;
+
+- (void)loadURL:(NSString *)url;
+
+
+
+
 @end
