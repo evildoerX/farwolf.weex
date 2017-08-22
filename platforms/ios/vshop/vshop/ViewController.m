@@ -17,12 +17,13 @@
 - (void)viewDidLoad {
  
 
-  NSString *s=@"http://192.168.1.100:9898/mv/busi/tab/serial.js";
+//  NSString *s=@"http://192.168.1.100:9898/mv/busi/tab/serial.js";
 //     NSString *s=@"http://192.168.2.117:9898/busi/tab/main/mainpage.js";
 //      self.page=[SplashControl getPage:@"主页"];
-    self.sourceURL=[NSURL URLWithString:s];
-//    self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/busi/tab/mainpage" withExtension:@"js"];
+//    self.sourceURL=[NSURL URLWithString:s];
+    self.sourceURL = [[NSBundle mainBundle] URLForResource:@"app/demo/index.js" withExtension:@"js"];
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.tabBarController.tabBar.hidden = YES;
     [super viewDidLoad];
     [[UIApplication sharedApplication]setStatusBarHidden:false];
     // Do any additional setup after loading the view, typically from a nib.

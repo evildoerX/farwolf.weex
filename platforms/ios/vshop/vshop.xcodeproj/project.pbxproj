@@ -23,7 +23,7 @@
 		4DC74A911EF1332100D9128B /* TabSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC74A901EF1332100D9128B /* TabSelector.m */; };
 		4DD211891ED68820003269F7 /* CollectionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD211881ED68820003269F7 /* CollectionControl.m */; };
 		4DD2118F1ED68912003269F7 /* MineControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2118E1ED68912003269F7 /* MineControl.m */; };
-		6DA829C2CE98309408F940A4 /* libPods-vshop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEB74A40716872F81AB2240 /* libPods-vshop.a */; };
+		6DA829C2CE98309408F940A4 /* libPods-vshop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEB74A40716872F81AB2240 /* libPods-vshop.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,7 +209,7 @@
 				TargetAttributes = {
 					4D2665361ECD84CD00664B38 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = WXGE867ALD;
+						DevelopmentTeam = A6WLNBMXAB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -434,11 +434,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXGE867ALD;
+				DEVELOPMENT_TEAM = A6WLNBMXAB;
 				INFOPLIST_FILE = vshop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.movie;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chenghao.iweex-base";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -451,11 +451,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXGE867ALD;
+				DEVELOPMENT_TEAM = A6WLNBMXAB;
 				INFOPLIST_FILE = vshop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.farwolf.movie;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chenghao.iweex-base";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

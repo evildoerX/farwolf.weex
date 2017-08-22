@@ -27,11 +27,11 @@ static NSMutableDictionary<NSString*,Page*> *cache;
     cache=[ NSMutableDictionary<NSString*,Page*> new];
     _count=0;
     NSMutableDictionary *d=[NSMutableDictionary new];
-    [d setValue:@"app/busi/tab/mainpage" forKey:@"推荐"];
-    [d setValue:@"app/busi/tab/serial" forKey:@"电视剧"];
-    [d setValue:@"app/busi/tab/movie" forKey:@"电影"];
-    [d setValue:@"app/busi/tab/collection" forKey:@"关注"];
-    [d setValue:@"app/busi/tab/mine" forKey:@"我的"];
+//    [d setValue:@"app/demo/login" forKey:@"推荐"];
+//    [d setValue:@"app/demo/switch" forKey:@"电视剧"];
+    [d setValue:@"app/demo/index" forKey:@"电影"];
+//    [d setValue:@"app/demo/vlist" forKey:@"关注"];
+//    [d setValue:@"app/demo/wechat" forKey:@"我的"];
  
     for(NSString* key in   d.allKeys)
     {
@@ -44,7 +44,7 @@ static NSMutableDictionary<NSString*,Page*> *cache;
            
             [cache setObject:p forKey:key];
             _count++;
-            if(_count==5)
+            if(_count==1)
             {
                  [self present:@"Main/TabControl" anim:false];
                 [self back:true];

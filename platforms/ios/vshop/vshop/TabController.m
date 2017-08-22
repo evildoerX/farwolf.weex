@@ -43,25 +43,9 @@
     
     if([@"推荐" isEqualToString:name])
     {
-         [self setSelectedIndex:0];
-    }
-    else if([@"电视剧" isEqualToString:name])
-    {
-         [self setSelectedIndex:1];
-    }
-    else if([@"电影" isEqualToString:name])
-    {
          [self setSelectedIndex:2];
     }
 
-    else if([@"关注" isEqualToString:name])
-    {
-         [self setSelectedIndex:3];
-    }
-    else if([@"我的" isEqualToString:name])
-    {
-         [self setSelectedIndex:4];
-    }
     
     
 
