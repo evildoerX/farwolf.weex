@@ -10,6 +10,7 @@
 #import "farwolf_weex.h"
 #import "TabController.h"
 #import "TabbarModule.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -26,11 +27,11 @@
 //    [Weex startDebug:@"192.168.1.100" port:@"8088"];
 //    TabController *tab=[TabController new];
     //1.创建Window
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    TabController *tb=[[TabController alloc]init];
-//    self.window.rootViewController=tb;
-//    [self.window makeKeyAndVisible];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    ViewController *tb=[[ViewController alloc]init];
+    self.window.rootViewController=tb;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
